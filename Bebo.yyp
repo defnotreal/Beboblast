@@ -1,16 +1,20 @@
 {
   "resources": [
+    {"id":{"name":"player_test","path":"rooms/player_test/player_test.yy",},"order":1,},
+    {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":2,},
     {"id":{"name":"cont","path":"objects/cont/cont.yy",},"order":0,},
     {"id":{"name":"obj_input_test","path":"objects/obj_input_test/obj_input_test.yy",},"order":0,},
     {"id":{"name":"ButtonNames","path":"scripts/ButtonNames/ButtonNames.yy",},"order":0,},
     {"id":{"name":"init","path":"scripts/init/init.yy",},"order":2,},
+    {"id":{"name":"obj_player_bomb","path":"objects/obj_player_bomb/obj_player_bomb.yy",},"order":3,},
     {"id":{"name":"TopLevelEditing","path":"scripts/TopLevelEditing/TopLevelEditing.yy",},"order":2,},
     {"id":{"name":"align_reset","path":"scripts/align_reset/align_reset.yy",},"order":1,},
     {"id":{"name":"ButtonReading","path":"scripts/ButtonReading/ButtonReading.yy",},"order":1,},
     {"id":{"name":"GamepadChecks","path":"scripts/GamepadChecks/GamepadChecks.yy",},"order":1,},
     {"id":{"name":"ButtonAssignment","path":"scripts/ButtonAssignment/ButtonAssignment.yy",},"order":0,},
     {"id":{"name":"align","path":"scripts/align/align.yy",},"order":0,},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"spr_bomb_placeholder","path":"sprites/spr_bomb_placeholder/spr_bomb_placeholder.yy",},"order":0,},
+    {"id":{"name":"input_test","path":"rooms/input_test/input_test.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Android","path":"options/android/options_android.yy",},
@@ -31,7 +35,8 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"player_test","path":"rooms/player_test/player_test.yy",},},
+    {"roomId":{"name":"input_test","path":"rooms/input_test/input_test.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
