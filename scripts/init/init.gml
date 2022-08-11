@@ -4,5 +4,6 @@ global.inputs =
 {
 	right : vk_right,
 	left  : vk_left,
-	jump  : ord("Z")
+	jump  : ord("Z"),
+	start : vk_enter
 }

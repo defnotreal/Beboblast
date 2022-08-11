@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"obj_input_test","path":"objects/obj_input_test/obj_input_test.yy",},"order":0,},
     {"id":{"name":"init","path":"scripts/init/init.yy",},"order":2,},
     {"id":{"name":"align_reset","path":"scripts/align_reset/align_reset.yy",},"order":1,},
     {"id":{"name":"align","path":"scripts/align/align.yy",},"order":0,},
