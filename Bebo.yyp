@@ -1,8 +1,14 @@
 {
   "resources": [
+    {"id":{"name":"cont","path":"objects/cont/cont.yy",},"order":0,},
     {"id":{"name":"obj_input_test","path":"objects/obj_input_test/obj_input_test.yy",},"order":0,},
+    {"id":{"name":"ButtonNames","path":"scripts/ButtonNames/ButtonNames.yy",},"order":0,},
     {"id":{"name":"init","path":"scripts/init/init.yy",},"order":2,},
+    {"id":{"name":"TopLevelEditing","path":"scripts/TopLevelEditing/TopLevelEditing.yy",},"order":2,},
     {"id":{"name":"align_reset","path":"scripts/align_reset/align_reset.yy",},"order":1,},
+    {"id":{"name":"ButtonReading","path":"scripts/ButtonReading/ButtonReading.yy",},"order":1,},
+    {"id":{"name":"GamepadChecks","path":"scripts/GamepadChecks/GamepadChecks.yy",},"order":1,},
+    {"id":{"name":"ButtonAssignment","path":"scripts/ButtonAssignment/ButtonAssignment.yy",},"order":0,},
     {"id":{"name":"align","path":"scripts/align/align.yy",},"order":0,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
@@ -43,6 +49,10 @@
     {"folderPath":"folders/Notes.yy","order":13,"resourceVersion":"1.0","name":"Notes","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Extensions.yy","order":14,"resourceVersion":"1.0","name":"Extensions","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Scripts/Graphic manipulation.yy","order":1,"resourceVersion":"1.0","name":"Graphic manipulation","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Scripts/Input.yy","order":3,"resourceVersion":"1.0","name":"Input","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Scripts/Input/System.yy","order":1,"resourceVersion":"1.0","name":"System","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Scripts/Input/User Scripts.yy","order":2,"resourceVersion":"1.0","name":"User Scripts","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Objects/Input.yy","order":1,"resourceVersion":"1.0","name":"Input","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
