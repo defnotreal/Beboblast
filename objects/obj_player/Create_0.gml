@@ -25,13 +25,16 @@ v_spd    = 0;
 move_spd = 4;
 fric     = 0.4;
 anchor_y = y;
+grav = 0.2;
+tilemap = layer_tilemap_get_id("Collisions");
 
 #endregion
 
 #region Gameplay
 
-bomb = instance_create_depth(x, y - 15, depth + 1, obj_player_bomb);
+bomb = instance_create_depth(x, bbox_top - 5, depth + 1, obj_player_bomb);
 bomb.owner = id;
+cam = instance_create_depth(x, y - (sprite_height / 2), 0, obj_player_camera);
 
 #endregion
 
@@ -39,20 +42,34 @@ bomb.owner = id;
 
 state_free = function()
 {
+	sprite_index = spr_player;
 	move_spd = 4;
+	fric = 0.4;
+}
+
+state_dash = function()
+{
+	sprite_index = spr_player;
+	move_spd = 6;
+	h_spd = move_spd * image_xscale;
 }
 
 state_carry = function()
 {
+	sprite_index = spr_player_carry;
 	bomb.h_spd = 0;
 	bomb.x = x;
-	bomb.y = y - 32;
+	bomb.y = bbox_top - (bomb.sprite_height / 2) + 3;
 	bomb.grav = 0;
 }
 
 state_ride = function()
 {
-	y = bomb.y - 32;
+	sprite_index = spr_player_ride;
+	y = lerp(y, bomb.y - (bomb.sprite_height / 2) + 3, 0.3);
+	bomb.grav = 0.2;
+	move_spd = 8;
+	fric = 0.075;
 }
 
 state = state_free;

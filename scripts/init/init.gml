@@ -1,4 +1,5 @@
-#macro DEBUG true
+#macro DEBUG     true
+#macro TILE_SIZE 16
 
 global.inputs =
 {
@@ -7,3 +8,6 @@ global.inputs =
 	jump  : ord("Z"),
 	start : vk_enter
 }
+
+global.cam = camera_create();
+camera_set_view_size(global.cam, 320, 180);
