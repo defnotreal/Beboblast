@@ -40,18 +40,41 @@ cam = instance_create_depth(x, y - (sprite_height / 2), 0, obj_player_camera);
 
 #region States
 
+state_name = "";
+
+grounded = function()
+{
+	return place_meeting(x, y + 1, par_terrain);	
+}
+can_accel = function()
+{
+	if (h_spd < move_spd) && (h_spd > -move_spd) return true;
+	return false;
+}
+
 state_free = function()
 {
 	sprite_index = spr_player;
 	move_spd = 4;
 	fric = 0.4;
+	
+	state_name = "state_free";
+}
+
+state_jump = function()
+{
+	sprite_index = spr_player;
+	
+	state_name = "state_jump";
 }
 
 state_dash = function()
 {
 	sprite_index = spr_player;
-	move_spd = 6;
+	move_spd = 10;
 	h_spd = move_spd * image_xscale;
+	
+	state_name = "state_dash";
 }
 
 state_carry = function()
@@ -59,6 +82,8 @@ state_carry = function()
 	sprite_index = spr_player_carry;
 	bomb.h_spd = 0;
 	bomb.grav = 0;
+	
+	state_name = "state_carry";
 }
 
 state_ride = function()
@@ -68,6 +93,20 @@ state_ride = function()
 	move_spd = 8;
 	fric = 0.075;
 	bomb.h_spd = h_spd;
+	
+	state_name = "state_ride";
+}
+
+state_ridekick = function()
+{
+	sprite_index = spr_player;
+	
+	state_name = "state_ridekick";
+}
+
+state_stunned = function()
+{
+	
 }
 
 state = state_free;

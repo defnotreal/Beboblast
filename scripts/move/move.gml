@@ -2,7 +2,7 @@ function move()
 {
 	if (place_meeting(x + h_spd, y, par_terrain))
 	{
-		y_slope = -0;
+		y_slope = 0;
 		while (place_meeting(x + h_spd, y - y_slope, par_terrain)) &&
 		(y_slope <= abs(1 * h_spd)) y_slope++;
 		if (place_meeting(x + h_spd, y - y_slope, par_terrain))
