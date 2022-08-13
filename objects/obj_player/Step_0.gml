@@ -13,11 +13,13 @@ if (move_h != 0)
 }
 else h_spd = max(0, abs(h_spd) - fric) * sign(h_spd);
 
-if (state != state_ride && h_spd != 0) image_xscale = sign(h_spd);
+if (state != state_ride)
+{
+	if (h_spd != 0) image_xscale = sign(h_spd);
+	move();
+}
+
 
 #endregion
-
-x += h_spd;
-y += v_spd;
 
 #endregion

@@ -1,5 +1,6 @@
-if (owner.state != owner.state_free) h_spd = owner.h_spd;
-else h_spd = max(0, abs(h_spd) - (fric / 8)) * sign(h_spd);
+if (owner.state != owner.state_ride) h_spd = max(0, abs(h_spd) - fric / 8) * sign(h_spd);
 
-x += h_spd;
-if (owner.state != owner.state_carry) image_angle -= h_spd;
+if (v_spd < 10) v_spd += grav;
+
+if (owner.state != owner.state_carry) rotate -= h_spd;
+move();

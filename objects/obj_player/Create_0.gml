@@ -32,7 +32,7 @@ tilemap = layer_tilemap_get_id("Collisions");
 
 #region Gameplay
 
-bomb = instance_create_depth(x, bbox_top - 5, depth + 1, obj_player_bomb);
+bomb = instance_create_depth(x, bbox_top - 10, depth + 1, obj_player_bomb);
 bomb.owner = id;
 cam = instance_create_depth(x, y - (sprite_height / 2), 0, obj_player_camera);
 
@@ -58,18 +58,16 @@ state_carry = function()
 {
 	sprite_index = spr_player_carry;
 	bomb.h_spd = 0;
-	bomb.x = x;
-	bomb.y = bbox_top - (bomb.sprite_height / 2) + 3;
 	bomb.grav = 0;
 }
 
 state_ride = function()
 {
 	sprite_index = spr_player_ride;
-	y = lerp(y, bomb.y - (bomb.sprite_height / 2) + 3, 0.3);
 	bomb.grav = 0.2;
 	move_spd = 8;
 	fric = 0.075;
+	bomb.h_spd = h_spd;
 }
 
 state = state_free;
