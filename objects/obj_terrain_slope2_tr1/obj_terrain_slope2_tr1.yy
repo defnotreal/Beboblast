@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_terrain_slope1_tr",
-    "path": "sprites/spr_terrain_slope1_tr/spr_terrain_slope1_tr.yy",
+    "name": "spr_terrain_slope2_tr1",
+    "path": "sprites/spr_terrain_slope2_tr1/spr_terrain_slope2_tr1.yy",
   },
   "solid": false,
   "visible": true,
@@ -32,7 +32,7 @@
     "path": "folders/Objects/Terrain.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_terrain_slope1_tr",
+  "name": "obj_terrain_slope2_tr1",
   "tags": [],
   "resourceType": "GMObject",
 }

@@ -1,6 +1,6 @@
 {
   "bboxMode": 0,
-  "collisionKind": 1,
+  "collisionKind": 0,
   "type": 0,
   "origin": 0,
   "preMultiplyAlpha": false,
@@ -8,9 +8,9 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 0,
+  "bbox_right": 15,
   "bbox_top": 0,
-  "bbox_bottom": 0,
+  "bbox_bottom": 15,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"e42f8caf-2199-4d0a-a233-c48c35dd8d81","path":"sprites/spr_terrain_slope2_tr/spr_terrain_slope2_tr.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e42f8caf-2199-4d0a-a233-c48c35dd8d81","path":"sprites/spr_terrain_slope2_tr/spr_terrain_slope2_tr.yy",},"LayerId":{"name":"87d50817-3c62-44ef-a9cd-b14f34aa7202","path":"sprites/spr_terrain_slope2_tr/spr_terrain_slope2_tr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_terrain_slope2_tr","path":"sprites/spr_terrain_slope2_tr/spr_terrain_slope2_tr.yy",},"resourceVersion":"1.0","name":"e42f8caf-2199-4d0a-a233-c48c35dd8d81","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"e42f8caf-2199-4d0a-a233-c48c35dd8d81","path":"sprites/spr_terrain_slope2_tl2/spr_terrain_slope2_tl2.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"e42f8caf-2199-4d0a-a233-c48c35dd8d81","path":"sprites/spr_terrain_slope2_tl2/spr_terrain_slope2_tl2.yy",},"LayerId":{"name":"87d50817-3c62-44ef-a9cd-b14f34aa7202","path":"sprites/spr_terrain_slope2_tl2/spr_terrain_slope2_tl2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_terrain_slope2_tl2","path":"sprites/spr_terrain_slope2_tl2/spr_terrain_slope2_tl2.yy",},"resourceVersion":"1.0","name":"e42f8caf-2199-4d0a-a233-c48c35dd8d81","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_terrain_slope2_tr","path":"sprites/spr_terrain_slope2_tr/spr_terrain_slope2_tr.yy",},
+    "spriteId": {"name":"spr_terrain_slope2_tl2","path":"sprites/spr_terrain_slope2_tl2/spr_terrain_slope2_tl2.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"3105940f-00af-4362-b3f9-3cf2d931ae64","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e42f8caf-2199-4d0a-a233-c48c35dd8d81","path":"sprites/spr_terrain_slope2_tr/spr_terrain_slope2_tr.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"4d29137f-3188-4b5b-850b-7ed85e6b53a3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e42f8caf-2199-4d0a-a233-c48c35dd8d81","path":"sprites/spr_terrain_slope2_tl2/spr_terrain_slope2_tl2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_terrain_slope2_tr","path":"sprites/spr_terrain_slope2_tr/spr_terrain_slope2_tr.yy",},
+    "parent": {"name":"spr_terrain_slope2_tl2","path":"sprites/spr_terrain_slope2_tl2/spr_terrain_slope2_tl2.yy",},
     "resourceVersion": "1.4",
-    "name": "spr_terrain_slope2_tr",
+    "name": "spr_terrain_slope2_tl2",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Sprites/Terrain.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_terrain_slope2_tr",
+  "name": "spr_terrain_slope2_tl2",
   "tags": [],
   "resourceType": "GMSprite",
 }

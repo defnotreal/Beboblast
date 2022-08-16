@@ -98,9 +98,9 @@ if (state == state_ridekick)
 {
 	if (y >= bomb.y)
 	{
-		bomb.h_spd += (ground_spd * 4) * image_xscale;
 		state = state_kick;
 		alarm[0] = game_get_speed(gamespeed_fps) / 3;
+		bomb.h_spd += (ground_spd * 4) * image_xscale
 	}	
 }
 
