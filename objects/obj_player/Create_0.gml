@@ -20,13 +20,21 @@ button_assign_gp("pause", gp_start);
 
 #region Movement
 
-h_spd    = 0;
-v_spd    = 0;
-move_spd = 4;
-fric     = 0.4;
-anchor_y = y;
-grav = 0.2;
-tilemap = layer_tilemap_get_id("Collisions");
+h_spd = 0;
+v_spd = 0;
+
+multi = 1;
+
+ground_spd		 = 4 * multi;
+air_spd			 = 2 * multi;
+jump_spd		 = 4 * multi;
+dash_spd		 = 8 * multi;
+ground_fric      = 0.5 * multi;
+air_fric         = 0.35 * multi;
+grav			 = 0.2 * multi;
+grav_max		 = 10 * multi;
+
+jumps = 2;
 
 #endregion
 
@@ -35,6 +43,17 @@ tilemap = layer_tilemap_get_id("Collisions");
 bomb = instance_create_depth(x, bbox_top - 10, depth + 1, obj_player_bomb);
 bomb.owner = id;
 cam = instance_create_depth(x, y - (sprite_height / 2), 0, obj_player_camera);
+
+particles = part_system_create();
+part_system_depth(particles, depth + 1);
+
+part_trail = part_type_create();
+part_type_sprite(part_trail, spr_player_dash, 1, 0, 0);
+part_type_size(part_trail, 1, 1, 0, 0);
+part_type_life(part_trail, 10, 10);
+part_type_alpha3(part_trail, 0.5, 0.3, 0.1);
+
+image_speed = 0.5;
 
 #endregion
 
@@ -46,6 +65,10 @@ grounded = function()
 {
 	return place_meeting(x, y + 1, par_terrain);	
 }
+hit_wall = function()
+{
+	return place_meeting(x + sign(h_spd), y, par_terrain);	
+}
 can_accel = function()
 {
 	if (h_spd < move_spd) && (h_spd > -move_spd) return true;
@@ -54,7 +77,8 @@ can_accel = function()
 
 state_free = function()
 {
-	sprite_index = spr_player;
+	if (h_spd != 0) sprite_index = spr_player_walk;
+	else sprite_index = spr_player;
 	move_spd = 4;
 	fric = 0.4;
 	
@@ -63,16 +87,25 @@ state_free = function()
 
 state_jump = function()
 {
-	sprite_index = spr_player;
+	if (jumps > 0) sprite_index = spr_player_jump;
+	else sprite_index = spr_player_hover;
+	
+	if (sprite_index == spr_player_jump)
+	{
+		if (v_spd > 0) image_index = 1;
+		else image_index = 0;
+	}
 	
 	state_name = "state_jump";
 }
 
 state_dash = function()
 {
-	sprite_index = spr_player;
+	sprite_index = spr_player_dash;
 	move_spd = 10;
 	h_spd = move_spd * image_xscale;
+	
+	if (place_meeting(x, y, bomb)) bomb.h_spd += (ground_spd * 2) * image_xscale;
 	
 	state_name = "state_dash";
 }
@@ -99,9 +132,19 @@ state_ride = function()
 
 state_ridekick = function()
 {
-	sprite_index = spr_player;
+	sprite_index = spr_player_ridekick;
+	
+	if (v_spd > 0) image_index = 1;
+	else image_index = 0;
 	
 	state_name = "state_ridekick";
+}
+
+state_kick = function()
+{
+	sprite_index = spr_player_kick;	
+	
+	state_name = "state_kick";
 }
 
 state_stunned = function()

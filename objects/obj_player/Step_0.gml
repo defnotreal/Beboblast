@@ -1,52 +1,94 @@
 state();	//Call state
 
+randomize();
+
 #region Movement
 
 #region Speed
 
-var move_h = (get_button("right") - get_button("left")),
-	bbox_side;
+var real_spd, real_fric;
 
-if (move_h != 0)
+if (!grounded())
 {
-	if (state != state_ridekick) && (can_accel()) h_spd += fric * move_h;
+	if (state == state_ride) || (state == state_dash)
+	{
+		real_spd  = ground_spd * 2;
+		real_fric = 0.1;			
+	}
+	else
+	{
+		real_spd  = air_spd;
+		real_fric = air_fric;
+	}
 }
 else
 {
-	if (state != state_dash) h_spd = max(0, abs(h_spd) - fric) * sign(h_spd);
+	real_spd  = ground_spd;
+	real_fric = ground_fric;
 }
 
-if (get_button("action1"))
+if (get_button("right"))
 {
-	if (state == state_ride) state = state_free;
-	v_spd = -move_spd;
+	if (h_spd < 0) h_spd = approach(h_spd, 0, real_fric);
+	h_spd = approach(h_spd, real_spd, real_fric);
+}
+else if (get_button("left"))
+{
+	if (h_spd > 0) h_spd = approach(h_spd, 0, real_fric);
+	h_spd = approach(h_spd, -real_spd, real_fric);
+}
+else if (!get_button("right") && !get_button("left")) h_spd = approach(h_spd, 0, real_fric);
+
+if (get_button_pressed("action1"))
+{
+	state = state_jump;
+	if (jumps > 0)
+	{
+		if (grounded()) y--;
+		v_spd = -jump_spd;
+		jumps--;
+	}
+}
+else if (get_button_released("action1"))
+{
+	if (state == state_jump) && (v_spd > 0)
+	{
+		v_spd = 0;	
+	}
 }
 
-if (get_button("action2"))
+if (get_button_pressed("action2"))
 {
+	if (state == state_ride)
+	{
+		state = state_ridekick;
+		v_spd = -move_spd / 2;
+	}
+
 	if (state == state_free)
 	{
 		state = state_dash;
 		alarm[0] = game_get_speed(gamespeed_fps) / 3;
 	}
-	else if (state == state_ride)
-	{
-		state = state_ridekick;
-		v_spd = -move_spd / 2;
-	}
 }
 
 if (state != state_ride)
 {
-	if (v_spd < 10) v_spd += grav;
-	if (state != state_ridekick)
+	if (v_spd < grav_max) && (!grounded()) v_spd += grav;
+	else if (grounded())
 	{
-		if (v_spd > 0) && (!grounded())
+		if (state == state_jump) state = state_free;
+		jumps = 2;	
+	}
+	if (v_spd > 0)
+	{
+		if (!grounded()) && (state != state_ridekick)
 		{
-			if (place_meeting(x, y, bomb)) && (y <= (bomb.bbox_top + (bomb.sprite_height / 4)))
+			if (place_meeting(x, y, bomb)) && (y <= (bomb.bbox_top + (bomb.sprite_height / 8)))
 			{
 				v_spd = 0;
 				state = state_ride;
+				jumps = 1;
 			}
 		}
 	}
@@ -56,18 +98,27 @@ if (state == state_ridekick)
 {
 	if (y >= bomb.y)
 	{
-		bomb.h_spd += (move_spd * 2) * image_xscale;
-		state = state_free;
+		bomb.h_spd += (ground_spd * 4) * image_xscale;
+		state = state_kick;
+		alarm[0] = game_get_speed(gamespeed_fps) / 3;
 	}	
 }
-if ((h_spd > 8) || (h_spd < -8)) && (place_meeting(x + sign(h_spd), y, par_terrain))
+
+if (state == state_dash)
+{
+	part_type_color1(part_trail, choose(c_red, c_blue, c_green));
+	part_particles_create(particles, x, y, part_trail, 1);
+}
+
+if ((h_spd > 8) || (h_spd < -8)) && (hit_wall())
 {
 	cam.shake = 8;
 }
 
 if (h_spd != 0) image_xscale = sign(h_spd);
+if (sprite_index == spr_player_walk) image_speed = 0.075 * abs(h_spd);
+else image_speed = 0.5;
 move();
-
 
 #endregion
 
