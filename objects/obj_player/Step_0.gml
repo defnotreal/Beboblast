@@ -37,7 +37,14 @@ else if (get_button("left"))
 	if (h_spd > 0) h_spd = approach(h_spd, 0, real_fric);
 	h_spd = approach(h_spd, -real_spd, real_fric);
 }
-else if (!get_button("right") && !get_button("left")) h_spd = approach(h_spd, 0, real_fric);
+else 
+{
+	if (state != state_ride)
+	{
+		if (!get_button("right") && !get_button("left")) h_spd = approach(h_spd, 0, real_fric);
+	}
+	else h_spd = approach(h_spd, 0, real_fric);
+}
 
 if (get_button_pressed("action1"))
 {
@@ -67,8 +74,12 @@ if (get_button_pressed("action2"))
 
 	if (state == state_free)
 	{
-		state = state_dash;
-		alarm[0] = game_get_speed(gamespeed_fps) / 3;
+		if (place_meeting(x, y, bomb)) state = state_carry;
+		else
+		{
+			state = state_dash;
+			alarm[0] = game_get_speed(gamespeed_fps) / 3;
+		}
 	}
 }
 
@@ -94,29 +105,13 @@ if (state != state_ride)
 	}
 }
 
-if (state == state_ridekick)
-{
-	if (y >= bomb.y)
-	{
-		state = state_kick;
-		alarm[0] = game_get_speed(gamespeed_fps) / 3;
-		bomb.h_spd += (ground_spd * 4) * image_xscale
-	}	
-}
-
-if (state == state_dash)
-{
-	part_type_color1(part_trail, choose(c_red, c_blue, c_green));
-	part_particles_create(particles, x, y, part_trail, 1);
-}
-
 if ((h_spd > 8) || (h_spd < -8)) && (hit_wall())
 {
 	cam.shake = 8;
 }
 
 if (h_spd != 0) image_xscale = sign(h_spd);
-if (sprite_index == spr_player_walk) image_speed = 0.075 * abs(h_spd);
+if (sprite_index == spr_player_walk) || (sprite_index == spr_player_carrywalk) image_speed = 0.075 * abs(h_spd);
 else image_speed = 0.5;
 move();
 

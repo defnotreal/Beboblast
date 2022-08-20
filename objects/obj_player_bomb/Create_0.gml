@@ -3,9 +3,10 @@
 owner   = 0;
 h_spd   = 0;
 v_spd   = 0;
-fric    = 0.5;
-grav    = 0.4;
+fric    = 0.25;
+grav    = 0.2;
 rotate = 0;
+collided = 0;
 
 image_xscale = 2;
 image_yscale = 2;

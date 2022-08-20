@@ -40,7 +40,7 @@ jumps = 2;
 
 #region Gameplay
 
-bomb = instance_create_depth(x, bbox_top - 10, depth + 1, obj_player_bomb);
+bomb = instance_create_depth(x, y, depth + 1, obj_player_bomb);
 bomb.owner = id;
 cam = instance_create_depth(x, y - (sprite_height / 2), 0, obj_player_camera);
 
@@ -67,7 +67,7 @@ grounded = function()
 }
 hit_wall = function()
 {
-	return place_meeting(x + sign(h_spd), y, par_terrain);	
+	return place_meeting(x + sign(h_spd), y, obj_terrain_flat);	
 }
 can_accel = function()
 {
@@ -105,16 +105,24 @@ state_dash = function()
 	move_spd = 10;
 	h_spd = move_spd * image_xscale;
 	
-	if (place_meeting(x, y, bomb)) bomb.h_spd += (ground_spd * 2) * image_xscale;
+	part_type_color1(part_trail, choose(c_red, c_blue, c_green));
+	part_particles_create(particles, x, y, part_trail, 1);
+	
+	if (place_meeting(x, y, bomb))
+	{
+		alarm[0] = -1;
+		state = state_carry;
+	}
 	
 	state_name = "state_dash";
 }
 
 state_carry = function()
 {
-	sprite_index = spr_player_carry;
+	if (h_spd != 0) sprite_index = spr_player_carrywalk;
+	else sprite_index = spr_player_carry;
+	
 	bomb.h_spd = 0;
-	bomb.grav = 0;
 	
 	state_name = "state_carry";
 }
@@ -122,9 +130,11 @@ state_carry = function()
 state_ride = function()
 {
 	sprite_index = spr_player_ride;
-	bomb.grav = 0.2;
 	move_spd = 8;
-	fric = 0.075;
+	fric = 0.075 * multi;
+	
+	
+	
 	bomb.h_spd = h_spd;
 	
 	state_name = "state_ride";
@@ -136,6 +146,13 @@ state_ridekick = function()
 	
 	if (v_spd > 0) image_index = 1;
 	else image_index = 0;
+	
+	if (y >= bomb.y)
+	{
+		state = state_kick;
+		alarm[0] = game_get_speed(gamespeed_fps) / 3;
+		bomb.h_spd += (ground_spd * 4) * image_xscale
+	}	
 	
 	state_name = "state_ridekick";
 }
