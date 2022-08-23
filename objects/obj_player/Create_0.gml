@@ -22,6 +22,7 @@ button_assign_gp("pause", gp_start);
 
 h_spd = 0;
 v_spd = 0;
+dash  = true;
 
 multi = 1;
 
@@ -82,6 +83,20 @@ state_free = function()
 	move_spd = 4;
 	fric = 0.4;
 	
+	if (get_button_pressed("action2"))
+	{
+		if (place_meeting(x, y, bomb)) player_set_state(state_carry);
+		else
+		{
+			if (dash)
+			{
+				dash = false;
+				player_set_state(state_dash);
+				alarm[0] = game_get_speed(gamespeed_fps) / 3;
+			}
+		}
+	}
+	
 	state_name = "state_free";
 }
 
@@ -104,14 +119,22 @@ state_dash = function()
 	sprite_index = spr_player_dash;
 	move_spd = 10;
 	h_spd = move_spd * image_xscale;
+	image_speed = 0.075 * abs(h_spd);
 	
 	part_type_color1(part_trail, choose(c_red, c_blue, c_green));
 	part_particles_create(particles, x, y, part_trail, 1);
 	
+	if (get_button_pressed("action1"))
+	{
+		alarm[0] = -1;
+		alarm[1] = game_get_speed(gamespeed_fps) / 2;	
+	}
+	
 	if (place_meeting(x, y, bomb))
 	{
 		alarm[0] = -1;
-		state = state_carry;
+		alarm[1] = game_get_speed(gamespeed_fps) / 2;
+		player_set_state(state_carry);
 	}
 	
 	state_name = "state_dash";
@@ -122,7 +145,15 @@ state_carry = function()
 	if (h_spd != 0) sprite_index = spr_player_carrywalk;
 	else sprite_index = spr_player_carry;
 	
+	depth = 1;
 	bomb.h_spd = 0;
+	
+	if (get_button_pressed("action2"))
+	{
+		player_set_state(state_kick);
+		alarm[0] = game_get_speed(gamespeed_fps) / 3;
+		bomb.h_spd += (ground_spd * 4) * image_xscale		
+	}
 	
 	state_name = "state_carry";
 }
@@ -130,12 +161,17 @@ state_carry = function()
 state_ride = function()
 {
 	sprite_index = spr_player_ride;
+	image_speed = h_spd / move_spd;
 	move_spd = 8;
 	fric = 0.075 * multi;
 	
-	
-	
 	bomb.h_spd = h_spd;
+	
+	if (get_button_pressed("action2"))
+	{
+		player_set_state(state_ridekick);
+		v_spd = -move_spd / 2;	
+	}
 	
 	state_name = "state_ride";
 }
@@ -147,7 +183,7 @@ state_ridekick = function()
 	if (v_spd > 0) image_index = 1;
 	else image_index = 0;
 	
-	if (y >= bomb.y)
+	if (y >= bomb.y - (bomb.sprite_height / 2))
 	{
 		state = state_kick;
 		alarm[0] = game_get_speed(gamespeed_fps) / 3;

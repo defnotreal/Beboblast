@@ -5,7 +5,7 @@ switch (state)
 		var add = 0;
 		if (sprite_index == spr_player_carrywalk)
 		{
-			switch (image_index)
+			switch (floor(image_index))
 			{
 				case 0: add = 0; break;
 				case 1: add = 1; break;
