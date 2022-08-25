@@ -24,3 +24,9 @@ switch (state)
 		x = bomb.x;
 	break;
 }
+
+var cam_y = y - (sprite_get_height(spr_player) / 4);
+cam.x = x;
+cam.y = cam_y;
+					
+if (layer_exists("Buildings")) layer_x("Buildings", camera_get_view_x(view_camera[0]) / 2);

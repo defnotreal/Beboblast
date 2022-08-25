@@ -29,7 +29,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_player_camera",
+  "name": "obj_camera",
   "tags": [],
   "resourceType": "GMObject",
 }

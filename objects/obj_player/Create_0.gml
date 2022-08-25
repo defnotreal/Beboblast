@@ -43,7 +43,7 @@ jumps = 2;
 
 bomb = instance_create_depth(x, y, depth + 1, obj_player_bomb);
 bomb.owner = id;
-cam = instance_create_depth(x, y - (sprite_height / 2), 0, obj_player_camera);
+cam = instance_create_depth(x, y - (sprite_height / 2), 0, obj_camera);
 
 particles = part_system_create();
 part_system_depth(particles, depth + 1);

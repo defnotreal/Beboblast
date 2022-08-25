@@ -11,3 +11,7 @@ global.inputs =
 
 global.cam = camera_create();
 camera_set_view_size(global.cam, 320, 180);
+
+var cap = "BEBO BLOWS IT!";
+if (DEBUG) cap = cap + " (DEBUG)";
+window_set_caption(cap);
