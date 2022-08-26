@@ -6,6 +6,7 @@ for (var i = 0; i < array_length(menu); i++;)
 		str;
 		
 	if (binding) && (sel == i) str = menu[i, 0] + ": ...";
+	else if (menu[i, 1] == -4) str = menu[i, 0] + ": None";
 	else str = menu[i, 0] + ": " + get_key(menu[i, 1]);
 		
 	if (sel == i) str = ">" + str;

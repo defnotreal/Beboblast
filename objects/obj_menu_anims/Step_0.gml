@@ -16,6 +16,19 @@ if (lx == -63.5)
 
 #region Animating
 
+if (bebo_spr == spr_menu_bebo2 || bebo_spr == spr_menu_bebo3)
+{
+	if (bebo_img_spd > 0) bebo_img_spd--;
+	else
+	{	
+		if (bebo_img > 3) bebo_img = 0 + (bebo_spr == spr_menu_bebo3);
+		else bebo_img++;
+		
+		if (bebo_spr == spr_menu_bebo3) bebo_img_spd = game_get_speed(gamespeed_fps) / 6;
+		else bebo_img_spd = game_get_speed(gamespeed_fps) / 64;
+	}
+}
+
 switch (part)
 {
 	case -4:
@@ -40,6 +53,7 @@ switch (part)
 			shake_camera(3, 3);
 			bomb_v_spd = -12;
 			bebo_v_spd = -34;
+			bebo_img = 1;
 			bebo_anchor_y = bomb_y - (bomb_y / 3);
 		}
 	break;
@@ -54,6 +68,8 @@ switch (part)
 			bomb_scale = 1;
 			bomb_y = bomb_anchor_y;
 			bomb_v_spd = 0;
+			bebo_spr = spr_menu_bebo2;
+			bebo_img = 0;
 			title_v_spd = -10;
 		}
 	break;
@@ -78,22 +94,32 @@ switch (part)
 		}
 	break;
 	case 3:
+		bebo_img_spd = game_get_speed(gamespeed_fps) / 8;
 		if (bebo_y > bebo_anchor_y)
 		{
+			if (bebo_spr != spr_menu_bebo3)
+			{
+				bebo_spr = spr_menu_bebo3;
+				bebo_img = 0;
+			}
 			bebo_y = bebo_anchor_y - 1;
 			bebo_v_spd = -bebo_v_spd + 6;
+			bebo_img_spd = game_get_speed(gamespeed_fps) / 16;
 			
 			if (bebo_v_spd > 0)
 			{
 				part++;
 				bebo_v_spd = 0;
 				bebo_y = bebo_anchor_y;
+				bebo_spr = spr_menu_bebo3;
+				bebo_img = 1;
+				bebo_img_spd = game_get_speed(gamespeed_fps) / 16;
 			}
 		}
 	break;
 }
 
-if (bebo_v_spd < 10) && (part <= 3) && (part > -4) bebo_v_spd += grav;
+if (bebo_v_spd < 10) && (part <= 3) && (part > 0) bebo_v_spd += grav;
 if (get_button_pressed("action1")) && (part <= 3) && (part > -4) skip_intro();
 
 #endregion
