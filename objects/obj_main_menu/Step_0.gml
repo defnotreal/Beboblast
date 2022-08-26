@@ -1,11 +1,18 @@
-if (get_button_pressed("up"))
+if (get_button_pressed("action1"))
 {
-	if (sel == 0) sel = array_length(menu) - 1;
-	else sel--;
+	switch (sel)
+	{
+		case 1:
+			obj_menu_anims.title_alpha = 0;
+			menu_create(obj_options, room_width / 4, (room_height / 2) - (room_height  / 6), fa_center, fa_middle);
+			instance_deactivate_object(self);
+		break;
+		case 2:
+			control = false;
+			obj_menu_anims.part = -4;
+		break;
+	}
 }
 
-if (get_button_pressed("down"))
-{
-	if (sel == array_length(menu) - 1) sel = 0;
-	else sel++;
-}
+// Inherit the parent event
+event_inherited();

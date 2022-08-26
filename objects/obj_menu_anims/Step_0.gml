@@ -18,6 +18,10 @@ if (lx == -63.5)
 
 switch (part)
 {
+	case -4:
+		black_alpha += 0.05;
+		if (black_alpha >= 1) game_end();
+	break;
 	case -1:
 		black_alpha -= 0.025;
 		if (black_alpha < 0)
@@ -27,12 +31,16 @@ switch (part)
 		}
 	break;
 	case 0:
-		if (bomb_scale < 1.5) bomb_scale += 0.05;
-		else
+		bomb_scale += 0.05;
+		bebo_anchor_y = bomb_y;
+		bebo_y = bebo_anchor_y;
+		if (bomb_scale > 1.5)
 		{
 			part++;
 			shake_camera(3, 3);
 			bomb_v_spd = -12;
+			bebo_v_spd = -34;
+			bebo_anchor_y = bomb_y - (bomb_y / 3);
 		}
 	break;
 	case 1:
@@ -61,14 +69,36 @@ switch (part)
 				part++;
 				title_v_spd = 0;
 				title_y = title_anchor_y;
-				instance_create_depth(0, 0, 0, obj_main_menu);
+				
+				button_clear_kb("action1");
+				button_clear_gp("action1");
+				
+				menu_create(obj_main_menu, room_width / 4, (room_height / 2) + (room_height / 16), fa_center, fa_middle);
+			}
+		}
+	break;
+	case 3:
+		if (bebo_y > bebo_anchor_y)
+		{
+			bebo_y = bebo_anchor_y - 1;
+			bebo_v_spd = -bebo_v_spd + 6;
+			
+			if (bebo_v_spd > 0)
+			{
+				part++;
+				bebo_v_spd = 0;
+				bebo_y = bebo_anchor_y;
 			}
 		}
 	break;
 }
 
+if (bebo_v_spd < 10) && (part <= 3) && (part > -4) bebo_v_spd += grav;
+if (get_button_pressed("action1")) && (part <= 3) && (part > -4) skip_intro();
+
 #endregion
 
 bomb_y  += bomb_v_spd;
+bebo_y  += bebo_v_spd;
 title_y += title_v_spd;
-y = lerp(y, dest_y, 0.2);
+y		 = lerp(y, dest_y, 0.2);

@@ -1,0 +1,15 @@
+align(halign, valign);
+
+for (var i = 0; i < array_length(menu); i++;)
+{
+	var yy  = y_pos + (y_off * i),
+		str;
+		
+	if (binding) && (sel == i) str = menu[i, 0] + ": ...";
+	else str = menu[i, 0] + ": " + get_key(menu[i, 1]);
+		
+	if (sel == i) str = ">" + str;
+	draw_text_transformed(x_pos + (16 * (sel == i)), yy, str, 0.5, 0.5, 0);
+}
+
+align_reset();

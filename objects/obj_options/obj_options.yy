@@ -32,7 +32,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_main_menu",
+  "name": "obj_options",
   "tags": [],
   "resourceType": "GMObject",
 }
