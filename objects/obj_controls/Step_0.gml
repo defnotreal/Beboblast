@@ -57,12 +57,12 @@ for (var i = 0; i < ds_grid_width(valid_gp); i++;)
 				ini_write_real("Controls", but, -4);
 			}
 		}
-	    ini_write_real("Controls", but, i);
+	    ini_write_real("Controls", but, valid_gp[# i, 0]);
 		menu[sel, 1] = ini_read_real("Controls", but, -4);
 		ini_close();
 		button_clear_kb(but);
 		button_clear_gp(but);
-		button_assign_gp(but, i, 0);
+		button_assign_gp(but, valid_gp[# i, 0]);
 		bind_timer = 10;
 		binding = false;
 	}
@@ -104,7 +104,7 @@ for (var i = 0; i < ds_grid_width(valid_key); i++;)
 		ini_close();
 		button_clear_gp(but);
 		button_clear_kb(but);
-		button_assign_kb(but, k, 0);
+		button_assign_kb(but, k);
 		bind_timer = 10;
 		binding = false;
 	}

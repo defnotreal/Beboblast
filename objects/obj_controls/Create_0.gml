@@ -143,7 +143,7 @@ function get_key(key)
 		for (var j = 0; j < ds_grid_width(valid_gp); j++;)
 		{
 			if (key == valid_key[# i, 0])	  result = valid_key[# i, 1];
-			else if (key == valid_gp[# j, 0]) result = valid_gp[# i, 1];
+			else if (key == valid_gp[# j, 0]) result = valid_gp[# j, 1];
 		}
 	}
 	event_perform(ev_cleanup, 0);
