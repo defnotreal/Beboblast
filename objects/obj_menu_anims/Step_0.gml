@@ -86,9 +86,6 @@ switch (part)
 				title_v_spd = 0;
 				title_y = title_anchor_y;
 				
-				button_clear_kb("action1");
-				button_clear_gp("action1");
-				
 				menu_create(obj_main_menu, room_width / 4, (room_height / 2) + (room_height / 16), fa_center, fa_middle);
 			}
 		}

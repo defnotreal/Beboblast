@@ -1,7 +1,7 @@
 #macro DEBUG     true
 #macro TILE_SIZE 16
 
-//'if (!file_exists("data/settings.ini"))
+if (!file_exists("data/settings.ini"))
 {
 	ini_open("data/settings.ini");
 	ini_write_real("Audio", "music", 1);
@@ -28,7 +28,7 @@ if (DEBUG) cap = cap + " (DEBUG)";
 window_set_caption(cap);
 
 ini_open("data/settings.ini");
-audio_emitter_gain(global.a_music, ini_read_real("Audio", "music", 1));
-audio_emitter_gain(global.a_sound, ini_read_real("Audio", "sound", 1));
+#region Volume
+
 window_set_fullscreen(ini_read_real("Video", "fullscreen", 0));
 ini_close();

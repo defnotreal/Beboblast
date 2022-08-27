@@ -1,11 +1,5 @@
 /// @description Init
 
-#region Inputs
-
-
-
-#endregion
-
 #region Movement
 
 h_spd = 0;
@@ -14,14 +8,14 @@ dash  = true;
 
 multi = 1;
 
-ground_spd		 = 4 * multi;
-air_spd			 = 2 * multi;
-jump_spd		 = 4 * multi;
-dash_spd		 = 8 * multi;
-ground_fric      = 0.5 * multi;
+ground_spd		 = 4	* multi;
+air_spd			 = 4	* multi;
+jump_spd		 = 4	* multi;
+dash_spd		 = 8	* multi;
+ground_fric      = 0.5  * multi;
 air_fric         = 0.35 * multi;
-grav			 = 0.2 * multi;
-grav_max		 = 10 * multi;
+grav			 = 0.2  * multi;
+grav_max		 = 10   * multi;
 
 jumps = 2;
 
@@ -29,11 +23,11 @@ jumps = 2;
 
 #region Gameplay
 
-bomb = instance_create_depth(x, y, depth + 1, obj_player_bomb);
+bomb	   = instance_create_depth(x, y, depth + 1, obj_player_bomb);
 bomb.owner = id;
-cam = instance_create_depth(x, y - (sprite_height / 2), 0, obj_camera);
+cam		   = instance_create_depth(x, y - (sprite_height / 2), 0, obj_camera);
 
-particles = part_system_create();
+particles  = part_system_create();
 part_system_depth(particles, depth + 1);
 
 part_trail = part_type_create();

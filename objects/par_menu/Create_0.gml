@@ -8,5 +8,3 @@ y_off   = 0
 halign	= fa_left;
 valign  = fa_top;
 control = true;
-
-game_get_inputs();

@@ -1,10 +1,5 @@
 /// @description Init
 
-add_button("action1");
-
-button_assign_kb("action1", ord("Z"), ord("J"));
-button_assign_gp("action1", gp_face1);
-
 part		   = -1;
 dest_y		   = y;
 grav		   = 0.4;
@@ -31,18 +26,15 @@ title_alpha	   = 1;
 
 skip_intro	   = function()
 {
-	button_clear_kb("action1");
-	button_clear_gp("action1");
-	
 	bomb_y	     = bomb_anchor_y;
 	bomb_v_spd   = 0;
 	bomb_scale   = 1;
 	
 	bebo_y	     = bomb_y - (bomb_y / 3);
 	bebo_v_spd   = 0;
-	bebo_img_spd = 0;
-	bebo_img	 = 0;
-	bebo_spr	 = spr_menu_bebo1;
+	bebo_img_spd = game_get_speed(gamespeed_fps) / 6;
+	bebo_img	 = 1;
+	bebo_spr	 = spr_menu_bebo3;
 	
 	title_y	    = title_anchor_y;
 	title_v_spd = 0;

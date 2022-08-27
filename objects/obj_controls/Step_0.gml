@@ -32,7 +32,7 @@ if (binding)
 				}
 			}
 	        ini_write_real("Controls", but, i);
-			menu[sel, 1] = ini_read_real("Controls", but, 0);
+			menu[sel, 1] = ini_read_real("Controls", but, -4);
 			ini_close();
 			button_clear_kb(but);
 			button_clear_gp(but);
@@ -73,7 +73,7 @@ if (binding)
 				}
 			}
 		    ini_write_real("Controls", but, k);
-			menu[sel, 1] = ini_read_real("Controls", but, 0);
+			menu[sel, 1] = ini_read_real("Controls", but, -4);
 			ini_close();
 			button_clear_gp(but);
 			button_clear_kb(but);
@@ -85,6 +85,11 @@ if (binding)
 }
 
 if (get_button_pressed("action1")) binding = true;
+
+if (get_button("left"))
+{
+	if (get_button_pressed("pause")) reset_keys();	
+}
 
 // Inherit the parent event
 event_inherited();

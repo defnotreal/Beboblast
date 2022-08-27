@@ -147,3 +147,41 @@ function get_key(key)
 	event_perform(ev_cleanup, 0);
 	return result;
 }
+
+function reset_keys()
+{
+	button_clear_kb("up");
+	button_clear_gp("up");
+	button_clear_kb("down");
+	button_clear_gp("down");
+	button_clear_kb("left");
+	button_clear_gp("left");
+	button_clear_kb("right");
+	button_clear_gp("right");
+	button_clear_kb("action1");
+	button_clear_gp("action1");
+	button_clear_kb("action2");
+	button_clear_gp("action2");
+	button_clear_kb("pause");
+	button_clear_gp("pause");
+	
+	button_assign_kb("up", vk_up);
+	button_assign_kb("down", vk_down);
+	button_assign_kb("left", vk_left);
+	button_assign_kb("right", vk_right);
+	button_assign_kb("action1", ord("Z"));
+	button_assign_kb("action2", ord("X"));
+	button_assign_kb("pause", vk_enter);
+	
+	ini_open("data/settings.ini");
+	
+	ini_write_real("Controls", "up", vk_up);
+	ini_write_real("Controls", "down", vk_down);
+	ini_write_real("Controls", "left", vk_left);
+	ini_write_real("Controls", "right", vk_right);
+	ini_write_real("Controls", "action1", ord("Z"));
+	ini_write_real("Controls", "action2", ord("X"));
+	ini_write_real("Controls", "pause", vk_enter);
+	
+	ini_close();
+}
