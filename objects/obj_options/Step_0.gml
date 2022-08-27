@@ -3,7 +3,7 @@ if (get_button_pressed("action1"))
 	switch (sel)
 	{
 		case 0:
-			menu_create(obj_controls, room_width / 4, (room_height / 2) - (room_height  / 4), fa_center, fa_middle, 16);
+			menu_create(obj_controls, room_width / 4, (room_height / 2) - (room_height  / 3), fa_center, fa_middle, 16);
 			instance_deactivate_object(self);
 		break;
 		case 1:

@@ -52,7 +52,11 @@ hit_wall = function()
 {
 	return place_meeting(x + sign(h_spd), y, obj_terrain_flat);	
 }
-can_accel = function()
+function bomb_hit_wall()
+{
+	with (bomb) return place_meeting(x + sign(h_spd), y, obj_terrain_flat);
+}
+function can_accel()
 {
 	if (h_spd < move_spd) && (h_spd > -move_spd) return true;
 	return false;

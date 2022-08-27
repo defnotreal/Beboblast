@@ -8,14 +8,15 @@ else inst = instance_place(x, y + 1, par_terrain);
 if (inst != -4) g_state = string(inst.id) + " (" + object_get_name((inst.object_index)) + ")";
 else g_state = "None";
 
+var cam_height = camera_get_view_height(view_camera[0]) * 4;
 
-draw_text(10, room_height - 70, string(get_button("left")) + ", " +
+draw_text(10, cam_height - 70, string(get_button("left")) + ", " +
 								string(get_button("right")) + ", " +
 								string(get_button("action1")) + ", " +
 								string(get_button("action2")) + ", " +
 								string(get_button("pause")));
-draw_text(10, room_height - 50, state_name);
-draw_text(10, room_height - 30, g_state);
-draw_text(10, room_height - 10, string(cam.shake));
+draw_text(10, cam_height - 50, state_name);
+draw_text(10, cam_height - 30, g_state);
+draw_text(10, cam_height - 10, string(cam.shake_x) + ", " + string(cam.shake_y));
 
 align_reset();

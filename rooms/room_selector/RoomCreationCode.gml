@@ -1,0 +1,1 @@
+menu_create(obj_room_selector, 0, 0, fa_left, fa_top, 12);

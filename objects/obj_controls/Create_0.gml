@@ -18,6 +18,8 @@ menu[5, 1] = ini_read_real("Controls", "action2", ord("X"));
 menu[6, 0] = "Start";
 menu[6, 1] = ini_read_real("Controls", "pause", vk_enter);
 ini_close();
+menu[7, 0] = "Back";
+menu[7, 1] = -4;
 
 binding	   = false;
 
@@ -182,6 +184,14 @@ function reset_keys()
 	ini_write_real("Controls", "action1", ord("Z"));
 	ini_write_real("Controls", "action2", ord("X"));
 	ini_write_real("Controls", "pause", vk_enter);
+	
+	menu[0, 1] = ini_read_real("Controls", "up", vk_up);
+	menu[1, 1] = ini_read_real("Controls", "down", vk_down);
+	menu[2, 1] = ini_read_real("Controls", "left", vk_left);
+	menu[3, 1] = ini_read_real("Controls", "right", vk_right);
+	menu[4, 1] = ini_read_real("Controls", "action1", ord("Z"));
+	menu[5, 1] = ini_read_real("Controls", "action2", ord("X"));
+	menu[6, 1] = ini_read_real("Controls", "pause", vk_enter);
 	
 	ini_close();
 }

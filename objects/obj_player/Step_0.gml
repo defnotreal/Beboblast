@@ -88,7 +88,7 @@ if (state != state_ride)
 
 if ((h_spd > 8) || (h_spd < -8)) && (hit_wall())
 {
-	cam.shake = 8;
+	cam.shake_y = 8;
 }
 
 if (h_spd != 0) image_xscale = sign(h_spd);

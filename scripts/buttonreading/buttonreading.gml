@@ -50,32 +50,23 @@ function get_button_pressed(btn) {
 		var keylist = mybtn[? "kb"];
 		//Iterate through list to check all inputs
 		for(i=0;i<ds_list_size(keylist);i++){
-			if(keyboard_check_pressed(keylist[| i])){
-				return true;
-			}
+			return (keyboard_check_pressed(keylist[| i]))
 		}
 
 		//Pull keyboard input list from button map
 		var mouselist = mybtn[? "mb"];
 		//Iterate through list to check all inputs
 		for(i=0;i<ds_list_size(mouselist);i++){
-			if(mouse_check_button_pressed(mouselist[| i])){
-				return true;
-			}
+			return (mouse_check_button_pressed(mouselist[| i]))
 		}
 
 		//Pull gamepad input list from button map
 		var gplist = mybtn[? "gp"];
 		//Iterate through list to check all inputs
 		for(i=0;i<ds_list_size(gplist);i++){
-			if(gp_check_pressed(gplist[| i])){
-				return true;
-			}
+			return (gp_check_pressed(gplist[| i]))
 		}
 	#endregion
-	
-	//Return false if no inputs were triggered
-	return false;
 
 }
 
