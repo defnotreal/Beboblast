@@ -54,7 +54,13 @@ function set_control_type(type=ctrl.kb)
 	ini_close();
 }
 
-binding	   = false;
+enum ctrlstate
+{
+	select,
+	binding,
+	bindingall
+}
+state   = ctrlstate.select;
 
 function get_valid_inputs()
 {
@@ -248,14 +254,103 @@ function reset_keys()
 		ini_write_real("ControlsGP", "action2", gp_face2);
 		ini_write_real("ControlsGP", "pause", gp_start);
 		
-		menu[0, 1] = ini_read_real("Controls", "up", gp.lu);
-		menu[1, 1] = ini_read_real("Controls", "down", gp.ld);
-		menu[2, 1] = ini_read_real("Controls", "left", gp.ll);
-		menu[3, 1] = ini_read_real("Controls", "right", gp.lr);
-		menu[4, 1] = ini_read_real("Controls", "action1", gp_face1);
-		menu[5, 1] = ini_read_real("Controls", "action2", gp_face2);
-		menu[6, 1] = ini_read_real("Controls", "pause", gp_start);
+		menu[0, 1] = ini_read_real("ControlsGP", "up", gp.lu);
+		menu[1, 1] = ini_read_real("ControlsGP", "down", gp.ld);
+		menu[2, 1] = ini_read_real("ControlsGP", "left", gp.ll);
+		menu[3, 1] = ini_read_real("ControlsGP", "right", gp.lr);
+		menu[4, 1] = ini_read_real("ControlsGP", "action1", gp_face1);
+		menu[5, 1] = ini_read_real("ControlsGP", "action2", gp_face2);
+		menu[6, 1] = ini_read_real("ControlsGP", "pause", gp_start);
 	}
 	
 	ini_close();
+}
+
+function bind_input(index)
+{
+	if(control_type == ctrl.gp)
+	{
+		for (var i = 0; i < ds_grid_width(valid_gp); i++;)
+		{
+			if (gp_check_pressed(valid_gp[# i, 0]))
+			{
+				switch (index)
+				{
+					case 4:  var but = "action1";				   break;
+					case 5:  var but = "action2";				   break;
+					case 6:  var but = "pause";                    break;
+					default: var but = string_lower(menu[index, 0]); break;
+				}
+			
+				ini_open("data/settings.ini");
+			
+				for (var j = 0; j < array_length(menu); j++;)
+				{
+					if (i == menu[j, 1])
+					{
+						switch (j)
+						{
+							case 4:  var but = "action1";				   break;
+							case 5:  var but = "action2";				   break;
+							case 6:  var but = "pause";                    break;
+							default: var but = string_lower(menu[j, 0]); break;
+						}
+					
+						ini_write_real("ControlsGP", but, -4);
+					}
+				}
+			    ini_write_real("ControlsGP", but, valid_gp[# i, 0]);
+				menu[index, 1] = ini_read_real("ControlsGP", but, -4);
+				ini_close();
+				button_clear_gp(but);
+				button_assign_gp(but, valid_gp[# i, 0]);
+				bind_timer = 10;
+				state = ctrlstate.select;
+			}
+		}
+	}
+
+	if(control_type == ctrl.kb)
+	{
+		for (var i = 0; i < ds_grid_width(valid_key); i++;)
+		{
+			if keyboard_check_pressed(valid_key[# i, 0])
+			{
+				switch (index)
+				{
+					case 4:  var but = "action1";				   break;
+					case 5:  var but = "action2";				   break;
+					case 6:  var but = "pause";                    break;
+					default: var but = string_lower(menu[index, 0]); break;
+				}
+		
+				var k = keyboard_lastkey;
+				show_debug_message(k);
+				ini_open("data/settings.ini");
+			
+				for (var j = 0; j < array_length(menu); j++;)
+				{
+					if (k == menu[j, 1])
+					{
+						switch (j)
+						{
+							case 4:  var but = "action1";				   break;
+							case 5:  var but = "action2";				   break;
+							case 6:  var but = "pause";                    break;
+							default: var but = string_lower(menu[j, 0]); break;
+						}
+					
+						ini_write_real("Controls", but, -4);
+					}
+				}
+				ini_write_real("Controls", but, k);
+				menu[index, 1] = ini_read_real("Controls", but, -4);
+				ini_close();
+				button_clear_kb(but);
+				button_assign_kb(but, k);
+				bind_timer = 10;
+				state = ctrlstate.select;
+			}
+		}
+	}
 }

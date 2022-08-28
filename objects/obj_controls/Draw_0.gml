@@ -7,7 +7,7 @@ for (var i = 0; i < array_length(menu); i++;)
 	
 	if (i < 7)
 	{
-		if (binding) && (sel == i) str = menu[i, 0] + ": ...";
+		if (state == ctrlstate.binding) && (sel == i) str = menu[i, 0] + ": ...";
 		else if (menu[i, 1] == -4) str = menu[i, 0] + ": None";
 		else str = menu[i, 0] + ": " + get_key(menu[i, 1]);
 	}
@@ -18,6 +18,6 @@ for (var i = 0; i < array_length(menu); i++;)
 }
 
 align(fa_left, fa_bottom)
-draw_text(10, room_height - 10, string(binding));
+draw_text(10, room_height - 10, string(state));
 
 align_reset();
