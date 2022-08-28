@@ -108,6 +108,7 @@ state_dash = function()
 	image_speed = 0.075 * abs(h_spd);
 	
 	part_type_color1(part_trail, choose(c_red, c_blue, c_green));
+	part_type_scale(part_trail, image_xscale, 1);
 	part_particles_create(particles, x, y, part_trail, 1);
 	
 	if (get_button_pressed("action1"))

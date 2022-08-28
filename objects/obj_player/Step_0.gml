@@ -93,7 +93,7 @@ if ((h_spd > 8) || (h_spd < -8)) && (hit_wall())
 
 if (h_spd != 0) image_xscale = sign(h_spd);
 if (sprite_index == spr_player_walk) || (sprite_index == spr_player_carrywalk) image_speed = 0.075 * abs(h_spd);
-else if (sprite_index == spr_player_jump) image_speed = 0.5;
+else if (sprite_index == spr_player_jump) || (sprite_index == spr_player_hover) image_speed = 0.5;
 move();
 
 #endregion
