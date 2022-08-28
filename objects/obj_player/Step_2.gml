@@ -15,6 +15,21 @@ switch (state)
 		}
 		else add = 0;
 		bomb.y = bbox_top + add;
+	case state_jump_carry:
+		bomb.x = x;
+		var add = 0;
+		if (sprite_index == spr_player_carrywalk)
+		{
+			switch (floor(image_index))
+			{
+				case 0: add = 0; break;
+				case 1: add = 1; break;
+				case 2: add = 0; break;
+				case 3: add = 1; break;
+			}
+		}
+		else add = 0;
+		bomb.y = bbox_top + add;
 	break;
 	case state_ride:
 		x = bomb.x;
