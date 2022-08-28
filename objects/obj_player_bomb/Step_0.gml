@@ -10,3 +10,14 @@ if (owner.state != owner.state_carry)
 	
 	move();
 }
+
+if(owner.state == owner.state_carry || owner.state == owner.state_jump_carry)
+{
+	while(rotate < 0) rotate += 360;
+	rotate = rotate % 360;
+	if(rotate > 60)
+	{
+		if(rotate < 110) rotate = 60;
+		else if(rotate < 160) rotate = 160;
+	}
+}
