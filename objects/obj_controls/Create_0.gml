@@ -2,6 +2,8 @@
 
 event_inherited();
 
+sel = 7;
+
 enum ctrl
 {
 	kb,
@@ -23,8 +25,10 @@ menu[5, 0] = "Action 2";
 menu[5, 1] = -4;
 menu[6, 0] = "Start";
 menu[6, 1] = -4;
-menu[7, 0] = "Back";
+menu[7, 0] = "Set All";
 menu[7, 1] = -4;
+menu[8, 0] = "Back";
+menu[8, 1] = -4;
 
 function set_control_type(type=ctrl.kb)
 {
@@ -305,7 +309,7 @@ function bind_input(index)
 				button_clear_gp(but);
 				button_assign_gp(but, valid_gp[# i, 0]);
 				bind_timer = 10;
-				state = ctrlstate.select;
+				return true;
 			}
 		}
 	}
@@ -349,8 +353,10 @@ function bind_input(index)
 				button_clear_kb(but);
 				button_assign_kb(but, k);
 				bind_timer = 10;
-				state = ctrlstate.select;
+				return true;
 			}
 		}
 	}
+	
+	return false;
 }

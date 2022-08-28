@@ -4,10 +4,15 @@ switch(state)
 		if (get_button_pressed("action1"))
 		{
 			if (sel < 7) state = ctrlstate.binding;
-			else
+			else if (sel == 8)
 			{
 				instance_activate_object(obj_options);
 				instance_destroy(self);
+			}
+			else if(sel == 7)
+			{
+				sel = 0;
+				state = ctrlstate.bindingall;
 			}
 		}
 
@@ -28,7 +33,23 @@ switch(state)
 	
 	case ctrlstate.binding:
 		get_valid_inputs();
-		bind_input(sel);
+		if(bind_input(sel))
+		{
+			state = ctrlstate.select;
+		}
+		event_perform(ev_cleanup, 0);
+		break;
+		
+	case ctrlstate.bindingall:
+		get_valid_inputs();
+		if(bind_input(sel))
+		{
+			sel++;
+			if(sel > 6)
+			{
+				state = ctrlstate.select;
+			}
+		}
 		event_perform(ev_cleanup, 0);
 		break;
 }
