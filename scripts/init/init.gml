@@ -4,9 +4,11 @@
 if (!file_exists("data/settings.ini"))
 {
 	ini_open("data/settings.ini");
+	
 	ini_write_real("Audio", "music", 1);
 	ini_write_real("Audio", "sound", 1);
 	ini_write_real("Video", "fullscreen", 0);
+	
 	ini_write_real("Controls", "up", vk_up);
 	ini_write_real("Controls", "down", vk_down);
 	ini_write_real("Controls", "left", vk_left);
@@ -14,6 +16,15 @@ if (!file_exists("data/settings.ini"))
 	ini_write_real("Controls", "action1", ord("Z"));
 	ini_write_real("Controls", "action2", ord("X"));
 	ini_write_real("Controls", "pause", vk_enter);
+	
+	ini_write_real("ControlsGP", "up", gp.lu);
+	ini_write_real("ControlsGP", "down", gp.ld);
+	ini_write_real("ControlsGP", "left", gp.ll);
+	ini_write_real("ControlsGP", "right", gp.lr);
+	ini_write_real("ControlsGP", "action1", gp_face1);
+	ini_write_real("ControlsGP", "action2", gp_face2);
+	ini_write_real("ControlsGP", "pause", gp_start);
+	
 	ini_close();
 }
 
@@ -28,7 +39,6 @@ if (DEBUG) cap = cap + " (DEBUG)";
 window_set_caption(cap);
 
 ini_open("data/settings.ini");
-#region Volume
 
 window_set_fullscreen(ini_read_real("Video", "fullscreen", 0));
 ini_close();

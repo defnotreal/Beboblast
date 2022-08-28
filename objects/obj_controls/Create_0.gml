@@ -2,24 +2,57 @@
 
 event_inherited();
 
-ini_open("data/settings.ini");
+enum ctrl
+{
+	kb,
+	gp
+}
+control_type = ctrl.kb;
+
 menu[0, 0] = "Up";
-menu[0, 1] = ini_read_real("Controls", "up", vk_up);
+menu[0, 1] =  -4;
 menu[1, 0] = "Down";
-menu[1, 1] = ini_read_real("Controls", "down", vk_down);
+menu[1, 1] = -4;
 menu[2, 0] = "Left";
-menu[2, 1] = ini_read_real("Controls", "left", vk_left);
+menu[2, 1] = -4;
 menu[3, 0] = "Right";
-menu[3, 1] = ini_read_real("Controls", "right", vk_right);
+menu[3, 1] = -4;
 menu[4, 0] = "Action 1";
-menu[4, 1] = ini_read_real("Controls", "action1", ord("Z"));
+menu[4, 1] = -4;
 menu[5, 0] = "Action 2";
-menu[5, 1] = ini_read_real("Controls", "action2", ord("X"));
+menu[5, 1] = -4;
 menu[6, 0] = "Start";
-menu[6, 1] = ini_read_real("Controls", "pause", vk_enter);
-ini_close();
+menu[6, 1] = -4;
 menu[7, 0] = "Back";
 menu[7, 1] = -4;
+
+function set_control_type(type=ctrl.kb)
+{
+	control_type = type;
+	
+	ini_open("data/settings.ini");
+	if(control_type == ctrl.kb)
+	{
+		menu[0, 1] = ini_read_real("Controls", "up", vk_up);
+		menu[1, 1] = ini_read_real("Controls", "down", vk_down);
+		menu[2, 1] = ini_read_real("Controls", "left", vk_left);
+		menu[3, 1] = ini_read_real("Controls", "right", vk_right);
+		menu[4, 1] = ini_read_real("Controls", "action1", ord("Z"));
+		menu[5, 1] = ini_read_real("Controls", "action2", ord("X"));
+		menu[6, 1] = ini_read_real("Controls", "pause", vk_enter);
+	}
+	else if(control_type == ctrl.gp)
+	{
+		menu[0, 1] = ini_read_real("ControlsGP", "up", gp.lu);
+		menu[1, 1] = ini_read_real("ControlsGP", "down", gp.ld);
+		menu[2, 1] = ini_read_real("ControlsGP", "left", gp.ll);
+		menu[3, 1] = ini_read_real("ControlsGP", "right", gp.lr);
+		menu[4, 1] = ini_read_real("ControlsGP", "action1", gp_face1);
+		menu[5, 1] = ini_read_real("ControlsGP", "action2", gp_face2);
+		menu[6, 1] = ini_read_real("ControlsGP", "pause", gp_start);
+	}
+	ini_close();
+}
 
 binding	   = false;
 
@@ -152,46 +185,77 @@ function get_key(key)
 
 function reset_keys()
 {
-	button_clear_kb("up");
-	button_clear_gp("up");
-	button_clear_kb("down");
-	button_clear_gp("down");
-	button_clear_kb("left");
-	button_clear_gp("left");
-	button_clear_kb("right");
-	button_clear_gp("right");
-	button_clear_kb("action1");
-	button_clear_gp("action1");
-	button_clear_kb("action2");
-	button_clear_gp("action2");
-	button_clear_kb("pause");
-	button_clear_gp("pause");
-	
-	button_assign_kb("up", vk_up);
-	button_assign_kb("down", vk_down);
-	button_assign_kb("left", vk_left);
-	button_assign_kb("right", vk_right);
-	button_assign_kb("action1", ord("Z"));
-	button_assign_kb("action2", ord("X"));
-	button_assign_kb("pause", vk_enter);
-	
+
 	ini_open("data/settings.ini");
 	
-	ini_write_real("Controls", "up", vk_up);
-	ini_write_real("Controls", "down", vk_down);
-	ini_write_real("Controls", "left", vk_left);
-	ini_write_real("Controls", "right", vk_right);
-	ini_write_real("Controls", "action1", ord("Z"));
-	ini_write_real("Controls", "action2", ord("X"));
-	ini_write_real("Controls", "pause", vk_enter);
+	if(control_type == ctrl.kb)
+	{
+		button_clear_kb("up");
+		button_clear_kb("down");
+		button_clear_kb("left");
+		button_clear_kb("right");
+		button_clear_kb("action1");
+		button_clear_kb("action2");
+		button_clear_kb("pause");
 	
-	menu[0, 1] = ini_read_real("Controls", "up", vk_up);
-	menu[1, 1] = ini_read_real("Controls", "down", vk_down);
-	menu[2, 1] = ini_read_real("Controls", "left", vk_left);
-	menu[3, 1] = ini_read_real("Controls", "right", vk_right);
-	menu[4, 1] = ini_read_real("Controls", "action1", ord("Z"));
-	menu[5, 1] = ini_read_real("Controls", "action2", ord("X"));
-	menu[6, 1] = ini_read_real("Controls", "pause", vk_enter);
+		button_assign_kb("up", vk_up);
+		button_assign_kb("down", vk_down);
+		button_assign_kb("left", vk_left);
+		button_assign_kb("right", vk_right);
+		button_assign_kb("action1", ord("Z"));
+		button_assign_kb("action2", ord("X"));
+		button_assign_kb("pause", vk_enter);
+		
+		ini_write_real("Controls", "up", vk_up);
+		ini_write_real("Controls", "down", vk_down);
+		ini_write_real("Controls", "left", vk_left);
+		ini_write_real("Controls", "right", vk_right);
+		ini_write_real("Controls", "action1", ord("Z"));
+		ini_write_real("Controls", "action2", ord("X"));
+		ini_write_real("Controls", "pause", vk_enter);
+	
+		menu[0, 1] = ini_read_real("Controls", "up", vk_up);
+		menu[1, 1] = ini_read_real("Controls", "down", vk_down);
+		menu[2, 1] = ini_read_real("Controls", "left", vk_left);
+		menu[3, 1] = ini_read_real("Controls", "right", vk_right);
+		menu[4, 1] = ini_read_real("Controls", "action1", ord("Z"));
+		menu[5, 1] = ini_read_real("Controls", "action2", ord("X"));
+		menu[6, 1] = ini_read_real("Controls", "pause", vk_enter);
+	}
+	else if(control_type == ctrl.gp)
+	{
+		button_clear_gp("up");
+		button_clear_gp("down");
+		button_clear_gp("left");
+		button_clear_gp("right");
+		button_clear_gp("action1");
+		button_clear_gp("action2");
+		button_clear_gp("pause");
+		
+		button_assign_gp("up", gp.lu);
+		button_assign_gp("down", gp.ld);
+		button_assign_gp("left", gp.ll);
+		button_assign_gp("right", gp.lr);
+		button_assign_gp("action1", gp_face1);
+		button_assign_gp("action2", gp_face2);
+		button_assign_gp("pause", gp_start);
+		
+		ini_write_real("ControlsGP", "up", gp.lu);
+		ini_write_real("ControlsGP", "down", gp.ld);
+		ini_write_real("ControlsGP", "left", gp.ll);
+		ini_write_real("ControlsGP", "right", gp.lr);
+		ini_write_real("ControlsGP", "action1", gp_face1);
+		ini_write_real("ControlsGP", "action2", gp_face2);
+		ini_write_real("ControlsGP", "pause", gp_start);
+		
+		menu[0, 1] = ini_read_real("Controls", "up", gp.lu);
+		menu[1, 1] = ini_read_real("Controls", "down", gp.ld);
+		menu[2, 1] = ini_read_real("Controls", "left", gp.ll);
+		menu[3, 1] = ini_read_real("Controls", "right", gp.lr);
+		menu[4, 1] = ini_read_real("Controls", "action1", gp_face1);
+		menu[5, 1] = ini_read_real("Controls", "action2", gp_face2);
+		menu[6, 1] = ini_read_real("Controls", "pause", gp_start);
+	}
 	
 	ini_close();
 }

@@ -8,8 +8,11 @@ for (var i = 0; i < array_length(butts); i++;)
 	
 	var in = ini_read_real("Controls", butts[i], -4);
 	
-	if (in > 999) button_assign_gp(butts[i], in);
-	else button_assign_kb(butts[i], in);
+	button_assign_kb(butts[i], in);
+	
+	in = ini_read_real("ControlsGP", butts[i], -4);
+	
+	button_assign_gp(butts[i], in);
 }
 
 ini_close();
