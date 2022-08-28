@@ -22,3 +22,5 @@ with (owner)
 draw_set_color(c_red);
 draw_circle(x, y + 1, 1, false)
 draw_set_color(c_white);
+
+draw_text(x,y+32,string(v_spd)+", "+string(grav))

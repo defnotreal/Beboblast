@@ -127,6 +127,16 @@ state_dash = function()
 	state_name = "state_dash";
 }
 
+carry_to_kick = function()
+{
+	player_set_state(state_kick);
+	alarm[0] = game_get_speed(gamespeed_fps) / 3;
+	if(get_button("up"))
+		bomb.v_spd = -(ground_spd * 2);
+	else
+		bomb.h_spd += (ground_spd * 4) * image_xscale;
+}
+
 state_carry = function()
 {
 	if (h_spd != 0) sprite_index = spr_player_carrywalk;
@@ -143,9 +153,7 @@ state_carry = function()
 	
 	if (get_button_pressed("action2"))
 	{
-		player_set_state(state_kick);
-		alarm[0] = game_get_speed(gamespeed_fps) / 3;
-		bomb.h_spd += (ground_spd * 4) * image_xscale		
+		carry_to_kick();
 	}
 	
 	state_name = "state_carry";
@@ -163,9 +171,7 @@ state_jump_carry = function()
 	
 	if (get_button_pressed("action2"))
 	{
-		player_set_state(state_kick);
-		alarm[0] = game_get_speed(gamespeed_fps) / 3;
-		bomb.h_spd += (ground_spd * 4) * image_xscale		
+		carry_to_kick();	
 	}
 	
 	state_name = "state_jump_carry";
