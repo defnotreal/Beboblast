@@ -7,6 +7,3 @@ fric    = 0.25;
 grav    = 0.2;
 rotate = 0;
 collided = 0;
-
-image_xscale = 2;
-image_yscale = 2;
