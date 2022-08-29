@@ -88,14 +88,18 @@ state_free = function()
 
 state_jump = function()
 {
-	if (jumps > 0) sprite_index = spr_player_jump;
-	else sprite_index = spr_player_hover;
+	if(!down_thrown)
+	{
+		if (jumps > 0) sprite_index = spr_player_jump;
+		else sprite_index = spr_player_hover;
+	}
 	
 	if (sprite_index == spr_player_jump)
 	{
 		if (v_spd > 0) image_index = 1;
 		else image_index = 0;
 	}
+	else if(sprite_index == spr_player_throw_down && v_spd > 0) down_thrown = false;
 	
 	state_name = "state_jump";
 }
@@ -108,6 +112,7 @@ state_dash = function()
 	image_speed = 0.075 * abs(h_spd);
 	
 	part_type_color1(part_trail, choose(c_red, c_blue, c_green));
+	part_type_scale(part_trail, image_xscale, 1);
 	part_particles_create(particles, x, y, part_trail, 1);
 	
 	if (get_button_pressed("action1"))
@@ -126,6 +131,35 @@ state_dash = function()
 	state_name = "state_dash";
 }
 
+down_thrown = false;
+carry_to_kick = function()
+{
+	if(get_button("up"))
+	{
+		bomb.v_spd = -(ground_spd * 2);
+		bomb.h_spd = h_spd * 2/3;
+		alarm[0] = game_get_speed(gamespeed_fps) / 3;
+		player_set_state(state_throw);
+		if(grounded()) v_spd = -jump_spd / 2;
+	}
+	else if(get_button("down") && !grounded())
+	{
+		bomb.v_spd = ground_spd * 2;
+		v_spd = -jump_spd;
+		jumps = 1;
+		down_thrown = true;
+		sprite_index = spr_player_throw_down;
+		player_set_state(state_jump)
+	}
+	else
+	{
+		bomb.h_spd += (ground_spd * 2) * image_xscale;
+		alarm[0] = game_get_speed(gamespeed_fps) / 3;
+		player_set_state(state_kick);
+		if(grounded()) v_spd = -jump_spd / 2;
+	}
+}
+
 state_carry = function()
 {
 	if (h_spd != 0) sprite_index = spr_player_carrywalk;
@@ -134,14 +168,34 @@ state_carry = function()
 	depth = 1;
 	bomb.h_spd = 0;
 	
+	if(!grounded())
+	{
+		player_set_state(state_jump_carry);
+		jumps = 0;
+	}
+	
 	if (get_button_pressed("action2"))
 	{
-		player_set_state(state_kick);
-		alarm[0] = game_get_speed(gamespeed_fps) / 3;
-		bomb.h_spd += (ground_spd * 4) * image_xscale		
+		carry_to_kick();
 	}
 	
 	state_name = "state_carry";
+}
+
+state_jump_carry = function()
+{
+	sprite_index = spr_player_carrywalk;
+	image_speed = 0.075 * ground_spd;
+	
+	depth = 1;
+	bomb.h_spd = 0;
+	
+	if (get_button_pressed("action2"))
+	{
+		carry_to_kick();	
+	}
+	
+	state_name = "state_jump_carry";
 }
 
 state_ride = function()
@@ -184,6 +238,15 @@ state_kick = function()
 	sprite_index = spr_player_kick;	
 	
 	state_name = "state_kick";
+}
+
+state_throw = function()
+{
+	sprite_index = spr_player_throw;	
+	
+	state_name = "state_kick";
+	
+	if(grounded()) player_set_state(state_free)
 }
 
 state_stunned = function()

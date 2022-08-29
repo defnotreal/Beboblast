@@ -50,10 +50,13 @@ if (get_button_pressed("action1"))
 {
 	if (jumps > 0)
 	{
-		player_set_state(state_jump);
+		if(state == state_carry)	player_set_state(state_jump_carry);
+		else						player_set_state(state_jump);
+		if(state == state_jump_carry) image_index = 2;
 		if (grounded()) y--;
 		v_spd = -jump_spd;
 		jumps--;
+		down_thrown = false;
 	}
 }
 else if (get_button_released("action1"))
@@ -71,6 +74,8 @@ if (state != state_ride)
 	{
 		if (state == state_jump) player_set_state(state_free);
 		jumps = 2;	
+		if (state == state_jump_carry) player_set_state(state_carry);
+		if (state == state_carry) jumps = 1;
 	}
 	if (v_spd > 0)
 	{
@@ -92,8 +97,8 @@ if ((h_spd > 8) || (h_spd < -8)) && (hit_wall())
 }
 
 if (h_spd != 0) image_xscale = sign(h_spd);
-if (sprite_index == spr_player_walk) || (sprite_index == spr_player_carrywalk) image_speed = 0.075 * abs(h_spd);
-else if (sprite_index == spr_player_jump) image_speed = 0.5;
+if (sprite_index == spr_player_walk) || (sprite_index == spr_player_carrywalk && grounded()) image_speed = 0.075 * abs(h_spd);
+else if (sprite_index == spr_player_jump) || (sprite_index == spr_player_hover) image_speed = 0.5;
 move();
 
 #endregion

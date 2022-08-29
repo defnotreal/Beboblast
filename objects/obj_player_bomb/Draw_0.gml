@@ -3,7 +3,7 @@ if (DEBUG) draw_sprite_ext(sprite_index, 0, x, y, image_xscale, image_yscale, 0,
 
 with (owner)
 {
-	if (state == state_carry)
+	if (state == state_carry) || (state == state_jump_carry)
 	{
 		var xo = 2, yo = 0;
 		
@@ -22,3 +22,5 @@ with (owner)
 draw_set_color(c_red);
 draw_circle(x, y + 1, 1, false)
 draw_set_color(c_white);
+
+draw_text(x,y+32,string(v_spd)+", "+string(grav))
