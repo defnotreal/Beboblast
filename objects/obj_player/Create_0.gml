@@ -144,7 +144,7 @@ carry_to_kick = function()
 	}
 	else if(get_button("down") && !grounded())
 	{
-		bomb.v_spd = ground_spd;
+		bomb.v_spd = ground_spd * 2;
 		v_spd = -jump_spd;
 		jumps = 1;
 		down_thrown = true;
@@ -156,6 +156,7 @@ carry_to_kick = function()
 		bomb.h_spd += (ground_spd * 2) * image_xscale;
 		alarm[0] = game_get_speed(gamespeed_fps) / 3;
 		player_set_state(state_kick);
+		if(grounded()) v_spd = -jump_spd / 2;
 	}
 }
 
