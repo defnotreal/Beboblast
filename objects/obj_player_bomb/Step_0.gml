@@ -1,6 +1,6 @@
 collided = instance_place(x, y + 1, par_terrain);
 
-if (owner.state != owner.state_ride) h_spd = approach(h_spd, 0, fric);
+if (owner.state != owner.state_ride && collided != -4) h_spd = approach(h_spd, 0, fric);
 
 if(collided)
 	v_spd = 0;

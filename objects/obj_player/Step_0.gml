@@ -56,6 +56,7 @@ if (get_button_pressed("action1"))
 		if (grounded()) y--;
 		v_spd = -jump_spd;
 		jumps--;
+		down_thrown = false;
 	}
 }
 else if (get_button_released("action1"))
