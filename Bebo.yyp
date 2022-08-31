@@ -74,6 +74,7 @@
     {"id":{"name":"obj_terrain_slope2_tl1","path":"objects/obj_terrain_slope2_tl1/obj_terrain_slope2_tl1.yy",},"order":5,},
     {"id":{"name":"approach","path":"scripts/approach/approach.yy",},"order":5,},
     {"id":{"name":"room_selector","path":"rooms/room_selector/room_selector.yy",},"order":5,},
+    {"id":{"name":"lvl_tutorial","path":"rooms/lvl_tutorial/lvl_tutorial.yy",},"order":6,},
     {"id":{"name":"spr_menu_bomb","path":"sprites/spr_menu_bomb/spr_menu_bomb.yy",},"order":19,},
     {"id":{"name":"obj_options","path":"objects/obj_options/obj_options.yy",},"order":9,},
     {"id":{"name":"spr_terrain_loop_tl","path":"sprites/spr_terrain_loop_tl/spr_terrain_loop_tl.yy",},"order":15,},
@@ -113,10 +114,11 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"main_menu","path":"rooms/main_menu/main_menu.yy",},},
-    {"roomId":{"name":"lvl_boiler_day","path":"rooms/lvl_boiler_day/lvl_boiler_day.yy",},},
     {"roomId":{"name":"player_test","path":"rooms/player_test/player_test.yy",},},
-    {"roomId":{"name":"input_test","path":"rooms/input_test/input_test.yy",},},
+    {"roomId":{"name":"lvl_tutorial","path":"rooms/lvl_tutorial/lvl_tutorial.yy",},},
+    {"roomId":{"name":"lvl_boiler_day","path":"rooms/lvl_boiler_day/lvl_boiler_day.yy",},},
     {"roomId":{"name":"room_selector","path":"rooms/room_selector/room_selector.yy",},},
+    {"roomId":{"name":"input_test","path":"rooms/input_test/input_test.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
