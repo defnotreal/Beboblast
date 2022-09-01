@@ -13,7 +13,7 @@ if (!grounded())
 	if (state == state_ride) || (state == state_dash)
 	{
 		real_spd  = ground_spd * 2;
-		real_fric = 0.1;			
+		real_fric = 0.1;
 	}
 	else
 	{
@@ -27,56 +27,57 @@ else
 	real_fric = ground_fric;
 }
 
-if (get_button("right"))
+if (state != state_stunned)
 {
-	if (h_spd < 0) h_spd = approach(h_spd, 0, real_fric);
-	h_spd = approach(h_spd, real_spd, real_fric);
-}
-else if (get_button("left"))
-{
-	if (h_spd > 0) h_spd = approach(h_spd, 0, real_fric);
-	h_spd = approach(h_spd, -real_spd, real_fric);
-}
-else 
-{
-	if (state != state_ride)
+	if (get_button("right"))
 	{
-		if (!get_button("right") && !get_button("left")) h_spd = approach(h_spd, 0, real_fric);
+		if (h_spd < 0) h_spd = approach(h_spd, 0, real_fric);
+		h_spd = approach(h_spd, real_spd, real_fric);
 	}
-	else h_spd = approach(h_spd, 0, real_fric);
-}
+	else if (get_button("left"))
+	{
+		if (h_spd > 0) h_spd = approach(h_spd, 0, real_fric);
+		h_spd = approach(h_spd, -real_spd, real_fric);
+	}
+	else 
+	{
+		if (state != state_ride)
+		{
+			if (!get_button("right") && !get_button("left")) h_spd = approach(h_spd, 0, real_fric);
+		}
+		else h_spd = approach(h_spd, 0, real_fric);
+	}
 
-if (get_button_pressed("action1"))
-{
-	if (jumps > 0)
+	if (get_button_pressed("action1"))
 	{
-		if(state == state_carry)	player_set_state(state_jump_carry);
-		else						player_set_state(state_jump);
-		if(state == state_jump_carry) image_index = 2;
-		if (grounded()) y--;
-		v_spd = -jump_spd;
-		jumps--;
-		down_thrown = false;
+		if (jumps > 0)
+		{
+			if(state == state_carry)	player_set_state(state_jump_carry);
+			else						player_set_state(state_jump);
+			if(state == state_jump_carry) image_index = 2;
+			if (grounded()) y--;
+			v_spd = -jump_spd;
+			jumps--;
+			down_thrown = false;
+		}
+		else v_spd = 0;
 	}
-}
-else if (get_button_released("action1"))
-{
-	if (state == state_jump) && (v_spd > 0)
-	{
-		v_spd = 0;	
-	}
+	
+	if (h_spd > 8 || h_spd < -8) && (hit_wall()) player_stun();
 }
 
 if (state != state_ride)
 {
 	if (v_spd < grav_max) && (!grounded()) v_spd += grav;
-	else if (grounded())
+	
+	if (grounded())
 	{
-		if (state == state_jump) player_set_state(state_free);
+		if (state == state_jump || state == state_stunned) player_set_state(state_free);
 		jumps = 2;	
 		if (state == state_jump_carry) player_set_state(state_carry);
 		if (state == state_carry) jumps = 1;
 	}
+	
 	if (v_spd > 0)
 	{
 		if (!grounded()) && (state != state_ridekick)
@@ -91,12 +92,18 @@ if (state != state_ride)
 	}
 }
 
-if ((h_spd > 8) || (h_spd < -8)) && (hit_wall())
+if (dash_timer > 0) dash_timer--;
+else dash = true;
+
+var on_boost = instance_place(x, y + 1, obj_boost_pad);
+if (on_boost != noone) && (state != state_overdrive)
 {
-	cam.shake_y = 8;
+	alarm[0] = -1;
+	image_xscale = on_boost.image_xscale;
+	player_set_state(state_overdrive);
 }
 
-if (h_spd != 0) image_xscale = sign(h_spd);
+if (h_spd != 0) && (state != state_stunned) image_xscale = sign(h_spd);
 if (sprite_index == spr_player_walk) || (sprite_index == spr_player_carrywalk && grounded()) image_speed = 0.075 * abs(h_spd);
 else if (sprite_index == spr_player_jump) || (sprite_index == spr_player_hover) image_speed = 0.5;
 move();
