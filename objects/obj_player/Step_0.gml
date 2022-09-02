@@ -60,7 +60,10 @@ if (state != state_stunned)
 			jumps--;
 			down_thrown = false;
 		}
-		else v_spd = 0;
+		else
+		{
+			if (state != state_jump_carry) v_spd = 0
+		}
 	}
 	
 	if (h_spd > 8 || h_spd < -8) && (hit_wall()) player_stun();
@@ -82,7 +85,7 @@ if (state != state_ride)
 	{
 		if (!grounded()) && (state != state_ridekick)
 		{
-			if (place_meeting(x, y, bomb)) && (y <= (bomb.bbox_top + (bomb.sprite_height / 8)))
+			if (place_meeting(x, y, obj_player_bomb)) && (y <= (obj_player_bomb.bbox_top + (obj_player_bomb.sprite_height / 8)))
 			{
 				v_spd = 0;
 				player_set_state(state_ride);

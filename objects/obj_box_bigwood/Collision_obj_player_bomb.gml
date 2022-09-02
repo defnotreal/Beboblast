@@ -1,0 +1,1 @@
+if (obj_player_bomb.h_spd > 6 || obj_player_bomb.h_spd < -6) hp = 0;

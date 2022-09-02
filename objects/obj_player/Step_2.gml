@@ -1,7 +1,7 @@
 switch (state)
 {
 	case state_carry:
-		bomb.x = x;
+		obj_player_bomb.x = x;
 		var add = 0;
 		if (sprite_index == spr_player_carrywalk)
 		{
@@ -14,9 +14,9 @@ switch (state)
 			}
 		}
 		else add = 0;
-		bomb.y = bbox_top + add;
+		obj_player_bomb.y = bbox_top + add;
 	case state_jump_carry:
-		bomb.x = x;
+		obj_player_bomb.x = x;
 		var add = 0;
 		if (sprite_index == spr_player_carrywalk)
 		{
@@ -29,19 +29,20 @@ switch (state)
 			}
 		}
 		else add = 0;
-		bomb.y = bbox_top + add;
+		obj_player_bomb.y = bbox_top + add;
 	break;
 	case state_ride:
-		x = bomb.x;
-		y = bomb.y - (bomb.sprite_height) + 3;
+		x = obj_player_bomb.x;
+		y = obj_player_bomb.y - (obj_player_bomb.sprite_height) + 3;
 	break;
 	case state_ridekick:
-		x = bomb.x;
+		x = obj_player_bomb.x;
 	break;
 }
 
-var cam_y = y - (sprite_get_height(spr_player) / 4);
+var cam_y = y - sprite_get_height(spr_player);
 cam.x = x;
 cam.y = cam_y;
-					
+
+if (layer_exists("BackSigns")) layer_x("BackSigns", (camera_get_view_x(view_camera[0]) / 12) - (camera_get_view_x(view_camera[0]) / 6));					
 if (layer_exists("Buildings")) layer_x("Buildings", camera_get_view_x(view_camera[0]) / 2);

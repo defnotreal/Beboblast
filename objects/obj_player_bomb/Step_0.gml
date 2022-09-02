@@ -6,6 +6,22 @@ if(collided)
 	v_spd = 0;
 else if (owner.state != owner.state_carry && owner.state != owner.state_jump_carry) && (v_spd < 10)
 	v_spd += grav;
+	
+if (owner.state != owner.state_ride)
+{
+	var smallwood  = instance_place(x + h_spd, y, obj_box_smallwood),
+		bigwood	   = instance_place(x + h_spd, y, obj_box_bigwood),
+		smallmetal = instance_place(x + h_spd, y, obj_box_smallmetal),
+		bigmetal   = instance_place(x + h_spd, y, obj_box_bigmetal);
+		
+	if (h_spd > 6 || h_spd < -6)
+	{
+		if (smallwood != noone)  instance_destroy(smallwood);
+		if (bigwood != noone)	 instance_destroy(bigwood);
+		if (smallmetal != noone) instance_destroy(smallmetal);
+		if (bigmetal != noone)   instance_destroy(bigmetal);
+	}
+}
 
 if (owner.state != owner.state_carry)
 {

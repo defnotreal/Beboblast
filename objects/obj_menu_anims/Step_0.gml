@@ -31,10 +31,6 @@ if (bebo_spr == spr_menu_bebo2 || bebo_spr == spr_menu_bebo3)
 
 switch (part)
 {
-	case -4:
-		black_alpha += 0.05;
-		if (black_alpha >= 1) game_end();
-	break;
 	case -1:
 		black_alpha -= 0.025;
 		if (black_alpha < 0)

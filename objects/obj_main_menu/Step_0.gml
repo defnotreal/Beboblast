@@ -9,7 +9,7 @@ if (get_button_pressed("action1"))
 		break;
 		case 2:
 			control = false;
-			obj_menu_anims.part = -4;
+			fade(function(){ game_end() });
 		break;
 	}
 }

@@ -2,7 +2,7 @@ align(fa_left, fa_bottom);
 
 var inst, g_state;
 
-if (state == state_ride) inst = bomb.collided;
+if (state == state_ride) inst = obj_player_bomb.collided;
 else inst = instance_place(x, y + 1, par_terrain);
 
 if (inst != -4) g_state = string(inst.id) + " (" + object_get_name((inst.object_index)) + ")";

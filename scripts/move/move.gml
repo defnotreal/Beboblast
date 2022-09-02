@@ -4,7 +4,11 @@ function move()
 	repeat(abs(v_spd))
 	{
 		if (!place_meeting(x, y + sign(v_spd), par_terrain)) y += sign(v_spd);
-		else v_spd = 0;
+		else
+		{
+			if (v_spd == 10) shake_camera(0, 10);
+			v_spd = 0;
+		}
 	}
 
 	repeat(abs(h_spd))

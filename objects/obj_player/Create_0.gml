@@ -23,9 +23,7 @@ jumps = 2;
 
 #region Gameplay
 
-bomb	   = instance_create_depth(x, y, depth + 1, obj_player_bomb);
-bomb.owner = id;
-cam		   = instance_create_depth(x, y - (sprite_height / 2), 0, obj_camera);
+cam		   = instance_create_depth(0, 0, 0, obj_camera);
 
 particles  = part_system_create();
 part_system_depth(particles, depth + 1);
@@ -54,7 +52,7 @@ function hit_wall()
 }
 function bomb_hit_wall()
 {
-	with (bomb) return place_meeting(x + sign(h_spd), y, obj_terrain_flat);
+	with (obj_player_bomb) return place_meeting(x + sign(h_spd), y, obj_terrain_flat);
 }
 function can_accel()
 {
@@ -84,7 +82,7 @@ state_free = function()
 	
 	if (get_button_pressed("action2"))
 	{
-		if (place_meeting(x, y, bomb)) player_set_state(state_carry);
+		if (place_meeting(x, y, obj_player_bomb)) player_set_state(state_carry);
 		else
 		{
 			if (dash)
@@ -100,14 +98,6 @@ state_free = function()
 state_jump = function()
 {
 	state_name = "state_jump";
-	
-	if (get_button("action2")) && (ground_spd == 10)
-	{
-		sprite_index = spr_player_dash
-		part_type_color1(part_trail, choose(c_red, c_blue, c_green));
-		part_type_scale(part_trail, image_xscale, 1);
-		part_particles_create(particles, x, y, part_trail, 1);
-	}
 	
 	if(!down_thrown)
 	{
@@ -135,7 +125,7 @@ state_dash = function()
 	part_type_scale(part_trail, image_xscale, 1);
 	part_particles_create(particles, x, y, part_trail, 1);
 	
-	if (place_meeting(x, y, bomb))
+	if (place_meeting(x, y, obj_player_bomb))
 	{
 		alarm[0] = -1;
 		dash = true;
@@ -144,7 +134,8 @@ state_dash = function()
 	
 	var hit_smallwood  = instance_place(x + sign(h_spd), y, obj_box_smallwood),
 		hit_smallmetal = instance_place(x + sign(h_spd), y, obj_box_smallmetal),
-		hit_bigwood	   = instance_place(x + sign(h_spd), y, obj_box_bigwood);
+		hit_bigwood	   = instance_place(x + sign(h_spd), y, obj_box_bigwood),
+		hit_cage	   = instance_place(x + sign(h_spd), y, obj_wood_cage);
 	if (hit_smallwood != noone)
 	{
 		show_debug_message("Box hit")
@@ -156,12 +147,27 @@ state_dash = function()
 		show_debug_message("Box hit")
 		player_stun();
 	}
+	else if (hit_cage != noone)
+	{
+		show_debug_message("Box hit")
+		hit_cage.hp--;
+		if (hit_bigwood.hp > 0) player_stun();
+		else 
+		{
+			player_stun();
+			shake_camera(3, 3);
+		}
+	}
 	else if (hit_bigwood != noone)
 	{
 		show_debug_message("Box hit")
 		hit_bigwood.hp--;
 		if (hit_bigwood.hp > 0) player_stun();
-		else shake_camera(3, 3);
+		else
+		{
+			instance_destroy(hit_bigwood);
+			shake_camera(3, 3);
+		}
 	}
 	else
 	{
@@ -215,15 +221,18 @@ carry_to_kick = function()
 {
 	if(get_button("up"))
 	{
-		bomb.v_spd = -(ground_spd * 2);
-		bomb.h_spd = h_spd * 2/3;
+		obj_player_bomb.v_spd = -(ground_spd * 2);
+		if		(get_button("right")) obj_player_bomb.h_spd = ground_spd;
+		else if (get_button("left"))  obj_player_bomb.h_spd = -ground_spd;
+		else obj_player_bomb.h_spd = 1 * image_xscale;
+		
 		alarm[0] = game_get_speed(gamespeed_fps) / 3;
 		player_set_state(state_throw);
 		if(grounded()) v_spd = -jump_spd / 2;
 	}
 	else if(get_button("down") && !grounded())
 	{
-		bomb.v_spd = ground_spd * 2;
+		obj_player_bomb.v_spd = ground_spd * 2;
 		v_spd = -jump_spd;
 		jumps = 1;
 		down_thrown = true;
@@ -232,7 +241,7 @@ carry_to_kick = function()
 	}
 	else
 	{
-		bomb.h_spd += (ground_spd * 2) * image_xscale;
+		obj_player_bomb.h_spd += (ground_spd * 2) * image_xscale;
 		alarm[0] = game_get_speed(gamespeed_fps) / 3;
 		player_set_state(state_kick);
 		if(grounded()) v_spd = -jump_spd / 2;
@@ -247,7 +256,7 @@ state_carry = function()
 	else sprite_index = spr_player_carry;
 	
 	depth = 1;
-	bomb.h_spd = 0;
+	obj_player_bomb.h_spd = 0;
 	
 	if(!grounded())
 	{
@@ -269,7 +278,7 @@ state_jump_carry = function()
 	image_speed = 0.075 * ground_spd;
 	
 	depth = 1;
-	bomb.h_spd = 0;
+	obj_player_bomb.h_spd = 0;
 	
 	if (get_button_pressed("action2"))
 	{
@@ -286,7 +295,7 @@ state_ride = function()
 	move_spd = 8;
 	fric = 0.075 * multi;
 	
-	bomb.h_spd = h_spd;
+	obj_player_bomb.h_spd = h_spd;
 	
 	if (get_button_pressed("action2"))
 	{
@@ -304,11 +313,11 @@ state_ridekick = function()
 	if (v_spd > 0) image_index = 1;
 	else image_index = 0;
 	
-	if (y >= bomb.y - (bomb.sprite_height / 2))
+	if (y >= obj_player_bomb.y - (obj_player_bomb.sprite_height / 2))
 	{
 		player_set_state(state_kick);
 		alarm[0] = game_get_speed(gamespeed_fps) / 3;
-		bomb.h_spd += (ground_spd * 4) * image_xscale
+		obj_player_bomb.h_spd += (ground_spd * 4) * image_xscale
 	}	
 }
 
