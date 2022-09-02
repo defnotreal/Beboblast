@@ -11,7 +11,7 @@
     {"id":{"name":"spr_player_throw","path":"sprites/spr_player_throw/spr_player_throw.yy",},"order":23,},
     {"id":{"name":"obj_terrain_slope2_2","path":"objects/obj_terrain_slope2_2/obj_terrain_slope2_2.yy",},"order":12,},
     {"id":{"name":"spr_wood_cage","path":"sprites/spr_wood_cage/spr_wood_cage.yy",},"order":33,},
-    {"id":{"name":"spr_death_pit","path":"sprites/spr_death_pit/spr_death_pit.yy",},"order":13,},
+    {"id":{"name":"spr_death_pit","path":"sprites/spr_death_pit/spr_death_pit.yy",},"order":34,},
     {"id":{"name":"par_menu","path":"objects/par_menu/par_menu.yy",},"order":0,},
     {"id":{"name":"obj_main_menu","path":"objects/obj_main_menu/obj_main_menu.yy",},"order":8,},
     {"id":{"name":"obj_terrain_half","path":"objects/obj_terrain_half/obj_terrain_half.yy",},"order":3,},

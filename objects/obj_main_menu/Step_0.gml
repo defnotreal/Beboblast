@@ -2,6 +2,7 @@ if (get_button_pressed("action1"))
 {
 	switch (sel)
 	{
+		case 0: fade(function() { room_goto(lvl_tutorial) }); break;
 		case 1:
 			obj_menu_anims.title_alpha = 0;
 			menu_create(obj_options, room_width / 4, (room_height / 2) - (room_height  / 6), fa_center, fa_middle);
@@ -9,7 +10,7 @@ if (get_button_pressed("action1"))
 		break;
 		case 2:
 			control = false;
-			fade(function(){ game_end() });
+			fade(function() { game_end() });
 		break;
 	}
 }
