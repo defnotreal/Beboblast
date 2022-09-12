@@ -25,15 +25,6 @@ jumps = 2;
 
 cam		   = instance_create_depth(0, 0, 0, obj_camera);
 
-particles  = part_system_create();
-part_system_depth(particles, depth + 1);
-
-part_trail = part_type_create();
-part_type_sprite(part_trail, spr_player_dash, 1, 0, 0);
-part_type_size(part_trail, 1, 1, 0, 0);
-part_type_life(part_trail, 10, 10);
-part_type_alpha3(part_trail, 0.5, 0.3, 0.1);
-
 image_speed = 0.5;
 
 #endregion
@@ -121,10 +112,6 @@ state_dash = function()
 	image_speed = 0.075 * abs(h_spd);
 	h_spd = 10 * image_xscale;
 	
-	part_type_color1(part_trail, choose(c_red, c_blue, c_green));
-	part_type_scale(part_trail, image_xscale, 1);
-	part_particles_create(particles, x, y, part_trail, 1);
-	
 	if (place_meeting(x, y, obj_player_bomb))
 	{
 		alarm[0] = -1;
@@ -132,13 +119,15 @@ state_dash = function()
 		player_set_state(state_carry);
 	}
 	
+	make_trail(floor(image_index), choose(c_red, c_blue, c_green));
+	
 	var hit_smallwood  = instance_place(x + sign(h_spd), y, obj_box_smallwood),
 		hit_smallmetal = instance_place(x + sign(h_spd), y, obj_box_smallmetal),
 		hit_bigwood	   = instance_place(x + sign(h_spd), y, obj_box_bigwood),
 		hit_cage	   = instance_place(x + sign(h_spd), y, obj_wood_cage);
 	if (hit_smallwood != noone)
 	{
-		show_debug_message("Box hit")
+		show_debug_message("Box hit");
 		instance_destroy(hit_smallwood);
 		shake_camera(2, 2);
 	}
@@ -185,9 +174,7 @@ state_overdrive = function()
 	h_spd = move_spd * image_xscale;
 	image_speed = 0.075 * abs(h_spd);
 	
-	part_type_color1(part_trail, c_yellow);
-	part_type_scale(part_trail, image_xscale, 1);
-	part_particles_create(particles, x, y, part_trail, 1);
+	make_trail(floor(image_index), c_yellow, 0.75);
 	
 	var hit_smallwood = instance_place(x + sign(h_spd), y, obj_box_smallwood),
 		hit_bigwood   = instance_place(x + sign(h_spd), y, obj_box_bigwood),

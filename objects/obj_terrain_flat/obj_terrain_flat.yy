@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "obj_terrain_flat",
   "spriteId": {
     "name": "spr_terrain_flat",
     "path": "sprites/spr_terrain_flat/spr_terrain_flat.yy",
@@ -31,8 +34,4 @@
     "name": "Terrain",
     "path": "folders/Objects/Terrain.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "obj_terrain_flat",
-  "tags": [],
-  "resourceType": "GMObject",
 }
