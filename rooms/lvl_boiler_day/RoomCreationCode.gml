@@ -1,1 +1,0 @@
-instance_create_depth(room_width / 2, 384, 0, obj_player);

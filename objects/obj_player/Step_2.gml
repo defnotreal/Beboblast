@@ -45,4 +45,3 @@ cam.x = x;
 cam.y = cam_y;
 
 if (layer_exists("BackSigns")) layer_x("BackSigns", (camera_get_view_x(view_camera[0]) / 12) - (camera_get_view_x(view_camera[0]) / 6));					
-if (layer_exists("Buildings")) layer_x("Buildings", camera_get_view_x(view_camera[0]) / 2);

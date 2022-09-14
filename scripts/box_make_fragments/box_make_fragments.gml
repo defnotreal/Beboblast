@@ -11,7 +11,7 @@ function box_make_fragments()
 	fragment = function()
 	{
 		randomize();
-		if (irandom(100) < 3) instance_create_depth(xx + w, yy + h, 0, f);
+		if (irandom(100) < 3) instance_create_depth(xx + w, yy + h, -2, f);
 		
 		w++;
 		if (h <= sprite_height)
