@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "obj_terrain_loop",
   "spriteId": {
     "name": "spr_terrain_loop",
     "path": "sprites/spr_terrain_loop/spr_terrain_loop.yy",
@@ -31,8 +34,4 @@
     "name": "Terrain",
     "path": "folders/Objects/Terrain.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "obj_terrain_loop",
-  "tags": [],
-  "resourceType": "GMObject",
 }

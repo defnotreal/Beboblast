@@ -113,7 +113,7 @@ switch (part)
 }
 
 if (bebo_v_spd < 10) && (part <= 3) && (part > 0) bebo_v_spd += grav;
-if (get_button_pressed("action1")) && (part <= 3) && (part > -4) skip_intro();
+if (get_button_pressed("action1")) && (part <= 2) && (part > -4) skip_intro();
 
 #endregion
 

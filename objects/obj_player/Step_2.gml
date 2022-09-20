@@ -44,4 +44,6 @@ var cam_y = y - sprite_get_height(spr_player);
 cam.x = x;
 cam.y = cam_y;
 
-if (layer_exists("BackSigns")) layer_x("BackSigns", (camera_get_view_x(view_camera[0]) / 12) - (camera_get_view_x(view_camera[0]) / 6));					
+if (layer_exists("BackSigns")) layer_x("BackSigns", (camera_get_view_x(view_camera[0]) / 12) - (camera_get_view_x(view_camera[0]) / 6));
+if (layer_exists("BuildingsFront")) layer_x("BuildingsFront", camera_get_view_x(view_camera[0]) / 2);
+if (layer_exists("BuildingsBack")) layer_x("BuildingsBack", camera_get_view_x(view_camera[0]) / 2.25);

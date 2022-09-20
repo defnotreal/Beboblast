@@ -1,6 +1,6 @@
 #macro DEBUG     true
 #macro TILE_SIZE 16
-#macro MAIN_FONT font_add_sprite_ext(spr_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.!?:(),<>-_", true, 1)
+#macro MAIN_FONT font_add_sprite_ext(spr_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.!?:(),<>-_+", true, 1)
 
 if (!file_exists("data/settings.ini"))
 {

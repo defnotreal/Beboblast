@@ -100,6 +100,7 @@
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"66da4ac9-ae47-4bd0-83e5-48d8866402c4",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ca32c789-fb89-49c0-aca0-f16ced5fb1cb",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"cf82c1d5-17b9-498e-bce8-0c655213751d",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"63f30a40-607d-4a2d-a9d6-dd5a81c93131",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -111,7 +112,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 73.0,
+    "length": 74.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -189,6 +190,7 @@
             {"id":"03275444-7d88-4340-b910-09dd803c0d3e","Key":70.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"66da4ac9-ae47-4bd0-83e5-48d8866402c4","path":"sprites/spr_font/spr_font.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"132c7d84-6d72-41e1-9a8e-5c3aa8ede519","Key":71.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ca32c789-fb89-49c0-aca0-f16ced5fb1cb","path":"sprites/spr_font/spr_font.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"88dfe2a6-0e71-49c2-bd49-3d58bc79e606","Key":72.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"cf82c1d5-17b9-498e-bce8-0c655213751d","path":"sprites/spr_font/spr_font.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"35af76a5-2ef9-4a73-9eb8-3884c099db25","Key":73.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"63f30a40-607d-4a2d-a9d6-dd5a81c93131","path":"sprites/spr_font/spr_font.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,

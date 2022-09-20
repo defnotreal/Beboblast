@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_boiler_buildingsloop",
+  "name": "spr_boiler_buildings1",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -10,14 +10,14 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 0,
-  "bbox_right": 639,
-  "bbox_top": 0,
+  "bbox_left": 23,
+  "bbox_right": 304,
+  "bbox_top": 4,
   "bbox_bottom": 179,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 640,
+  "width": 320,
   "height": 180,
   "textureGroupId": {
     "name": "Default",
@@ -27,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3cd7acbc-c13b-43f2-bf38-66cd7c4e1b27",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3a1ac16d-f330-4bc9-80b3-f9f199172c2a",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_boiler_buildingsloop",
+    "name": "spr_boiler_buildings1",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -44,7 +44,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"1b9751d1-8f32-4d70-a503-804722c8d2db","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3cd7acbc-c13b-43f2-bf38-66cd7c4e1b27","path":"sprites/spr_boiler_buildingsloop/spr_boiler_buildingsloop.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"0605518d-1227-4d09-990c-ad64756cb592","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3a1ac16d-f330-4bc9-80b3-f9f199172c2a","path":"sprites/spr_boiler_buildings1/spr_boiler_buildings1.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
@@ -63,7 +63,7 @@
     "eventStubScript": null,
   },
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"1cccbe90-fe8a-44ed-b5c9-05932523b5e6","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5ff51205-aa1b-44c5-b66b-e571c0d5c7e4","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {

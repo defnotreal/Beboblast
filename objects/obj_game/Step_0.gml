@@ -69,3 +69,20 @@ if (timer_min == 0) && (timer_sec < 10)
 }
 
 #endregion
+
+#region Score stuff
+
+score_shake		 = lerp(score_shake, 0, 0.2);
+scoretoadd_shake = lerp(scoretoadd_shake, 0, 0.2);
+
+if (score_timer > 0) score_timer--;
+else
+{
+	if (score_timer == 0)
+	{
+		set_score();
+		score_timer = -1;
+	}
+}
+
+#endregion
