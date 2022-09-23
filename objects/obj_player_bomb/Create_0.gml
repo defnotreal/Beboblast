@@ -1,11 +1,11 @@
 /// @description Init
 
-owner   = obj_player;
-h_spd   = 0;
-v_spd   = 0;
-fric    = 0.25;
-grav    = 0.2;
-rotate = 0;
+owner    = obj_player;
+h_spd    = 0;
+v_spd    = 0;
+fric     = 0.25;
+grav     = 0.2;
+rotate   = 0;
 collided = 0;
 
-depth = 1;
+depth = owner.depth + 1;

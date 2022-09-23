@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "obj_terrain_bump",
   "spriteId": {
     "name": "spr_terrain_bump",
     "path": "sprites/spr_terrain_bump/spr_terrain_bump.yy",
@@ -31,8 +34,4 @@
     "name": "Terrain",
     "path": "folders/Objects/Terrain.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "obj_terrain_bump",
-  "tags": [],
-  "resourceType": "GMObject",
 }

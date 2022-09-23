@@ -86,3 +86,12 @@ else
 }
 
 #endregion
+
+#region HP stuff
+
+if (obj_player.hp <= 1) hp_min_shake = 1;
+else				    hp_min_shake = 0;
+
+hp_shake = lerp(hp_shake, hp_min_shake, 0.2);
+
+#endregion

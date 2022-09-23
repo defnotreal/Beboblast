@@ -5,6 +5,8 @@
 h_spd   = 0;
 v_spd   = 0;
 dash    = true;
+control = true;
+hp		= 4;
 
 multi = 1;
 
@@ -23,7 +25,7 @@ jumps = 2;
 
 #region Gameplay
 
-cam		   = instance_create_depth(0, 0, 0, obj_camera);
+cam		    = instance_create_depth(0, 0, 0, obj_camera);
 
 image_speed = 0.5;
 
@@ -47,7 +49,7 @@ function bomb_hit_wall()
 }
 function can_accel()
 {
-	if (h_spd < move_spd) && (h_spd > -move_spd) return true;
+	if (h_spd < ground_spd) && (h_spd > -ground_spd) return true;
 	return false;
 }
 function player_stun()
@@ -121,6 +123,44 @@ state_dash = function()
 	
 	make_trail(floor(image_index), choose(c_red, c_blue, c_green));
 	
+	if (grounded)
+	{
+		var slope_l, slope_s1, slope_s2, slope_next;
+		slope_l	 = instance_place(x, y + 1, obj_terrain_slope1);
+		slope_s1 = instance_place(x, y + 1, obj_terrain_slope2_1);
+		slope_s2 = instance_place(x, y + 1, obj_terrain_slope2_2);
+		
+		if (slope_l != -4)
+		{
+			slope_next = instance_position(slope_l.x - (8 * slope_l.image_xscale), y - 8, par_terrain);
+
+			if (slope_next == -4 || slope_next.object_index = obj_terrain_slope2_1)
+			{
+				var side;
+				
+				if (x != slope_l.x) && (y >= slope_l.y + 1) v_spd = -(abs(h_spd));
+			}
+		}
+		else if (slope_s1 != -4)
+		{
+			slope_next = instance_position(slope_s1.x - (8 * slope_s1.image_xscale), y - 4, par_terrain);
+
+			if (slope_next == -4)
+			{
+				if (x != slope_s1.x) && (y >= slope_s1.y + 1) v_spd = -(abs(h_spd)) / 2;
+			}
+		}
+		else if (slope_s2 != -4)
+		{
+			slope_next = instance_position(slope_s2.x - (8 * slope_s2.image_xscale), y - 8, par_terrain);
+
+			if (slope_next == -4)
+			{
+				if (x != slope_s2.x) && (y >= slope_s2.y + 1) v_spd = -(abs(h_spd)) / 2;
+			}
+		}
+	}
+	
 	var hit_smallwood  = instance_place(x + sign(h_spd), y, obj_box_smallwood),
 		hit_smallmetal = instance_place(x + sign(h_spd), y, obj_box_smallmetal),
 		hit_bigwood	   = instance_place(x + sign(h_spd), y, obj_box_bigwood),
@@ -175,6 +215,42 @@ state_overdrive = function()
 	image_speed = 0.075 * abs(h_spd);
 	
 	make_trail(floor(image_index), c_yellow, 0.75);
+	
+	if (grounded)
+	{
+		var slope_l, slope_s1, slope_s2, slope_next;
+		slope_l	 = instance_place(x, y + 1, obj_terrain_slope1);
+		slope_s1 = instance_place(x, y + 1, obj_terrain_slope2_1);
+		slope_s2 = instance_place(x, y + 1, obj_terrain_slope2_2);
+		
+		if (slope_l != -4)
+		{
+			slope_next = instance_position(slope_l.x - (8 * slope_l.image_xscale), y - 8, par_terrain);
+
+			if (slope_next == -4 || slope_next.object_index = obj_terrain_slope2_1)
+			{
+				if (x != slope_l.x) && (y >= slope_l.y + 1) v_spd = -(abs(h_spd));
+			}
+		}
+		else if (slope_s1 != -4)
+		{
+			slope_next = instance_position(slope_s1.x - (8 * slope_s1.image_xscale), y - 4, par_terrain);
+
+			if (slope_next == -4)
+			{
+				if (x != slope_s1.x) && (y >= slope_s1.y + 1) v_spd = -(abs(h_spd)) / 2;
+			}
+		}
+		else if (slope_s2 != -4)
+		{
+			slope_next = instance_position(slope_s2.x - (8 * slope_s2.image_xscale), y - 8, par_terrain);
+
+			if (slope_next == -4)
+			{
+				if (x != slope_s2.x) && (y >= slope_s2.y + 1) v_spd = -(abs(h_spd)) / 2;
+			}
+		}
+	}
 	
 	var hit_smallwood = instance_place(x + sign(h_spd), y, obj_box_smallwood),
 		hit_bigwood   = instance_place(x + sign(h_spd), y, obj_box_bigwood),
@@ -328,13 +404,13 @@ state_stunned = function()
 {
 	state_name = "state_stunned";
 	
-	image_xscale = 1 * -sign(h_spd);
+	image_xscale = -sign(h_spd);
 	sprite_index = spr_player_jump;
 	
 	if (v_spd > 0) image_index = 1;
 	else image_index = 0;
 	
-	if (grounded())
+	if (grounded() || hit_wall())
 	{
 		dash = true;
 		h_spd = 0;

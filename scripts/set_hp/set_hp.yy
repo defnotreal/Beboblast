@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "player_set_state",
+  "name": "set_hp",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

@@ -12,8 +12,11 @@ lvl_scoretoadd = 0;
 
 #region HUD positioning
 
-hp_x	= display_get_gui_width() / 24;
-hp_y	= display_get_gui_height() / 24;
+hp_x		 = display_get_gui_width() / 24;
+hp_y		 = display_get_gui_height() / 24;
+hp_shake	 = 0;
+hp_min_shake = 0;
+hp_scale	 = 0;
 
 score_x			 = display_get_gui_width() - (display_get_gui_width() / 24);
 score_y			 = hp_y;

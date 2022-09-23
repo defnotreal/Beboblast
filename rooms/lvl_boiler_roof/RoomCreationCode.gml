@@ -1,1 +1,1 @@
-instance_create_depth(32, 226, 0, obj_player);
+instance_create_layer(0, 0, "Instances", obj_game);

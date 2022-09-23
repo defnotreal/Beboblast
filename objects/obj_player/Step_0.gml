@@ -29,42 +29,46 @@ else
 
 if (state != state_stunned)
 {
-	if (get_button("right"))
+	if (control)
 	{
-		if (h_spd < 0) h_spd = approach(h_spd, 0, real_fric);
-		h_spd = approach(h_spd, real_spd, real_fric);
-	}
-	else if (get_button("left"))
-	{
-		if (h_spd > 0) h_spd = approach(h_spd, 0, real_fric);
-		h_spd = approach(h_spd, -real_spd, real_fric);
-	}
-	else 
-	{
-		if (state != state_ride)
+		if (get_button("right"))
 		{
-			if (!get_button("right") && !get_button("left")) h_spd = approach(h_spd, 0, real_fric);
+			if (h_spd < 0) h_spd = approach(h_spd, 0, real_fric);
+			h_spd = approach(h_spd, real_spd, real_fric);
 		}
-		else h_spd = approach(h_spd, 0, real_fric);
-	}
+		else if (get_button("left"))
+		{
+			if (h_spd > 0) h_spd = approach(h_spd, 0, real_fric);
+			h_spd = approach(h_spd, -real_spd, real_fric);
+		}
+		else 
+		{
+			if (state != state_ride)
+			{
+				if (!get_button("right") && !get_button("left")) h_spd = approach(h_spd, 0, real_fric);
+			}
+			else h_spd = approach(h_spd, 0, real_fric);
+		}
 
-	if (get_button_pressed("action1"))
-	{
-		if (jumps > 0)
+		if (get_button_pressed("action1"))
 		{
-			if(state == state_carry)	player_set_state(state_jump_carry);
-			else						player_set_state(state_jump);
-			if(state == state_jump_carry) image_index = 2;
-			if (grounded()) y--;
-			v_spd = -jump_spd;
-			jumps--;
-			down_thrown = false;
-		}
-		else
-		{
-			if (state != state_jump_carry) v_spd = 0
+			if (jumps > 0)
+			{
+				if(state == state_carry)	player_set_state(state_jump_carry);
+				else						player_set_state(state_jump);
+				if(state == state_jump_carry) image_index = 2;
+				if (grounded()) y--;
+				v_spd = -jump_spd;
+				jumps--;
+				down_thrown = false;
+			}
+			else
+			{
+				if (state != state_jump_carry) v_spd = 0
+			}
 		}
 	}
+	else h_spd = approach(h_spd, 0, real_fric);
 	
 	if (h_spd > 8 || h_spd < -8) && (hit_wall()) player_stun();
 }

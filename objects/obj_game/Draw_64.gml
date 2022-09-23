@@ -23,11 +23,11 @@ align_reset();
 
 if (timer_enabled)
 {
-	var shk_x = random_range(-timer_shake, timer_shake);
-	var shk_y = random_range(-timer_shake, timer_shake);
+	var tm_shk_x = random_range(-timer_shake, timer_shake),
+		tm_shk_y = random_range(-timer_shake, timer_shake);
 
-	draw_sprite_ext(spr_hud_timer, timer_img, timer_x + shk_x, timer_y + shk_y, hud_mult, hud_mult, 0, c_white, 1);
-	draw_sprite_ext(spr_hud_timerfire, 0, (timer_firex * hud_mult) + shk_x, (timer_firey * hud_mult) + shk_y, hud_mult, hud_mult, 0, c_white, 1);
+	draw_sprite_ext(spr_hud_timer, timer_img, timer_x + tm_shk_x, timer_y + tm_shk_y, hud_mult, hud_mult, 0, c_white, 1);
+	draw_sprite_ext(spr_hud_timerfire, 0, (timer_firex * hud_mult) + tm_shk_x, (timer_firey * hud_mult) + tm_shk_y, hud_mult, hud_mult, 0, c_white, 1);
 
 	var f_min = timer_min,
 		f_sec = timer_sec;
@@ -38,10 +38,20 @@ if (timer_enabled)
 
 	align(fa_center, fa_middle);
 
-	draw_text_transformed(timer_x + shk_x, timer_y + shk_y, time, hud_mult, hud_mult, 0);
+	draw_text_transformed(timer_x + tm_shk_x, timer_y + tm_shk_y, time, hud_mult, hud_mult, 0);
 
 	align_reset();
 }
+
+#endregion
+
+#region HP
+
+var hp_shk_x = random_range(-hp_shake, hp_shake),
+	hp_shk_y = random_range(-hp_shake, hp_shake);
+
+draw_sprite_ext(spr_healthbar_fill, 0, (hp_x + 8) + hp_shk_x, (hp_y + 8) + hp_shk_y, (60 * (obj_player.hp / 4)) * hud_mult, hud_mult, 0, c_white, 1);
+draw_sprite_ext(spr_healthbar, 0, hp_x + hp_shk_x, hp_y + hp_shk_y, hud_mult, hud_mult, 0, c_white, 1);
 
 #endregion
 

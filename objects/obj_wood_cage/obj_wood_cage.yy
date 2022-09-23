@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "obj_wood_cage",
   "spriteId": {
     "name": "spr_wood_cage",
     "path": "sprites/spr_wood_cage/spr_wood_cage.yy",
@@ -31,8 +34,4 @@
     "name": "Terrain",
     "path": "folders/Objects/Terrain.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "obj_wood_cage",
-  "tags": [],
-  "resourceType": "GMObject",
 }
