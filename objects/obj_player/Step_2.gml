@@ -40,8 +40,8 @@ switch (state)
 	break;
 }
 
-var cam_y = y - sprite_get_height(spr_player);
-cam.x = x;
+var cam_y = obj_player.y - sprite_get_height(spr_player);
+cam.x = obj_player.x;
 cam.y = cam_y;
 
 if (layer_exists("BackSigns")) layer_x("BackSigns", (camera_get_view_x(view_camera[0]) / 12) - (camera_get_view_x(view_camera[0]) / 6));

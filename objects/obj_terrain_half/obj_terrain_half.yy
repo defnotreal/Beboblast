@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "obj_terrain_half",
   "spriteId": {
     "name": "spr_terrain_half",
     "path": "sprites/spr_terrain_half/spr_terrain_half.yy",
@@ -31,8 +34,4 @@
     "name": "Terrain",
     "path": "folders/Objects/Terrain.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "obj_terrain_half",
-  "tags": [],
-  "resourceType": "GMObject",
 }

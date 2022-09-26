@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "obj_terrain_slope3_2",
   "spriteId": {
     "name": "spr_terrain_slope3_2",
     "path": "sprites/spr_terrain_slope3_2/spr_terrain_slope3_2.yy",
@@ -31,8 +34,4 @@
     "name": "Terrain",
     "path": "folders/Objects/Terrain.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "obj_terrain_slope3_2",
-  "tags": [],
-  "resourceType": "GMObject",
 }

@@ -22,7 +22,7 @@ if (timer_enabled)
 			else timer_sec = 59;
 		}
 	}
-	
+	/*
 	switch (timer_min)
 	{
 		case 8: timer_img = 1; break;
@@ -61,6 +61,7 @@ switch (timer_img)
 		timer_firex = 45;
 		timer_firey = 135;
 	break;
+	*/
 }
 
 if (timer_min == 0) && (timer_sec < 10)

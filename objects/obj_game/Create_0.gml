@@ -4,8 +4,8 @@ hud_mult	  = 4;
 
 timer_enabled = true;
 timer_tick	  = game_get_speed(gamespeed_fps);
-timer_min	  = 9;
-timer_sec	  = 5;
+timer_min	  = 5;
+timer_sec	  = 0;
 
 lvl_score	   = 0;
 lvl_scoretoadd = 0;
@@ -26,9 +26,9 @@ score_timer		 = -1;
 
 timer_x		= display_get_gui_width() / 14;
 timer_y		= display_get_gui_height() - (display_get_gui_height() / 8);
-timer_firex = 310;
+timer_firex = 102;
 timer_firey = 170;
-timer_img   = 0;
+timer_img   = 8;
 timer_shake = 0;
 
 #endregion

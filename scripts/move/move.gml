@@ -27,10 +27,10 @@ function move()
 			{
 				if (owner.state == owner.state_ride)
 				{
-					if (owner.h_spd > 1 || owner.h_spd < -1) owner.h_spd *= -0.5;
+					if (owner.h_spd > 1 || owner.h_spd < -1) owner.h_spd *= -0.75;
 					else owner.h_spd = 0;
 				}
-				else h_spd *= -0.5;
+				else h_spd *= -0.75;
 			}
 			else h_spd = 0;
 		}

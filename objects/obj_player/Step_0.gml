@@ -111,7 +111,7 @@ if (on_boost != noone) && (state != state_overdrive)
 }
 
 if (h_spd != 0) && (state != state_stunned) image_xscale = sign(h_spd);
-if (sprite_index == spr_player_walk) || (sprite_index == spr_player_carrywalk && grounded()) image_speed = 0.075 * abs(h_spd);
+if ((sprite_index == spr_player_walk) || (sprite_index == spr_player_carrywalk && grounded())) image_speed = 0.075 * abs(h_spd);
 else if (sprite_index == spr_player_jump) || (sprite_index == spr_player_hover) image_speed = 0.5;
 move();
 
