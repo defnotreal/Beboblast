@@ -52,7 +52,7 @@ if (state != state_stunned)
 
 		if (get_button_pressed("action1"))
 		{
-			if (jumps > 0)
+			if (state != state_overdrive) && (jumps > 0)
 			{
 				if(state == state_carry)	player_set_state(state_jump_carry);
 				else						player_set_state(state_jump);

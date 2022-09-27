@@ -31,6 +31,22 @@ switch (state)
 		else add = 0;
 		obj_player_bomb.y = bbox_top + add;
 	break;
+	case state_overdrive_carry:
+		obj_player_bomb.x = x;
+		var add = 0;
+		if (sprite_index == spr_player_carrywalk)
+		{
+			switch (floor(image_index))
+			{
+				case 0: add = 0; break;
+				case 1: add = 1; break;
+				case 2: add = 0; break;
+				case 3: add = 1; break;
+			}
+		}
+		else add = 0;
+		obj_player_bomb.y = bbox_top + add;
+	break;
 	case state_ride:
 		x = obj_player_bomb.x;
 		y = obj_player_bomb.y - (obj_player_bomb.sprite_height) + 3;

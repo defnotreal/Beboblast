@@ -1,4 +1,4 @@
-if (state == state_overdrive) gpu_set_fog(true, c_white, 0, 0);
+if (state == state_overdrive || state == state_overdrive_carry) gpu_set_fog(true, c_white, 0, 0);
 draw_self();
 gpu_set_fog(false, c_white, 0, 0);
 

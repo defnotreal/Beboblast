@@ -41,7 +41,7 @@ function grounded()
 }
 function hit_wall()
 {
-	if (place_meeting(x + sign(h_spd), y, obj_terrain_flat) || place_meeting(x + sign(h_spd), y, obj_terrain_bump)) return true;
+	if (place_meeting(x + sign(h_spd), y, obj_terrain_flat) || place_meeting(x + sign(h_spd), y, obj_terrain_bump) || place_meeting(x + sign(h_spd), y, obj_terrain_half)) return true;
 	return false;
 }
 function bomb_hit_wall()
@@ -106,6 +106,11 @@ state_jump = function()
 		else image_index = 0;
 	}
 	else if(sprite_index == spr_player_throw_down && v_spd > 0) down_thrown = false;
+	
+	if (get_button_pressed("action2"))
+	{
+		if (place_meeting(x, y, obj_player_bomb)) player_set_state(state_jump_carry);
+	}
 }
 
 state_dash = function()
@@ -212,6 +217,81 @@ state_overdrive = function()
 	
 	shake_camera(1, 1);
 	sprite_index = spr_player_dash;
+	move_spd = 15;
+	h_spd = move_spd * image_xscale;
+	image_speed = 0.075 * abs(h_spd);
+	
+	make_trail(sprite_index, floor(image_index), c_yellow, 0.75);
+	
+	if (grounded)
+	{
+		var slope_l, slope_s1, slope_s2, slope_next;
+		slope_l	 = instance_place(x, y + 1, obj_terrain_slope1);
+		slope_s1 = instance_place(x, y + 1, obj_terrain_slope2_1);
+		slope_s2 = instance_place(x, y + 1, obj_terrain_slope2_2);
+		
+		if (slope_l != -4) && (slope_l.image_xscale = -image_xscale)
+		{
+			slope_next = instance_position(slope_l.x - (8 * slope_l.image_xscale), y - 8, par_terrain);
+
+			if (slope_next == -4 || slope_next.object_index = obj_terrain_slope2_1)
+			{
+				if (x != slope_l.x) && (y >= slope_l.y + 1) v_spd = -(abs(h_spd));
+			}
+		}
+		else if (slope_s1 != -4) && (slope_s1.image_xscale = -image_xscale)
+		{
+			slope_next = instance_position(slope_s1.x - (8 * slope_s1.image_xscale), y - 4, par_terrain);
+
+			if (slope_next == -4)
+			{
+				if (x != slope_s1.x) && (y >= slope_s1.y + 1) v_spd = -(abs(h_spd)) / 2;
+			}
+		}
+		else if (slope_s2 != -4) && (slope_s2.image_xscale = -image_xscale)
+		{
+			slope_next = instance_position(slope_s2.x - (8 * slope_s2.image_xscale), y - 8, par_terrain);
+
+			if (slope_next == -4)
+			{
+				if (x != slope_s2.x) && (y >= slope_s2.y + 1) v_spd = -(abs(h_spd)) / 2;
+			}
+		}
+	}
+	
+	var hit_smallwood = instance_place(x + sign(h_spd), y, obj_box_smallwood),
+		hit_bigwood   = instance_place(x + sign(h_spd), y, obj_box_bigwood),
+		hit_smallmetal = instance_place(x + sign(h_spd), y, obj_box_smallmetal);
+	if (hit_smallwood != noone)
+	{
+		show_debug_message("Box hit")
+		instance_destroy(hit_smallwood);
+		shake_camera(2, 2);
+	}
+	else if (hit_bigwood != noone)
+	{
+		show_debug_message("Box hit")
+		instance_destroy(hit_bigwood);
+		shake_camera(3, 3);
+	}
+	else if (hit_smallmetal != noone)
+	{
+		show_debug_message("Box hit")
+		instance_destroy(hit_smallmetal);
+		shake_camera(4, 4);
+	}
+	else
+	{
+		if (hit_wall()) player_stun();
+	}
+}
+
+state_overdrive_carry = function()
+{
+	state_name = "state_overdrive_carry";
+	
+	shake_camera(1, 1);
+	sprite_index = spr_player_carry;
 	move_spd = 15;
 	h_spd = move_spd * image_xscale;
 	image_speed = 0.075 * abs(h_spd);

@@ -62,10 +62,10 @@ if (owner.state != owner.state_ride && instance_place(x, y + 1, obj_terrain_flat
 
 if (owner.state != owner.state_carry && owner.state != owner.state_jump_carry)
 {
-	var smallwood  = instance_place(x + h_spd, y + 1, obj_box_smallwood),
-		bigwood	   = instance_place(x + h_spd, y + 1, obj_box_bigwood),
-		smallmetal = instance_place(x + h_spd, y + 1, obj_box_smallmetal),
-		bigmetal   = instance_place(x + h_spd, y + 1, obj_box_bigmetal);
+	var smallwood  = instance_place(x + h_spd, y + 2, obj_box_smallwood),
+		bigwood	   = instance_place(x + h_spd, y + 2, obj_box_bigwood),
+		smallmetal = instance_place(x + h_spd, y + 2, obj_box_smallmetal),
+		bigmetal   = instance_place(x + h_spd, y + 2, obj_box_bigmetal);
 		
 	if (h_spd > 3 || h_spd < -3)
 	{
