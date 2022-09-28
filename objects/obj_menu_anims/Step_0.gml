@@ -41,12 +41,20 @@ switch (part)
 	break;
 	case 0:
 		bomb_scale += 0.05;
+		if (bomb_img_spd > 0) bomb_img_spd--;
+		else
+		{
+			if (bomb_img == sprite_get_number(spr_menu_bomb) - 1) bomb_img = 0;
+			else bomb_img++;
+			bomb_img_spd = 1;
+		}
 		bebo_anchor_y = bomb_y;
 		bebo_y = bebo_anchor_y;
 		if (bomb_scale > 1.5)
 		{
 			part++;
 			shake_camera(3, 3);
+			bomb_img = 0;
 			bomb_v_spd = -12;
 			bebo_v_spd = -34;
 			bebo_img = 1;

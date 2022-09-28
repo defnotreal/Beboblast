@@ -10,6 +10,8 @@ bomb_anchor_y  = room_height - (room_height / 4);
 bomb_y		   = bomb_anchor_y;
 bomb_v_spd	   = 0;
 bomb_scale	   = 0;
+bomb_img	   = 0;
+bomb_img_spd   = 1;
 
 bebo_spr	   = spr_menu_bebo1;
 bebo_img	   = 0;

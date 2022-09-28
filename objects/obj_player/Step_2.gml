@@ -3,9 +3,9 @@ switch (state)
 	case state_carry:
 		obj_player_bomb.x = x;
 		var add = 0;
-		if (sprite_index == spr_player_carrywalk)
+		if (cur_spr == spr_player_carrywalk)
 		{
-			switch (floor(image_index))
+			switch (cur_img)
 			{
 				case 0: add = 0; break;
 				case 1: add = 1; break;
@@ -18,9 +18,9 @@ switch (state)
 	case state_jump_carry:
 		obj_player_bomb.x = x;
 		var add = 0;
-		if (sprite_index == spr_player_carrywalk)
+		if (cur_spr == spr_player_carrywalk)
 		{
-			switch (floor(image_index))
+			switch (cur_img)
 			{
 				case 0: add = 0; break;
 				case 1: add = 1; break;
@@ -34,9 +34,9 @@ switch (state)
 	case state_overdrive_carry:
 		obj_player_bomb.x = x;
 		var add = 0;
-		if (sprite_index == spr_player_carrywalk)
+		if (cur_spr == spr_player_carrywalk)
 		{
-			switch (floor(image_index))
+			switch (cur_img)
 			{
 				case 0: add = 0; break;
 				case 1: add = 1; break;

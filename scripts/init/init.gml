@@ -1,4 +1,3 @@
-#macro DEBUG     true
 #macro TILE_SIZE 16
 #macro MAIN_FONT font_add_sprite_ext(spr_font, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.!?:(),<>-_+", true, 1)
 
@@ -26,6 +25,8 @@ if (!file_exists("data/settings.ini"))
 	ini_write_real("ControlsGP", "action2", gp_face2);
 	ini_write_real("ControlsGP", "pause", gp_start);
 	
+	ini_write_real("Misc", "debug", 0);
+	
 	ini_close();
 }
 
@@ -35,13 +36,13 @@ camera_set_view_size(global.cam, 320, 180);
 global.a_music = audio_emitter_create();
 global.a_sound = audio_emitter_create();
 
-var cap = "BEBO BLOWS IT!";
-if (DEBUG) cap = cap + " (DEBUG)";
-window_set_caption(cap);
-
 ini_open("data/settings.ini");
-
+global.debug = ini_read_real("Misc", "debug", 0);
 window_set_fullscreen(ini_read_real("Video", "fullscreen", 0));
 ini_close();
+
+var cap = "BEBO BLOWS IT!";
+if (global.debug) cap = cap + " (DEBUG)";
+window_set_caption(cap);
 
 draw_set_font(MAIN_FONT);

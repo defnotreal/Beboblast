@@ -2,11 +2,15 @@
 
 #region Movement
 
-h_spd   = 0;
-v_spd   = 0;
-dash    = true;
-control = true;
-hp		= 4;
+h_spd     = 0;
+v_spd     = 0;
+dash      = true;
+control   = true;
+hp		  = 4;
+cur_spr   = spr_player;
+cur_img   = 0;
+img_spd	  = 0;
+anim_time = img_spd;
 
 multi = 1;
 
@@ -26,8 +30,6 @@ jumps = 2;
 #region Gameplay
 
 cam		    = instance_create_depth(0, 0, 0, obj_camera);
-
-image_speed = 0.5;
 
 #endregion
 
@@ -65,13 +67,18 @@ function player_stun()
 	image_xscale = 1 * sign(h_spd);
 	player_set_state(state_stunned);	
 }
+function reset_anim(_spd)
+{
+	img_spd = _spd;
+	anim_time = img_spd;
+}
 
 state_free = function()
 {
 	state_name = "state_free";
 	
-	if (h_spd != 0) sprite_index = spr_player_walk;
-	else sprite_index = spr_player;
+	if (h_spd != 0) cur_spr = spr_player_walk;
+	else cur_spr = spr_player;
 	move_spd = 4;
 	fric = 0.4;
 	
@@ -96,16 +103,16 @@ state_jump = function()
 	
 	if(!down_thrown)
 	{
-		if (jumps > 0) sprite_index = spr_player_jump;
-		else sprite_index = spr_player_hover;
+		if (jumps > 0) cur_spr = spr_player_jump;
+		else cur_spr = spr_player_hover;
 	}
 	
-	if (sprite_index == spr_player_jump)
+	if (cur_spr == spr_player_jump)
 	{
-		if (v_spd > 0) image_index = 1;
-		else image_index = 0;
+		if (v_spd > 0) cur_img = 1;
+		else cur_img = 0;
 	}
-	else if(sprite_index == spr_player_throw_down && v_spd > 0) down_thrown = false;
+	else if(cur_spr == spr_player_throw_down && v_spd > 0) down_thrown = false;
 	
 	if (get_button_pressed("action2"))
 	{
@@ -117,8 +124,7 @@ state_dash = function()
 {
 	state_name = "state_dash";
 	
-	sprite_index = spr_player_dash;
-	image_speed = 0.075 * abs(h_spd);
+	cur_spr = spr_player_dash;
 	h_spd = 10 * image_xscale;
 	
 	if (place_meeting(x, y, obj_player_bomb))
@@ -128,7 +134,7 @@ state_dash = function()
 		player_set_state(state_carry);
 	}
 	
-	make_trail(sprite_index, floor(image_index), choose(c_red, c_blue, c_green));
+	make_trail(cur_spr, cur_img, choose(c_red, c_blue, c_green));
 	
 	if (grounded)
 	{
@@ -216,12 +222,11 @@ state_overdrive = function()
 	state_name = "state_overdrive";
 	
 	shake_camera(1, 1);
-	sprite_index = spr_player_dash;
+	cur_spr = spr_player_dash;
 	move_spd = 15;
 	h_spd = move_spd * image_xscale;
-	image_speed = 0.075 * abs(h_spd);
 	
-	make_trail(sprite_index, floor(image_index), c_yellow, 0.75);
+	make_trail(cur_spr, cur_img, c_yellow, 0.75);
 	
 	if (grounded)
 	{
@@ -291,12 +296,11 @@ state_overdrive_carry = function()
 	state_name = "state_overdrive_carry";
 	
 	shake_camera(1, 1);
-	sprite_index = spr_player_carry;
+	cur_spr = spr_player_carry;
 	move_spd = 15;
 	h_spd = move_spd * image_xscale;
-	image_speed = 0.075 * abs(h_spd);
 	
-	make_trail(sprite_index, floor(image_index), c_yellow, 0.75);
+	make_trail(cur_spr, cur_img, c_yellow, 0.75);
 	
 	if (grounded)
 	{
@@ -381,7 +385,7 @@ carry_to_kick = function()
 		v_spd = -jump_spd;
 		jumps = 1;
 		down_thrown = true;
-		sprite_index = spr_player_throw_down;
+		cur_spr = spr_player_throw_down;
 		player_set_state(state_jump)
 	}
 	else
@@ -397,8 +401,8 @@ state_carry = function()
 {
 	state_name = "state_carry";
 	
-	if (h_spd != 0) sprite_index = spr_player_carrywalk;
-	else sprite_index = spr_player_carry;
+	if (h_spd != 0) cur_spr = spr_player_carrywalk;
+	else cur_spr = spr_player_carry;
 	
 	depth = 1;
 	obj_player_bomb.h_spd = 0;
@@ -419,8 +423,7 @@ state_jump_carry = function()
 {
 	state_name = "state_jump_carry";
 	
-	sprite_index = spr_player_carrywalk;
-	image_speed = 0.075 * ground_spd;
+	cur_spr = spr_player_carrywalk;
 	
 	depth = 1;
 	obj_player_bomb.h_spd = 0;
@@ -435,8 +438,7 @@ state_ride = function()
 {
 	state_name = "state_ride";
 	
-	sprite_index = spr_player_ride;
-	image_speed = h_spd / move_spd;
+	cur_spr = spr_player_ride;
 	move_spd = 8;
 	fric = 0.075 * multi;
 	
@@ -453,10 +455,10 @@ state_ridekick = function()
 {
 	state_name = "state_ridekick";
 	
-	sprite_index = spr_player_ridekick;
+	cur_spr = spr_player_ridekick;
 	
-	if (v_spd > 0) image_index = 1;
-	else image_index = 0;
+	if (v_spd > 0) cur_img = 1;
+	else cur_img = 0;
 	
 	if (y >= obj_player_bomb.y - (obj_player_bomb.sprite_height / 2))
 	{
@@ -470,14 +472,14 @@ state_kick = function()
 {
 	state_name = "state_kick";
 
-	sprite_index = spr_player_kick;	
+	cur_spr = spr_player_kick;	
 }
 
 state_throw = function()
 {
 	state_name = "state_throw";
 	
-	sprite_index = spr_player_throw;
+	cur_spr = spr_player_throw;
 	
 	if (grounded()) player_set_state(state_free)
 }
@@ -487,12 +489,12 @@ state_stunned = function()
 	state_name = "state_stunned";
 	
 	image_xscale = -sign(h_spd);
-	sprite_index = spr_player_jump;
+	cur_spr = spr_player_jump;
 	
-	if (v_spd > 0) image_index = 1;
-	else image_index = 0;
+	if (v_spd > 0) cur_img = 1;
+	else cur_img = 0;
 	
-	if (grounded() || hit_wall())
+	if (place_meeting(x + h_spd, y + v_spd, par_terrain))
 	{
 		dash = true;
 		h_spd = 0;

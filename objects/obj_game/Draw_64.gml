@@ -57,7 +57,7 @@ draw_sprite_ext(spr_healthbar, 0, hp_x + hp_shk_x, hp_y + hp_shk_y, hud_mult, hu
 
 #region Debug
 
-if (DEBUG)
+if (global.debug)
 {
 	align(fa_left, fa_bottom);
 	

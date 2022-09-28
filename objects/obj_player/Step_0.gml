@@ -4,6 +4,8 @@ randomize();
 
 #region Movement
 
+img_spd = game_get_speed(gamespeed_fps) / ground_spd;
+
 #region Speed
 
 var real_spd, real_fric;
@@ -54,6 +56,7 @@ if (state != state_stunned)
 		{
 			if (state != state_overdrive) && (jumps > 0)
 			{
+				if (alarm[0] > -1) alarm[0] = -1;
 				if(state == state_carry)	player_set_state(state_jump_carry);
 				else						player_set_state(state_jump);
 				if(state == state_jump_carry) image_index = 2;
@@ -111,8 +114,8 @@ if (on_boost != noone) && (state != state_overdrive)
 }
 
 if (h_spd != 0) && (state != state_stunned) image_xscale = sign(h_spd);
-if ((sprite_index == spr_player_walk) || (sprite_index == spr_player_carrywalk && grounded())) image_speed = 0.075 * abs(h_spd);
-else if (sprite_index == spr_player_jump) || (sprite_index == spr_player_hover) image_speed = 0.5;
+if ((cur_spr == spr_player_walk) || (cur_spr == spr_player_carrywalk && grounded())) image_speed = 0.075 * abs(h_spd);
+else if (cur_spr == spr_player_jump) || (cur_spr == spr_player_hover) image_speed = 0.5;
 move();
 
 #endregion

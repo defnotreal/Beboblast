@@ -6,6 +6,7 @@
     {"id":{"name":"spr_terrain_slope1","path":"sprites/spr_terrain_slope1/spr_terrain_slope1.yy",},"order":4,},
     {"id":{"name":"spr_collisions","path":"sprites/spr_collisions/spr_collisions.yy",},"order":4,},
     {"id":{"name":"spr_box_woodfrag","path":"sprites/spr_box_woodfrag/spr_box_woodfrag.yy",},"order":35,},
+    {"id":{"name":"spr_hitbox","path":"sprites/spr_hitbox/spr_hitbox.yy",},"order":44,},
     {"id":{"name":"obj_box_bigmetal","path":"objects/obj_box_bigmetal/obj_box_bigmetal.yy",},"order":7,},
     {"id":{"name":"player_test","path":"rooms/player_test/player_test.yy",},"order":1,},
     {"id":{"name":"spr_terrain_slope3_2","path":"sprites/spr_terrain_slope3_2/spr_terrain_slope3_2.yy",},"order":8,},
