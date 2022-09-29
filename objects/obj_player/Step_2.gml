@@ -3,33 +3,26 @@ switch (state)
 	case state_carry:
 		obj_player_bomb.x = x;
 		var add = 0;
-		if (cur_spr == spr_player_carrywalk)
+		switch (cur_img)
 		{
-			switch (cur_img)
-			{
-				case 0: add = 0; break;
-				case 1: add = 1; break;
-				case 2: add = 0; break;
-				case 3: add = 1; break;
-			}
+			case 0: add = 1; break;
+			case 1: add = 0; break;
+			case 2: add = 1; break;
+			case 3: add = 0; break;
 		}
-		else add = 0;
-		obj_player_bomb.y = bbox_top + add;
+		obj_player_bomb.y = bbox_top - add;
+	break;
 	case state_jump_carry:
 		obj_player_bomb.x = x;
 		var add = 0;
-		if (cur_spr == spr_player_carrywalk)
+		switch (cur_img)
 		{
-			switch (cur_img)
-			{
-				case 0: add = 0; break;
-				case 1: add = 1; break;
-				case 2: add = 0; break;
-				case 3: add = 1; break;
-			}
+			case 0: add = 1; break;
+			case 1: add = 0; break;
+			case 2: add = 1; break;
+			case 3: add = 0; break;
 		}
-		else add = 0;
-		obj_player_bomb.y = bbox_top + add;
+		obj_player_bomb.y = bbox_top - add;
 	break;
 	case state_overdrive_carry:
 		obj_player_bomb.x = x;

@@ -54,7 +54,6 @@ switch (part)
 		{
 			part++;
 			shake_camera(3, 3);
-			bomb_img = 0;
 			bomb_v_spd = -12;
 			bebo_v_spd = -34;
 			bebo_img = 1;
@@ -64,6 +63,13 @@ switch (part)
 	case 1:
 		if (bomb_v_spd < 10) bomb_v_spd += grav;
 		bomb_scale -= 0.008;
+		if (bomb_img_spd > 0) bomb_img_spd--;
+		else
+		{
+			if (bomb_img == sprite_get_number(spr_menu_bomb) - 1) bomb_img = 0;
+			else bomb_img++;
+			bomb_img_spd = 1;
+		}
 		
 		if (bomb_y >= bomb_anchor_y)
 		{
@@ -72,6 +78,7 @@ switch (part)
 			bomb_scale = 1;
 			bomb_y = bomb_anchor_y;
 			bomb_v_spd = 0;
+			bomb_img = 0;
 			bebo_spr = spr_menu_bebo2;
 			bebo_img = 0;
 			title_v_spd = -10;

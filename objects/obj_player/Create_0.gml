@@ -174,10 +174,10 @@ state_dash = function()
 		}
 	}
 	
-	var hit_smallwood  = instance_place(x + sign(h_spd), y, obj_box_smallwood),
-		hit_smallmetal = instance_place(x + sign(h_spd), y, obj_box_smallmetal),
-		hit_bigwood	   = instance_place(x + sign(h_spd), y, obj_box_bigwood),
-		hit_cage	   = instance_place(x + sign(h_spd), y, obj_wood_cage);
+	var hit_smallwood  = instance_place(x + h_spd, y, obj_box_smallwood),
+		hit_smallmetal = instance_place(x + h_spd, y, obj_box_smallmetal),
+		hit_bigwood	   = instance_place(x + h_spd, y, obj_box_bigwood),
+		hit_cage	   = instance_place(x + h_spd, y, obj_wood_cage);
 	if (hit_smallwood != noone)
 	{
 		show_debug_message("Box hit");
@@ -488,11 +488,19 @@ state_stunned = function()
 {
 	state_name = "state_stunned";
 	
-	image_xscale = -sign(h_spd);
+	if (h_spd != 0) image_xscale = -sign(h_spd);
 	cur_spr = spr_player_jump;
 	
 	if (v_spd > 0) cur_img = 1;
 	else cur_img = 0;
+	
+	var hit_smallwood  = instance_place(x + h_spd, y, obj_box_smallwood);
+	if (hit_smallwood != noone)
+	{
+		show_debug_message("Box hit")
+		instance_destroy(hit_smallwood);
+		shake_camera(2, 2);
+	}
 	
 	if (place_meeting(x + h_spd, y + v_spd, par_terrain))
 	{

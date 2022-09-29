@@ -1,6 +1,7 @@
 function box_make_fragments()
 {
 	if (object_index == obj_box_smallmetal || object_index == obj_box_bigmetal) f = obj_box_metalfrag;
+	else if (object_index == obj_box_bombsummon) f = obj_box_bombfrag;
 	else f = obj_box_woodfrag;
 	
 	xx = x - (sprite_width / 2);

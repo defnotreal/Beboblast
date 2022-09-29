@@ -1,8 +1,11 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "par_terrain",
-  "spriteId": null,
+  "name": "obj_box_bombfrag",
+  "spriteId": {
+    "name": "spr_box_bombfrag",
+    "path": "sprites/spr_box_bombfrag/spr_box_bombfrag.yy",
+  },
   "solid": false,
   "visible": true,
   "managed": true,
@@ -21,11 +24,14 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Parents",
-    "path": "folders/Objects/Parents.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
 }

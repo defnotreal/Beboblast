@@ -22,7 +22,7 @@ bebo_v_spd     = 0;
 
 title_x		   = room_width / 4;
 title_anchor_y = floor(room_height / 2.5);
-title_y		   = -(sprite_get_height(spr_menu_title) / 2);
+title_y		   = -(sprite_get_height(spr_menu_title) * 1.5);
 title_v_spd	   = 0;
 title_alpha	   = 1;
 
