@@ -106,10 +106,11 @@ if (dash_timer > 0) dash_timer--;
 else dash = true;
 
 var on_boost = instance_place(x, y + 1, obj_boost_pad);
-if (on_boost != noone) && (state != state_overdrive)
+if (on_boost != noone)
 {
 	alarm[0] = -1;
 	image_xscale = on_boost.image_xscale;
+	obj_player.h_spd = 15 * image_xscale;
 	player_set_state(state_overdrive);
 }
 

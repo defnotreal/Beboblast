@@ -224,7 +224,7 @@ state_overdrive = function()
 	shake_camera(1, 1);
 	cur_spr = spr_player_dash;
 	move_spd = 15;
-	h_spd = move_spd * image_xscale;
+	h_spd = 15 * image_xscale;
 	
 	make_trail(cur_spr, cur_img, c_yellow, 0.75);
 	
