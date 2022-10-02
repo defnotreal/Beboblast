@@ -50,6 +50,7 @@
     {"id":{"name":"lvl_boiler_roof","path":"rooms/lvl_boiler_roof/lvl_boiler_roof.yy",},"order":2,},
     {"id":{"name":"spr_box_bigmetal","path":"sprites/spr_box_bigmetal/spr_box_bigmetal.yy",},"order":29,},
     {"id":{"name":"obj_persistent","path":"objects/obj_persistent/obj_persistent.yy",},"order":12,},
+    {"id":{"name":"obj_boss_trigger","path":"objects/obj_boss_trigger/obj_boss_trigger.yy",},"order":29,},
     {"id":{"name":"obj_terrain_slope2_1","path":"objects/obj_terrain_slope2_1/obj_terrain_slope2_1.yy",},"order":2,},
     {"id":{"name":"move","path":"scripts/move/move.yy",},"order":4,},
     {"id":{"name":"shake_camera","path":"scripts/shake_camera/shake_camera.yy",},"order":8,},
