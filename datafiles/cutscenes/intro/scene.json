@@ -1,0 +1,83 @@
+{
+    "spr1":
+    {
+        "frames": 2,
+        "spd": 20,
+        "length": 180,
+        "loop": true,
+        "skiponend": false,
+        "text": "Somewhere in the Boiler City sewers..."
+    },
+    "spr2":
+    {
+        "frames": 2,
+        "spd": 5,
+        "length": 180,
+        "loop": true,
+        "skiponend": false,
+        "text": "`BREAKING NEWS! A local woman is causing mass destruction across Boiler City!`"
+    },
+    "spr3":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "`The suspect has been identified as Annie Bell. For your safety, please shelter in place until further notice from authorities!`"
+    },
+    "spr4":
+    {
+        "frames": 2,
+        "spd": 5,
+        "length": 180,
+        "loop": true,
+        "skiponend": false,
+        "text": "`Wow, Annie's so cool! If only I could meet her...`"
+    },
+    "spr5":
+    {
+        "frames": 9,
+        "spd": 5,
+        "length": 999,
+        "loop": false,
+        "skiponend": true,
+        "text": ""
+    },
+    "spr6":
+    {
+        "frames": 2,
+        "spd": 8,
+        "length": 180,
+        "loop": true,
+        "skiponend": false,
+        "text": ""
+    },
+    "spr7":
+    {
+        "frames": 8,
+        "spd": 5,
+        "length": 180,
+        "loop": true,
+        "skiponend": false,
+        "text": ""
+    },
+    "spr8":
+    {
+        "frames": 4,
+        "spd": 5,
+        "length": 180,
+        "loop": true,
+        "skiponend": false,
+        "text": ""
+    },
+    "spr9":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 60,
+        "loop": false,
+        "skiponend": false,
+        "text": ""
+    }
+}

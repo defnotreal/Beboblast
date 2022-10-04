@@ -1,0 +1,47 @@
+{
+    "spr1":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "Test 1"
+    },
+    "spr2":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "Test 2"
+    },
+    "spr3":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "Test 3"
+    },
+    "spr4":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "Test 4"
+    },
+    "spr5":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "Test 5"
+    }
+}
