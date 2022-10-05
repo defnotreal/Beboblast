@@ -126,7 +126,7 @@ else if (anim_time <= 0)
 {
 	if(anim_time != -1)
 	{
-		if (cur_img == sprite_get_number(cur_spr) - 1) cur_img = 0;
+		if (cur_img >= sprite_get_number(cur_spr) - 1) cur_img = 0;
 		else cur_img++;
 	}
 	
