@@ -5,4 +5,7 @@ with (obj_player)
 	player_set_state(state_jump);
 }
 
-instance_create_depth(0, 0, 0, obj_tutorial_tps);
+with (obj_game) lvl_totalboxes += (instance_number(obj_box_smallwood) +
+								   instance_number(obj_box_smallmetal) +
+								   instance_number(obj_box_bigwood) +
+								   instance_number(obj_box_bigmetal));

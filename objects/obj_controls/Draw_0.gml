@@ -14,7 +14,7 @@ for (var i = 0; i < array_length(menu); i++;)
 	else str = menu[i, 0];
 		
 	if (sel == i) str = ">" + str;
-	draw_text_transformed(x_pos + (16 * (sel == i)), yy, str, 0.5, 0.5, 0);
+	draw_text_outlined(x_pos + (16 * (sel == i)), yy, str, 0.5, 0.5, c_white, c_black, 1);
 }
 
 align(fa_left, fa_bottom)

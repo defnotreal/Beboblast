@@ -1,8 +1,11 @@
-if (get_button_pressed("action1"))
+if (get_button_pressed("action1")) && (control)
 {
 	switch (sel)
 	{
-		case 0: fade(function() { cutscene_start("intro", lvl_tutorial); }); break;
+		case 0:
+			control = false;
+			fade(function() { cutscene_start("intro", lvl_tutorial); });
+		break;
 		case 1:
 			obj_menu_anims.title_alpha = 0;
 			menu_create(obj_options, room_width / 4, (room_height / 2) - (room_height  / 6), fa_center, fa_middle);

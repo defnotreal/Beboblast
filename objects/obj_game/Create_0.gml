@@ -7,8 +7,13 @@ timer_tick	  = game_get_speed(gamespeed_fps);
 timer_min	  = 5;
 timer_sec	  = 0;
 
-lvl_score	   = 0;
-lvl_scoretoadd = 0;
+lvl_score	    = 0;
+lvl_scoretoadd  = 0;
+lvl_totalboxes  = (instance_number(obj_box_smallwood) +
+				   instance_number(obj_box_smallmetal) +
+				   instance_number(obj_box_bigwood) +
+				   instance_number(obj_box_bigmetal));
+lvl_boxeskilled = 0;
 
 #region HUD positioning
 

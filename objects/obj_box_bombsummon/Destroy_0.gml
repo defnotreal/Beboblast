@@ -7,4 +7,6 @@ with (obj_player_bomb)
 	v_spd = 10;
 }
 
+with (obj_game) lvl_boxeskilled++;
+
 box_make_fragments();

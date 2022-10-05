@@ -6,7 +6,7 @@ if (anim_bg)
 	layer_x("ResultsBG", lx - 0.5);
 	layer_y("ResultsBG", ly - 0.5);
 
-	if (lx == -63.5)
+	if (lx == -36.5) && (ly == -38.5)
 	{
 		layer_x("ResultsBG", 0);
 		layer_y("ResultsBG", 0);
@@ -43,7 +43,6 @@ switch (part)
 		}
 	break;
 	case 3:
-	{
 		if (welldone_v_spd < 10) welldone_v_spd += 0.4;
 		welldone_y += welldone_v_spd;
 		
@@ -57,9 +56,48 @@ switch (part)
 				part++;
 				welldone_v_spd = 0;
 				welldone_y = welldone_anchor_y;
+				boxes_alpha = 1;
 			}
 		}
-	}
+	break;
+	case 4:
+		if (boxes_total < obj_game.lvl_boxeskilled)
+		{
+			boxes_total++;
+			boxes_shake = 2;
+		}
+		else
+		{
+			if (wait_time > 0) wait_time--;
+			else
+			{
+				part++;
+				if (boxes_total == obj_game.lvl_totalboxes)
+				{
+					bonus_alpha = 1;
+					bonus_shake = 2;
+					score_final += 1000;
+				}
+				wait_time = game_get_speed(gamespeed_fps) / 2;
+				score_alpha = 1;
+			}
+		}
+	break;
+	case 5:
+		if (score_total < score_final)
+		{
+			score_total += round(score_final / 128);
+			score_shake = 2;
+		}
+		else
+		{
+			if (score_total > score_final) score_total = score_final;
+			if (wait_time > 0) wait_time--;
+			else
+			{
+				part++;	
+			}
+		}
 }
 
 if (bebo_dunk_img == 33)
@@ -69,3 +107,7 @@ if (bebo_dunk_img == 33)
 	layer_set_visible("Instances", false);
 	anim_bg = true;
 }
+
+score_shake = lerp(score_shake, 0, 0.2);
+boxes_shake = lerp(boxes_shake, 0, 0.2);
+bonus_shake = lerp(bonus_shake, 0, 0.2);

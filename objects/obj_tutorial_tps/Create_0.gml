@@ -9,3 +9,5 @@ charge_sign_x = 1480;
 jump_sign_y   = 336;
 throw_sign_x  = 2464;
 throw_sign_y  = 560;
+
+player_hp = obj_player.hp;

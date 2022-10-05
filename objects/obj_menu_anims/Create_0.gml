@@ -31,6 +31,7 @@ skip_intro	   = function()
 	bomb_y	     = bomb_anchor_y;
 	bomb_v_spd   = 0;
 	bomb_scale   = 1;
+	bomb_img	 = 0;
 	
 	bebo_y	     = bomb_y - (bomb_y / 3);
 	bebo_v_spd   = 0;
