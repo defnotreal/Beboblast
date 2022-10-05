@@ -122,10 +122,13 @@ move();
 #endregion
 
 if (anim_time > 0) anim_time--;
-else if (anim_time == 0)
+else if (anim_time <= 0)
 {
-	if (cur_img == sprite_get_number(cur_spr) - 1) cur_img = 0;
-	else cur_img++;
+	if(anim_time != -1)
+	{
+		if (cur_img == sprite_get_number(cur_spr) - 1) cur_img = 0;
+		else cur_img++;
+	}
 	
 	switch (cur_spr)
 	{
