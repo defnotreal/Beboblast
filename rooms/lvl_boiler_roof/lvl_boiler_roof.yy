@@ -156,6 +156,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_572B98A","properties":[],"isDnd":false,"objectId":{"name":"obj_boost_pad","path":"objects/obj_boost_pad/obj_boost_pad.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":6528.0,"y":208.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_37221DA1","properties":[],"isDnd":false,"objectId":{"name":"obj_box_bombsummon","path":"objects/obj_box_bombsummon/obj_box_bombsummon.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":432.0,"y":128.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_61B7F601","properties":[],"isDnd":false,"objectId":{"name":"obj_box_bombsummon","path":"objects/obj_box_bombsummon/obj_box_bombsummon.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":8128.0,"y":152.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2AF3381E","properties":[],"isDnd":false,"objectId":{"name":"obj_boss_foreman","path":"objects/obj_boss_foreman/obj_boss_foreman.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":88.0,"y":160.0,},
       ],"visible":true,"depth":0,"userdefinedDepth":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":8,"gridY":8,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Collisions","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_577C933E","properties":[],"isDnd":false,"objectId":{"name":"obj_terrain_flat","path":"objects/obj_terrain_flat/obj_terrain_flat.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":16.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":-16.0,"y":0.0,},
@@ -520,6 +521,7 @@
     {"name":"inst_61B7F601","path":"rooms/lvl_boiler_roof/lvl_boiler_roof.yy",},
     {"name":"inst_786A58EA","path":"rooms/lvl_boiler_roof/lvl_boiler_roof.yy",},
     {"name":"inst_506C3F6B","path":"rooms/lvl_boiler_roof/lvl_boiler_roof.yy",},
+    {"name":"inst_2AF3381E","path":"rooms/lvl_boiler_roof/lvl_boiler_roof.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

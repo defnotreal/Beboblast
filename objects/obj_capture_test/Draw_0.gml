@@ -1,0 +1,1 @@
+draw_sprite_ext(global.surf, 0, capture_x, capture_y, capture_scale, capture_scale, 0, c_white, 1);
