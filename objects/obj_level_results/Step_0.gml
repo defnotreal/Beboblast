@@ -84,6 +84,9 @@ switch (part)
 		}
 	break;
 	case 5:
+		
+	break;
+	case 6:
 		if (score_total < score_final)
 		{
 			score_total += round(score_final / 128);
@@ -98,6 +101,7 @@ switch (part)
 				part++;	
 			}
 		}
+	break;
 }
 
 if (bebo_dunk_img == 33)

@@ -41,7 +41,7 @@ global.debug = ini_read_real("Misc", "debug", 0);
 window_set_fullscreen(ini_read_real("Video", "fullscreen", 0));
 ini_close();
 
-var cap = "BEBO BLOWS IT!";
+var cap = "BEBOBLAST";
 if (global.debug) cap = cap + " (DEBUG)";
 window_set_caption(cap);
 

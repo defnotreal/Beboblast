@@ -17,6 +17,7 @@ switch (part)
 			part++;
 			sprite_index = spr_boss_foremanland;
 			image_index  = 0;
+			shake_camera(0, 20);
 		}
 	break;
 	case 1:
@@ -40,6 +41,8 @@ switch (part)
 	case 3:
 		if (place_meeting(x, y + 2, obj_boss_crane))
 		{
+			obj_boss_crane.state = obj_boss_crane.state_free;
+			instance_create_layer(camera_get_view_x(view_camera[0]) + (camera_get_view_width(view_camera[0]) / 2), -sprite_get_height(spr_boss_claw), "Instances", obj_boss_claw);
 			instance_destroy(self);
 		}
 	break;

@@ -3,7 +3,6 @@ apr_spd   = 0.4;
 h_spd	  = 0;
 v_spd     = 0;
 part	  = 0;
-moving    = false;
 jump_time = game_get_speed(gamespeed_fps) * 1.5;
 
 image_speed = 0.35;

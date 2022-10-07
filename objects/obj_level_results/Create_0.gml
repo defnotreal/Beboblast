@@ -1,5 +1,7 @@
 /// @description Init
 
+obj_game.timer_enabled = false;
+
 score_final = obj_game.lvl_score;
 part		= 0;
 anim_bg		= false;
@@ -22,6 +24,10 @@ boxes_shake = 0;
 boxes_alpha = 0;
 bonus_shake = 0;
 bonus_alpha = 0;
+time_final  = (obj_game.timer_min * 60) + obj_game.timer_sec;
+time_total  = 0;
+time_shake  = 0;
+time_alpha  = 0;
 
 wait_time = game_get_speed(gamespeed_fps) / 2;
 

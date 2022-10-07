@@ -72,6 +72,11 @@ function reset_anim(_spd)
 	img_spd = _spd;
 	anim_time = img_spd;
 }
+function damage()
+{
+	set_hp(-1);
+	v_spd = -3;
+}
 
 state_free = function()
 {
@@ -84,7 +89,10 @@ state_free = function()
 	
 	if (get_button_pressed("action2"))
 	{
-		if (place_meeting(x, y, obj_player_bomb)) player_set_state(state_carry);
+		if (place_meeting(x, y, obj_player_bomb))
+		{
+			if (!obj_player_bomb.dmg_player) player_set_state(state_carry);
+		}
 		else
 		{
 			if (dash)
@@ -127,12 +135,7 @@ state_dash = function()
 	cur_spr = spr_player_dash;
 	h_spd = 10 * image_xscale;
 	
-	if (place_meeting(x, y, obj_player_bomb))
-	{
-		alarm[0] = -1;
-		dash = true;
-		player_set_state(state_carry);
-	}
+	if (place_meeting(x, y, obj_player_bomb)) if (!obj_player_bomb.dmg_player) player_set_state(state_carry);
 	
 	make_trail(cur_spr, cur_img, choose(c_red, c_blue, c_green));
 	
