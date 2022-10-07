@@ -11,7 +11,12 @@ if (do_anim)
 	}
 }
 
-if (!instance_exists(obj_boss_claw)) && (state != state_intro)
+if (state != state_intro && state != state_hurt && state != state_dead)
+{
+	if (place_meeting(x - 24, y, obj_player_bomb)) && (obj_player_bomb.h_spd > 3) damage();
+}
+
+if (!instance_exists(obj_boss_claw)) && (state != state_intro && state != state_dead)
 {
 	if (claw_time > 0) claw_time --;
 	else

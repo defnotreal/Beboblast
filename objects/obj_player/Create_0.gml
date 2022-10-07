@@ -11,6 +11,8 @@ cur_spr   = spr_player;
 cur_img   = 0;
 img_spd	  = 0;
 anim_time = img_spd;
+end_time  = game_get_speed(gamespeed_fps);
+lvl_ended = false;
 
 multi = 1;
 
@@ -135,7 +137,11 @@ state_dash = function()
 	cur_spr = spr_player_dash;
 	h_spd = 10 * image_xscale;
 	
-	if (place_meeting(x, y, obj_player_bomb)) if (!obj_player_bomb.dmg_player) player_set_state(state_carry);
+	if (place_meeting(x, y, obj_player_bomb)) if (!obj_player_bomb.dmg_player)
+	{
+		alarm[0] = -1;
+		player_set_state(state_carry);
+	}
 	
 	make_trail(cur_spr, cur_img, choose(c_red, c_blue, c_green));
 	
@@ -407,7 +413,6 @@ state_carry = function()
 	if (h_spd != 0) cur_spr = spr_player_carrywalk;
 	else cur_spr = spr_player_carry;
 	
-	depth = 1;
 	obj_player_bomb.h_spd = 0;
 	
 	if(!grounded())
@@ -428,7 +433,6 @@ state_jump_carry = function()
 	
 	cur_spr = spr_player_carrywalk;
 	
-	depth = 1;
 	obj_player_bomb.h_spd = 0;
 	
 	if (get_button_pressed("action2"))
@@ -513,9 +517,31 @@ state_stunned = function()
 	}
 }
 
-state_cutscene = function()
+state_levelend = function()
 {
+	state_name = "state_levelend";
 	
+	sprite_index = spr_player_walk;
+	control = false;
+	
+	if (x >= room_width + (sprite_width / 2))
+	{
+		h_spd = 0;
+		if (end_time > 0) end_time--;
+		else
+		{
+			if (!lvl_ended)
+			{
+				lvl_ended = true;
+				instance_create_layer(0, 0, "Instances", obj_level_results);
+			}
+		}
+	}
+	else
+	{
+		if (grounded()) h_spd = 4;	
+		else			h_spd = 0;
+	}
 }
 
 state = state_free;

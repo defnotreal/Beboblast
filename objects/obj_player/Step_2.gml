@@ -1,7 +1,8 @@
 switch (state)
 {
 	case state_carry:
-		obj_player_bomb.x = x;
+		obj_player_bomb.x	  = x;
+		obj_player_bomb.depth = -1;
 		var add = 0;
 		switch (cur_img)
 		{
@@ -13,7 +14,8 @@ switch (state)
 		obj_player_bomb.y = bbox_top - add;
 	break;
 	case state_jump_carry:
-		obj_player_bomb.x = x;
+		obj_player_bomb.x	  = x;
+		obj_player_bomb.depth = -1;
 		var add = 0;
 		switch (cur_img)
 		{
@@ -44,9 +46,13 @@ switch (state)
 		x = obj_player_bomb.x;
 		y = obj_player_bomb.y - (obj_player_bomb.sprite_height) + 3;
 	break;
-	case state_ridekick:
-		x = obj_player_bomb.x;
+	case state_ridekick: x = obj_player_bomb.x; break;
+	case state_levelend:
+		obj_player_bomb.x = obj_end_explosives.x;
+		obj_player_bomb.y = obj_end_explosives.y;
 	break;
+	
+	default: if (instance_exists(obj_player_bomb)) obj_player_bomb.depth = 0; break;
 }
 
 var cam_y = obj_player.y - sprite_get_height(spr_player);

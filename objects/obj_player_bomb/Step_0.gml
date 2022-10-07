@@ -5,7 +5,7 @@ if (h_spd > 8 || h_spd < -8) make_trail(spr_bomb, 0, c_white);
 if(collided)
 {
 	if (collided.object_index == obj_boost_pad) h_spd = 16 * collided.image_xscale;
-	if (dmg_player) dmg_player = false;
+	if (v_spd > 0) && (dmg_player) dmg_player = false;
 	v_spd = 0;
 }
 else if (owner.state != owner.state_carry && owner.state != owner.state_jump_carry) && (v_spd < 10)

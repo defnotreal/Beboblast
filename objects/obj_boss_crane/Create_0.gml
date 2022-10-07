@@ -11,6 +11,27 @@ claw_time  = game_get_speed(gamespeed_fps) * 10;
 
 image_speed = 0;
 
+#region States
+
+function damage()
+{
+	hp--;
+	if (hp > 0) state = state_hurt;
+	else 
+	{
+		state = state_dead;
+		
+		if (instance_exists(obj_boss_claw)) with (obj_boss_claw)
+		{
+			part = 9;
+			dest_y = -sprite_height;
+			dest_angle = 0;
+		}
+	}
+	
+	img = 0;
+}
+
 state_intro = function()
 {
 	sprite_index = spr_boss_craneempty;	
@@ -96,5 +117,7 @@ state_dead = function()
 	sprite_index = spr_boss_cranehurt;
 	state_name = "state_dead";
 }
+
+#endregion
 
 state = state_intro;
