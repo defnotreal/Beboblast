@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_boss_foreman",
   "spriteId": {
-    "name": "spr_bomb_mask",
-    "path": "sprites/spr_bomb_mask/spr_bomb_mask.yy",
+    "name": "spr_boss_foremanfall",
+    "path": "sprites/spr_boss_foremanfall/spr_boss_foremanfall.yy",
   },
   "solid": false,
   "visible": true,
