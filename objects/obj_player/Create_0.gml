@@ -77,7 +77,7 @@ state_free = function()
 {
 	state_name = "state_free";
 	
-	if (h_spd != 0) cur_spr = spr_player_walk;
+	if (get_button("right") || get_button("left") || h_spd > ground_fric) cur_spr = spr_player_walk;
 	else cur_spr = spr_player;
 	move_spd = 4;
 	fric = 0.4;
