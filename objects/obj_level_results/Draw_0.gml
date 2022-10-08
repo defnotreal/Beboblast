@@ -18,8 +18,17 @@ draw_text_outlined((cam_x + (cam_w / 2)) + random_range(-boxes_shake, boxes_shak
 
 if (boxes_total == obj_game.lvl_totalboxes) draw_text_outlined(((cam_x + (cam_w / 2)) + (string_width(string(obj_game.lvl_boxeskilled) + "/" + string(obj_game.lvl_totalboxes)) * 1.4)) + random_range(-bonus_shake, bonus_shake), ((cam_y + (cam_h / 2))) + random_range(-bonus_shake, bonus_shake), "+1000", 1, 1, c_lime, c_black, bonus_alpha);
 
-draw_text_outlined(cam_x + (cam_w / 2), cam_y + floor(cam_h / 1.5), "Final Score", 1, 1, c_white, c_black, score_alpha);
-draw_text_outlined((cam_x + (cam_w / 2)) + random_range(-score_shake, score_shake), (cam_y + floor(cam_h / 1.325))  + random_range(-score_shake, score_shake), string(score_total), 1, 1, c_white, c_black, score_alpha);
+draw_text_outlined(cam_x + (cam_w / 2), cam_y + (cam_h / 1.6), "Time Bonus", 1, 1, c_white, c_black, time_alpha);
+draw_text_outlined(cam_x + (cam_w / 2) + random_range(-time_shake, time_shake), cam_y + (cam_h / 1.4) + random_range(-time_shake, time_shake), string(time_total), 1, 1, c_white, c_black, time_alpha);
+
+draw_text_outlined(cam_x + (cam_w / 2), cam_y + floor(cam_h / 1.2), "Final Score", 1, 1, c_white, c_black, score_alpha);
+draw_text_outlined((cam_x + (cam_w / 2)) + random_range(-score_shake, score_shake), (cam_y + floor(cam_h / 1.08))  + random_range(-score_shake, score_shake), string(score_total), 1, 1, c_white, c_black, score_alpha);
+
+if (control)
+{
+	align(fa_right, fa_middle);
+	draw_text_outlined((cam_x + (cam_w - 10)), (cam_y + (cam_h - 10)), "Press Action 1 to continue!", 0.5, 0.5, c_white, c_black, control_alpha);
+}
 
 draw_set_alpha(1);
 align_reset();

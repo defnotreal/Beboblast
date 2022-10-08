@@ -96,3 +96,9 @@ else				    hp_min_shake = 0;
 hp_shake = lerp(hp_shake, hp_min_shake, 0.2);
 
 #endregion
+
+if (get_button_pressed("pause"))
+{
+	instance_deactivate_layer("Instances");
+	menu_create(obj_pause, camera_get_view_x(view_camera[0]) + (camera_get_view_width(view_camera[0]) / 2), camera_get_view_y(view_camera[0]) + (camera_get_view_height(view_camera[0]) / 2), fa_center, fa_middle);
+}

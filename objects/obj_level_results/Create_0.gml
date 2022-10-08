@@ -1,12 +1,14 @@
 /// @description Init
 
-obj_game.timer_enabled = false;
 screen				   = sprite_capture_screen()
 draw_screen			   = true;
 
-score_final = obj_game.lvl_score;
-part		= 0;
-anim_bg		= false;
+score_final   = obj_game.lvl_score;
+part		  = 0;
+anim_bg		  = false;
+control		  = false;
+control_alpha = 1;
+control_add	  = -0.01;
 
 bebo_dunk_img	= 0;
 bebo_dunk_time	= 2;
@@ -26,14 +28,15 @@ boxes_shake = 0;
 boxes_alpha = 0;
 bonus_shake = 0;
 bonus_alpha = 0;
-time_final  = (obj_game.timer_min * 60) + obj_game.timer_sec;
+time_final  = 0;
 time_total  = 0;
 time_shake  = 0;
 time_alpha  = 0;
 
 wait_time = game_get_speed(gamespeed_fps) / 2;
 
-show_debug_message(get_button_assignment("action1", "kb"))
+if (obj_game.timer_enabled) time_final = (obj_game.timer_min * 60) + obj_game.timer_sec;
+obj_game.timer_enabled = false;
 
 var bg = layer_create(depth - 3, "ResultsBG"),
 	fg = layer_create(depth - 4, "ResultsFG");

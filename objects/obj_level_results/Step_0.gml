@@ -79,12 +79,28 @@ switch (part)
 					score_final += 1000;
 				}
 				wait_time = game_get_speed(gamespeed_fps) / 2;
-				score_alpha = 1;
+				time_alpha = 1;
 			}
 		}
 	break;
 	case 5:
-		
+		if (time_total < time_final)
+		{
+			time_total++;
+			time_shake = 2;
+		}
+		else
+		{
+			
+			if (wait_time > 0) wait_time--;
+			else
+			{
+				part++;
+				score_final += time_final;
+				wait_time = game_get_speed(gamespeed_fps) / 2;
+				score_alpha = 1;
+			}
+		}
 	break;
 	case 6:
 		if (score_total < score_final)
@@ -98,7 +114,8 @@ switch (part)
 			if (wait_time > 0) wait_time--;
 			else
 			{
-				part++;	
+				part++;
+				control = true;
 			}
 		}
 	break;
@@ -117,3 +134,32 @@ if (bebo_dunk_img == 33)
 score_shake = lerp(score_shake, 0, 0.2);
 boxes_shake = lerp(boxes_shake, 0, 0.2);
 bonus_shake = lerp(bonus_shake, 0, 0.2);
+time_shake  = lerp(time_shake, 0, 0.2);
+
+if (control)
+{
+	if (control_alpha > 1)
+	{
+		control_alpha = 1;
+		control_add  *= -1;
+	}
+	else if (control_alpha < 0)
+	{
+		control_alpha = 0;
+		control_add  *= -1;
+	}
+	
+	control_alpha += control_add;
+	
+	if (get_button_pressed("action1"))
+	{
+		control = false;
+		
+		switch (room)
+		{
+			case lvl_tutorial2:	    fade(function() { room_goto(lvl_boiler_roof); });		  break;
+			case lvl_boiler_roof:   fade(function() { room_goto(lvl_boiler_ground); });		  break;
+			case lvl_boiler_ground:	fade(function() { }); break;
+		}
+	}
+}

@@ -67,7 +67,7 @@ if (state != state_stunned)
 			}
 			else
 			{
-				if (state != state_jump_carry) v_spd = 0
+				if (state != state_jump_carry && state != state_overdrive) v_spd = 0
 			}
 		}
 	}
