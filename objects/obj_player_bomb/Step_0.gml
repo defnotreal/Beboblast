@@ -91,3 +91,12 @@ if(owner.state == owner.state_carry || owner.state == owner.state_jump_carry)
 		else if(rotate < 160) rotate = 160;
 	}
 }
+
+if (anim_time > 0) anim_time--;
+else
+{
+	if (img == 1) img = 0;
+	else img++;
+	
+	anim_time = 5;
+}

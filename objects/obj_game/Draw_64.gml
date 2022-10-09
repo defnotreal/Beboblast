@@ -4,13 +4,13 @@
 
 align(fa_right, fa_top);
 
-draw_text_transformed(score_x + random_range(-score_shake, score_shake), score_y + random_range(-score_shake, score_shake), string(lvl_score), hud_mult, hud_mult, 0);
+draw_text_outlined(score_x + random_range(-score_shake, score_shake), score_y + random_range(-score_shake, score_shake), string(global.gm_score), hud_mult, hud_mult, c_white, c_black, 1);
 
 if (lvl_scoretoadd > 0)
 {
 	draw_set_color(c_lime);
 	
-	draw_text_transformed((score_x - (string_width(lvl_score) / 4)) + random_range(-scoretoadd_shake, scoretoadd_shake), (score_y + 64) + random_range(-scoretoadd_shake, scoretoadd_shake), string("+" + string(lvl_scoretoadd)), hud_mult / 1.5, hud_mult / 1.5, 0);
+	draw_text_outlined((score_x - (string_width(global.gm_score) / 4)) + random_range(-scoretoadd_shake, scoretoadd_shake), (score_y + 64) + random_range(-scoretoadd_shake, scoretoadd_shake), string("+" + string(lvl_scoretoadd)), hud_mult / 1.5, hud_mult / 1.5, c_lime, c_black, 1);
 	
 	draw_set_color(c_white);
 }
@@ -27,7 +27,7 @@ if (timer_enabled)
 		tm_shk_y = random_range(-timer_shake, timer_shake);
 
 	draw_sprite_ext(spr_hud_timer, timer_img, timer_x + tm_shk_x, timer_y + tm_shk_y, hud_mult, hud_mult, 0, c_white, 1);
-	draw_sprite_ext(spr_hud_timerfire, 0, (timer_firex * hud_mult) + tm_shk_x, (timer_firey * hud_mult) + tm_shk_y, hud_mult, hud_mult, 0, c_white, 1);
+	draw_sprite_ext(spr_hud_timerfire, timer_fireimg, (timer_firex * hud_mult) + tm_shk_x, (timer_firey * hud_mult) + tm_shk_y, hud_mult, hud_mult, 0, c_white, 1);
 
 	var f_min = timer_min,
 		f_sec = timer_sec;
@@ -38,7 +38,7 @@ if (timer_enabled)
 
 	align(fa_center, fa_middle);
 
-	draw_text_transformed(timer_x + tm_shk_x, timer_y + tm_shk_y, time, hud_mult, hud_mult, 0);
+	draw_text_outlined(timer_x + tm_shk_x, timer_y + tm_shk_y, time, hud_mult, hud_mult, c_white, c_black, 1);
 
 	align_reset();
 }

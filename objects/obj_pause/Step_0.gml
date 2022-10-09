@@ -6,6 +6,8 @@ if (get_button_pressed("action1")) && (control)
 	{
 		case 0:
 			instance_activate_layer("Instances");
+			instance_activate_object(obj_player_bomb);
+			instance_activate_object(obj_player);
 			instance_destroy(self);
 		break;
 		case 1:
@@ -18,5 +20,7 @@ if (get_button_pressed("action1")) && (control)
 if (get_button_pressed("pause")) && (control)
 {
 	instance_activate_layer("Instances");
+	instance_activate_object(obj_player_bomb);
+	instance_activate_object(obj_player);
 	instance_destroy(self);	
 }

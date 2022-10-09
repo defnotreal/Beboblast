@@ -24,7 +24,7 @@
         "length": 180,
         "loop": false,
         "skiponend": false,
-        "text": "`The suspect has been identified as Annie Bell. For your safety, please shelter in place until further notice from authorities!`"
+        "text": "`The suspect has been identified as Annie Bell. She has been reported to have been hired by Brulo just to fight Satan's minions, but for your safety, please shelter in place until further notice from authorities!`"
     },
     "spr4":
     {
@@ -33,7 +33,7 @@
         "length": 180,
         "loop": true,
         "skiponend": false,
-        "text": "`Wow, Annie's so cool! If only I could meet her...`"
+        "text": "`Wow, Annie's so cool! If only I could help her...`"
     },
     "spr5":
     {

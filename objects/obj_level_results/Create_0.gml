@@ -3,7 +3,7 @@
 screen				   = sprite_capture_screen()
 draw_screen			   = true;
 
-score_final   = obj_game.lvl_score;
+score_final   = global.gm_score;
 part		  = 0;
 anim_bg		  = false;
 control		  = false;

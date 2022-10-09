@@ -1,3 +1,5 @@
+global.gm_score = 0;
+
 ini_open("data/settings.ini");
 
 var butts = ["up", "down", "left", "right", "action1", "action2", "pause"];

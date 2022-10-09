@@ -63,3 +63,6 @@ if (layer_exists("BackSigns"))		layer_x("BackSigns", (camera_get_view_x(view_cam
 if (layer_exists("BuildingsFront")) layer_x("BuildingsFront", camera_get_view_x(view_camera[0]) / 2);
 if (layer_exists("BuildingsBack"))  layer_x("BuildingsBack", camera_get_view_x(view_camera[0]) / 2.1);
 if (layer_exists("Pipes"))			layer_x("Pipes", camera_get_view_x(view_camera[0]) / 6);
+if (layer_exists("CloudsFront"))	layer_x("CloudsFront", camera_get_view_x(view_camera[0]) / 12);
+if (layer_exists("CloudsMid"))		layer_x("CloudsMid", camera_get_view_x(view_camera[0]) / 8);
+if (layer_exists("CloudsBack"))		layer_x("CloudsBack", camera_get_view_x(view_camera[0]) / 4);

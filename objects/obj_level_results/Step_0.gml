@@ -126,6 +126,7 @@ if (bebo_dunk_img == 33)
 	shake_camera(10, 10);
 	layer_set_visible("ResultsBG", true);
 	layer_set_visible("Instances", false);
+	instance_deactivate_layer("Instances");
 	sprite_explode(screen, camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]), camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]), camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]), layer, 0.25);
 	draw_screen = false;
 	anim_bg = true;
@@ -153,7 +154,8 @@ if (control)
 	
 	if (get_button_pressed("action1"))
 	{
-		control = false;
+		control			   = false;
+		global.gm_score = score_final;
 		
 		switch (room)
 		{
