@@ -13,12 +13,12 @@ function grounded()
 
 state_free = function()
 {
-	var t = instance_position(x + (sign(h_spd)), y - 11, par_terrain);
+	var t = place_meeting(x + -sign(image_xscale), y, par_terrain);
 	
-	if (t != -4) h_spd *= -1;
+	if (h_spd == 0) h_spd = sign(image_xscale);
 	
 
-	image_xscale = -sign(h_spd);
+	image_xscale = (h_spd != 0) ? -sign(h_spd) : image_xscale;	
 }
 
 state_dead = function()
