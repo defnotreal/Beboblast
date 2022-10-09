@@ -54,7 +54,7 @@ if (state != state_stunned)
 
 		if (get_button_pressed("action1"))
 		{
-			if (state != state_overdrive) && (jumps > 0)
+			if (state != state_overdrive) && (jumps > 0) && (v_spd > -jump_spd)
 			{
 				if (alarm[0] > -1) alarm[0] = -1;
 				if(state == state_carry)	player_set_state(state_jump_carry);
@@ -67,7 +67,7 @@ if (state != state_stunned)
 			}
 			else
 			{
-				if (state != state_jump_carry && state != state_overdrive) v_spd = 0
+				if (state != state_jump_carry && state != state_overdrive  && v_spd > 0) v_spd = 0
 			}
 		}
 	}
