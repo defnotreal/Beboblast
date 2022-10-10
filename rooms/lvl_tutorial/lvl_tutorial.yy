@@ -61,6 +61,8 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6B67D321","properties":[],"isDnd":false,"objectId":{"name":"obj_boost_pad","path":"objects/obj_boost_pad/obj_boost_pad.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2112.0,"y":336.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_69A6AA0C","properties":[],"isDnd":false,"objectId":{"name":"obj_boost_pad","path":"objects/obj_boost_pad/obj_boost_pad.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2128.0,"y":336.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5E632D6E","properties":[],"isDnd":false,"objectId":{"name":"obj_death_pit","path":"objects/obj_death_pit/obj_death_pit.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":40.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":480.0,"y":432.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3366DB24","properties":[],"isDnd":false,"objectId":{"name":"obj_ballbuster","path":"objects/obj_ballbuster/obj_ballbuster.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":2936.0,"y":336.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_515752D5","properties":[],"isDnd":false,"objectId":{"name":"obj_ballbuster","path":"objects/obj_ballbuster/obj_ballbuster.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":3008.0,"y":336.0,},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":8,"gridY":16,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Collisions","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_8C78571","properties":[],"isDnd":false,"objectId":{"name":"obj_terrain_flat","path":"objects/obj_terrain_flat/obj_terrain_flat.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":7.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":272.0,},
@@ -389,6 +391,8 @@
     {"name":"inst_5E632D6E","path":"rooms/lvl_tutorial/lvl_tutorial.yy",},
     {"name":"inst_28B1D663","path":"rooms/lvl_tutorial/lvl_tutorial.yy",},
     {"name":"inst_17C493E6","path":"rooms/lvl_tutorial/lvl_tutorial.yy",},
+    {"name":"inst_3366DB24","path":"rooms/lvl_tutorial/lvl_tutorial.yy",},
+    {"name":"inst_515752D5","path":"rooms/lvl_tutorial/lvl_tutorial.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

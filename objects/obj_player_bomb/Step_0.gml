@@ -66,7 +66,8 @@ if (owner.state != owner.state_carry && owner.state != owner.state_jump_carry)
 	var smallwood  = instance_place(x + h_spd, y + 2, obj_box_smallwood),
 		bigwood	   = instance_place(x + h_spd, y + 2, obj_box_bigwood),
 		smallmetal = instance_place(x + h_spd, y + 2, obj_box_smallmetal),
-		bigmetal   = instance_place(x + h_spd, y + 2, obj_box_bigmetal);
+		bigmetal   = instance_place(x + h_spd, y + 2, obj_box_bigmetal),
+		ballbuster = instance_place(x + h_spd, y + 2, obj_ballbuster);
 		
 	if (h_spd > 3 || h_spd < -3)
 	{
@@ -74,6 +75,7 @@ if (owner.state != owner.state_carry && owner.state != owner.state_jump_carry)
 		if (bigwood != noone)	 instance_destroy(bigwood);
 		if (smallmetal != noone) instance_destroy(smallmetal);
 		if (bigmetal != noone)   instance_destroy(bigmetal);
+		if (ballbuster != noone) ballbuster.dead = true;
 	}
 	
 	rotate -= h_spd;

@@ -68,7 +68,7 @@ if (global.debug)
 		if (state == state_ride) inst = obj_player_bomb.collided;
 		else inst = instance_place(x, y + 1, par_terrain);
 
-		if (inst != -4) g_state = string(inst.id) + " (" + object_get_name((inst.object_index)) + ")";
+		if (inst != -4 && instance_exists(inst)) g_state = string(inst.id) + " (" + object_get_name((inst.object_index)) + ")";
 		else g_state = "None";
 
 		var cam_height = camera_get_view_height(view_camera[0]) * 4;
