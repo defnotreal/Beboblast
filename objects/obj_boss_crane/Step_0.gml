@@ -25,3 +25,19 @@ if (!instance_exists(obj_boss_claw)) && (state != state_intro && state != state_
 		claw_time = game_get_speed(gamespeed_fps) * 10;
 	}
 }
+
+if (state == state_dead)
+{
+	if (alpha > 0) alpha -= 0.01;
+	else
+	{
+		if (do_results)
+		{
+			do_results		   = false;
+			obj_player.control = false;
+			instance_create_layer(0, 0, "Instances", obj_level_results);
+			instance_deactivate_object(obj_player_bomb);
+			instance_destroy(self);
+		}
+	}
+}

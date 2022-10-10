@@ -18,6 +18,7 @@ switch (part)
 			sprite_index = spr_boss_foremanland;
 			image_index  = 0;
 			shake_camera(0, 20);
+			play_sound("snd_hardland", 0.5, 1.5);
 		}
 	break;
 	case 1:

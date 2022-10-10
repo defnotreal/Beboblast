@@ -4,4 +4,5 @@ with (obj_game)
 	lvl_boxeskilled++;
 }
 
+play_sound("snd_crate", 0.75, 1.25);
 box_make_fragments();

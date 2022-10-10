@@ -1,5 +1,5 @@
 if (state == state_overdrive || state == state_overdrive_carry) gpu_set_fog(true, c_white, 0, 0);
-draw_sprite_ext(cur_spr, cur_img, x, y, image_xscale, 1, 0, c_white, 1);
+draw_sprite_ext(cur_spr, cur_img, x, y, image_xscale, 1, 0, c_white, alpha);
 gpu_set_fog(false, c_white, 0, 0);
 
 if (!global.debug) exit;

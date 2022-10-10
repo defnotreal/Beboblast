@@ -30,6 +30,7 @@ state_free = function()
 		(obj_player.state == obj_player.state_dash || obj_player.state == obj_player.state_overdrive))
 	{
 		dead = true;
+		play_sound("snd_punch", 0.25, 1.75);
 	}
 	
 	if(dead)

@@ -35,10 +35,12 @@ camera_set_view_size(global.cam, 320, 180);
 
 global.a_music = audio_emitter_create();
 global.a_sound = audio_emitter_create();
+global.cur_mus = -4;
 
 ini_open("data/settings.ini");
 global.debug = ini_read_real("Misc", "debug", 0);
 window_set_fullscreen(ini_read_real("Video", "fullscreen", 0));
+
 ini_close();
 
 var cap = "BEBOBLAST";

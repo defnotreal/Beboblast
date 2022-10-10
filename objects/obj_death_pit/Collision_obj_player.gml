@@ -1,5 +1,5 @@
 with (obj_player)
 {
-	set_hp(-1);
+	damage();
 	v_spd = -12;
 }

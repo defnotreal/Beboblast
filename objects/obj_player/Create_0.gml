@@ -13,6 +13,7 @@ img_spd	  = 0;
 anim_time = img_spd;
 end_time  = game_get_speed(gamespeed_fps);
 lvl_ended = false;
+alpha	  = 1;
 
 multi = 1;
 
@@ -67,7 +68,8 @@ function player_stun()
 	h_spd = -3 * sign(h_spd);
 	v_spd = -3;
 	image_xscale = 1 * sign(h_spd);
-	player_set_state(state_stunned);	
+	player_set_state(state_stunned);
+	play_sound("snd_bounce", 0.75, 1.1);
 }
 function reset_anim(_spd)
 {
@@ -76,8 +78,10 @@ function reset_anim(_spd)
 }
 function damage()
 {
+	play_sound("snd_punch", 0.8, 1.1);
 	set_hp(-1);
-	v_spd = -3;
+	if (hp > 0) v_spd = -3;
+	else obj_game.set_gameover();
 }
 
 state_free = function()
@@ -102,6 +106,7 @@ state_free = function()
 				dash = false;
 				alarm[0] = game_get_speed(gamespeed_fps) / 2;
 				player_set_state(state_dash);
+				play_sound("snd_dash", 0.85, 1);
 			}
 		}
 	}
@@ -521,10 +526,10 @@ state_levelend = function()
 {
 	state_name = "state_levelend";
 	
-	sprite_index = spr_player_walk;
+	cur_spr = spr_player_run;
 	control = false;
 	
-	if (x >= room_width + (sprite_width / 2))
+	if (x >= room_width + (sprite_get_width(cur_spr) / 2))
 	{
 		h_spd = 0;
 		if (end_time > 0) end_time--;

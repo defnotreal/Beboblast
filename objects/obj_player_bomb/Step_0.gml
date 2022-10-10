@@ -1,6 +1,6 @@
 collided = instance_place(x, y + 1, par_terrain);
 
-if (h_spd > 8 || h_spd < -8) make_trail(spr_bomb, 0, c_white);
+if (h_spd > 8 || h_spd < -8) make_trail(spr, img, c_white);
 
 if(collided)
 {
@@ -75,7 +75,14 @@ if (owner.state != owner.state_carry && owner.state != owner.state_jump_carry)
 		if (bigwood != noone)	 instance_destroy(bigwood);
 		if (smallmetal != noone) instance_destroy(smallmetal);
 		if (bigmetal != noone)   instance_destroy(bigmetal);
-		if (ballbuster != noone) ballbuster.dead = true;
+		if (ballbuster != noone)
+		{
+			if (!ballbuster.dead)
+			{
+				ballbuster.dead = true;
+				play_sound("snd_punch", 0.25, 1.75);
+			}
+		}
 	}
 	
 	rotate -= h_spd;

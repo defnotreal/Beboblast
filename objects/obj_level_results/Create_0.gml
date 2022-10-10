@@ -35,6 +35,8 @@ time_alpha  = 0;
 
 wait_time = game_get_speed(gamespeed_fps) / 2;
 
+audio_pause_sound(global.cur_mus);
+
 if (obj_game.timer_enabled) time_final = (obj_game.timer_min * 60) + obj_game.timer_sec;
 obj_game.timer_enabled = false;
 
@@ -42,7 +44,10 @@ var bg = layer_create(depth - 3, "ResultsBG"),
 	fg = layer_create(depth - 4, "ResultsFG");
 	
 layer	 = fg;
-var back = layer_background_create(bg, spr_results_bg),
+var back = layer_background_create(bg, spr_results_bg);
+
+obj_player.alpha  = 0;
+obj_game.draw_hud = false;
 
 layer_set_visible("ResultsBG", false);
 

@@ -18,7 +18,16 @@ if (timer_enabled)
 		
 		if (timer_min > -1)
 		{
-			if (timer_sec > 0) timer_sec--;
+			if (timer_sec > 0)
+			{
+				timer_sec--;
+				if (timer_min == 1) && (timer_sec == 0)
+				{
+					audio_stop_sound(global.cur_mus);
+					play_music("mus_hurry", false);	
+				}
+				else if (timer_min == 0) && (timer_sec == 0) set_gameover();
+			}
 			else timer_sec = 59;
 		}
 	}
@@ -26,9 +35,14 @@ if (timer_enabled)
 	switch (timer_min)
 	{
 		case 2: 
-			if (timer_sec == 30) obj_player_bomb.spr = spr_bombmid;	
+			if (timer_sec == 0) obj_player_bomb.spr = spr_bombmid;	
 		break;
-		case 1: if (timer_sec == 0) obj_player_bomb.spr = spr_bombblow; break;
+		case 1:
+			if (timer_sec == 0)
+			{
+				obj_player_bomb.spr = spr_bombblow;
+			}
+		break;
 	}
 }
 
@@ -67,8 +81,11 @@ else
 
 #region HP stuff
 
-if (obj_player.hp <= 1) hp_min_shake = 1;
-else				    hp_min_shake = 0;
+if (!game_over) && (instance_exists(obj_player))
+{
+	if (obj_player.hp <= 1) hp_min_shake = 1;
+	else				    hp_min_shake = 0;
+}
 
 hp_shake = lerp(hp_shake, hp_min_shake, 0.2);
 
@@ -78,6 +95,6 @@ if (get_button_pressed("pause")) && (can_pause)
 {
 	instance_deactivate_object(obj_player_bomb);
 	instance_deactivate_object(obj_player);
-	instance_deactivate_layer("Instances");
+	instance_deactivate_object(obj_ballbuster);
 	menu_create(obj_pause, camera_get_view_x(view_camera[0]) + (camera_get_view_width(view_camera[0]) / 2), camera_get_view_y(view_camera[0]) + (camera_get_view_height(view_camera[0]) / 2), fa_center, fa_middle);
 }

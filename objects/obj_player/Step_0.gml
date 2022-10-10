@@ -64,10 +64,11 @@ if (state != state_stunned)
 				v_spd = -jump_spd;
 				jumps--;
 				down_thrown = false;
+				play_sound("snd_jump", 0.8, 1.1);
 			}
 			else
 			{
-				if (state != state_jump_carry && state != state_overdrive  && v_spd > 0) v_spd = 0
+				if (state != state_jump_carry && state != state_overdrive  && v_spd > 0) v_spd = 0;
 			}
 		}
 	}
@@ -108,6 +109,7 @@ else dash = true;
 var on_boost = instance_place(x, y + 1, obj_boost_pad);
 if (on_boost != noone)
 {
+	play_sound("snd_dash", 1, 1.35);
 	alarm[0] = -1;
 	image_xscale = on_boost.image_xscale;
 	obj_player.h_spd = 15 * image_xscale;
@@ -146,6 +148,7 @@ else if (anim_time <= 0)
 		case spr_player_ridekick:   anim_time = 0;				 break;
 		case spr_player_throw:	    anim_time = 0;				 break;
 		case spr_player_throw_down:	anim_time = 0;				 break;
+		case spr_player_run:		anim_time = 3;				 break;
 	}
 }
 

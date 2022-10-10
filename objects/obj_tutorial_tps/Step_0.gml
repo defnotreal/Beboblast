@@ -1,3 +1,5 @@
+if (!instance_exists(obj_player)) exit;
+
 switch (room)
 {
 	case lvl_tutorial:

@@ -14,6 +14,7 @@ anim_length	   = 0;
 anim_loop	   = false;
 anim_skiponend = false;
 anim_text      = "";
+anim_shake	   = false;
 
 text_out = "";
 text_pos = 0;
@@ -24,7 +25,14 @@ text_delay = 1;
 
 function cutscene_advance()
 {
-	if (cur_spr == array_length(sprs) - 1) fade(function() { instance_destroy(self); });
+	if (cur_spr == array_length(sprs) - 1)
+	{
+		fade(function() {
+			if (next_room == main_menu) audio_stop_sound(global.cur_mus);
+			instance_destroy(self);
+		});
+		exit;
+	}
 	else cur_spr++;
 	
 	var obj = variable_struct_get(cs_json, "spr" + string(cur_spr + 1));

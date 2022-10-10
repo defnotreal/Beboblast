@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "ts_sewer",
   "spriteId": {
     "name": "spr_sewer_tiles",
     "path": "sprites/spr_sewer_tiles/spr_sewer_tiles.yy",
@@ -131,8 +134,4 @@
     "name": "Tile Sets",
     "path": "folders/Tile Sets.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "ts_sewer",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

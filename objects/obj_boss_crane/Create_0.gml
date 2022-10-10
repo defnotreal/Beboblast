@@ -8,6 +8,8 @@ anim_time  = 5;
 state_name = "";
 hurt_time  = game_get_speed(gamespeed_fps);
 claw_time  = game_get_speed(gamespeed_fps) * 10;
+alpha	   = 1;
+do_results = true;
 
 image_speed = 0;
 
@@ -16,6 +18,7 @@ image_speed = 0;
 function damage()
 {
 	hp--;
+	play_sound("snd_punch", 0.5, 1.5);
 	if (hp > 0) state = state_hurt;
 	else 
 	{

@@ -1,0 +1,161 @@
+{
+    "spr1":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "`Huff... huff... man, I'm beat!`"
+    },
+    "spr2":
+    {
+        "frames": 2,
+        "spd": 2,
+        "length": 999,
+        "loop": false,
+        "skiponend": true,
+        "text": ""
+    },
+    "spr3":
+    {
+        "frames": 2,
+        "spd": 8,
+        "length": 180,
+        "loop": true,
+        "skiponend": false,
+        "text": "`HEY! Bebo! Look over there!`"
+    },
+    "spr4":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "`Is that who you've been looking for?`"
+    },
+    "spr5":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "`OOOOOOOH MY GOD! IT'S HER! IT'S ANNIE!`"
+    },
+    "spr6":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 60,
+        "loop": false,
+        "skiponend": false,
+        "text": ""
+    },
+    "spr7":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "`HIIIII ANNIE!!!!`"
+    },
+    "spr8":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "`I'm so sorry to bother you, but I just want you to know that I'm your BIGGEST fan!!`"
+    },
+    "spr9":
+    {
+        "frames": 2,
+        "spd": 8,
+        "length": 180,
+        "loop": true,
+        "skiponend": false,
+        "text": "`Really now? Well, for being my biggest fan, I got a surprise for ya! Now, close your eyes!`"
+    },
+    "spr10":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 60,
+        "loop": false,
+        "skiponend": false,
+        "text": ""
+    },
+    "spr11":
+    {
+        "frames": 14,
+        "spd": 4,
+        "length": 999,
+        "loop": false,
+        "skiponend": true,
+        "text": ""
+    },
+    "spr12":
+    {
+        "frames": 3,
+        "spd": 8,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "`Those damn Ballbusters are so dumb, but at least I got this cool bomb to show Anton! HA HA!`"
+    },
+    "spr13":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "",
+        "shake":
+        {
+            "time": 45,
+            "x": 20,
+            "y": 20
+        }
+    },
+    "spr14":
+    {
+        "frames": 2,
+        "spd": 8,
+        "length": 180,
+        "loop": true,
+        "skiponend": false,
+        "text": "`What a piece of work she was. You alright, little guy?`"
+    },
+    "spr15":
+    {
+        "frames": 2,
+        "spd": 4,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "`ARE YOU CRAZY?? This is the best day of my life! I can't believe I finally got to meet her!`"
+    },
+    "spr16":
+    {
+        "frames": 2,
+        "spd": 8,
+        "length": 180,
+        "loop": true,
+        "skiponend": false,
+        "text": "`Thank you SO much for your help!`"
+    },
+    "spr17":
+    {
+        "frames": 1,
+        "spd": 0,
+        "length": 180,
+        "loop": false,
+        "skiponend": false,
+        "text": "`Well, I oughta be going now! Until next time!`"
+    }
+}

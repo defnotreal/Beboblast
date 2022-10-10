@@ -1,11 +1,13 @@
 /// @description Init
 
 hud_mult	  = 4;
+game_over	  = false;
+draw_hud	  = true;
 
 timer_enabled = true;
 timer_tick	  = game_get_speed(gamespeed_fps);
-timer_min	  = 1;
-timer_sec	  = 5;
+timer_min	  = 3;
+timer_sec	  = 0;
 
 lvl_scoretoadd  = 0;
 lvl_totalboxes  = (instance_number(obj_box_smallwood) +
@@ -31,8 +33,8 @@ score_timer		 = -1;
 
 timer_x		   = display_get_gui_width() / 14;
 timer_y		   = display_get_gui_height() - (display_get_gui_height() / 8);
-timer_firex    = 99;
-timer_firey    = 170;
+timer_firex    = 100;
+timer_firey    = 169;
 timer_fireimg  = 0;
 timer_fireanim = 5;
 timer_img      = 8;
@@ -41,6 +43,19 @@ timer_shake    = 0;
 #endregion
 
 #region Functions
+
+function set_gameover()
+{
+	audio_stop_all();
+	play_sound("snd_punch", 0.5, 1);
+	game_over = true;
+	can_pause = false;
+	instance_deactivate_object(obj_player);
+	instance_deactivate_object(obj_player_bomb);
+	instance_deactivate_layer("Instances");
+	shake_camera(50, 50);
+	alarm[0] = game_get_speed(gamespeed_fps) * 3;
+}
 
 function add_score(num)
 {

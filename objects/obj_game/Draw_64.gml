@@ -1,5 +1,20 @@
 /// @description HUD
 
+if (game_over)
+{
+	var cam_x = camera_get_view_x(view_camera[0]),
+		cam_y = camera_get_view_y(view_camera[0]),
+		cam_w = camera_get_view_width(view_camera[0]),
+		cam_h = camera_get_view_height(view_camera[0]);
+	
+	align(fa_center, fa_middle);
+	draw_text_outlined(display_get_gui_width() / 2, display_get_gui_height() / 2, "Bust!!", 4, 4, c_red, c_black, 1);
+	align_reset();
+	exit;	
+}
+
+if (!draw_hud) exit;
+
 #region Score
 
 align(fa_right, fa_top);
@@ -47,11 +62,14 @@ if (timer_enabled)
 
 #region HP
 
-var hp_shk_x = random_range(-hp_shake, hp_shake),
-	hp_shk_y = random_range(-hp_shake, hp_shake);
+if (instance_exists(obj_player))
+{
+	var hp_shk_x = random_range(-hp_shake, hp_shake),
+		hp_shk_y = random_range(-hp_shake, hp_shake);
 
-draw_sprite_ext(spr_healthbar_fill, 0, (hp_x + 8) + hp_shk_x, (hp_y + 8) + hp_shk_y, (60 * (obj_player.hp / 4)) * hud_mult, hud_mult, 0, c_white, 1);
-draw_sprite_ext(spr_healthbar, 0, hp_x + hp_shk_x, hp_y + hp_shk_y, hud_mult, hud_mult, 0, c_white, 1);
+	draw_sprite_ext(spr_healthbar_fill, 0, (hp_x + 8) + hp_shk_x, (hp_y + 8) + hp_shk_y, (60 * (obj_player.hp / 4)) * hud_mult, hud_mult, 0, c_white, 1);
+	draw_sprite_ext(spr_healthbar, 0, hp_x + hp_shk_x, hp_y + hp_shk_y, hud_mult, hud_mult, 0, c_white, 1);
+}
 
 #endregion
 

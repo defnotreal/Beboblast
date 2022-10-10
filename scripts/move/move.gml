@@ -6,7 +6,11 @@ function move()
 		if (!place_meeting(x, y + sign(v_spd), par_terrain)) y += sign(v_spd);
 		else
 		{
-			if (v_spd == 10) shake_camera(0, 10);
+			if (v_spd == 10)
+			{
+				shake_camera(0, 10);
+				play_sound("snd_hardland", 0.5, 1.5);
+			}
 			v_spd = 0;
 		}
 	}

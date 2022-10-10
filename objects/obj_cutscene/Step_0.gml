@@ -12,7 +12,10 @@ if (anim_frames > 1)
 				cutscene_advance();
 				exit;
 			}
-			else anim_img = 0;
+			else
+			{
+				if (anim_loop) anim_img = 0;
+			}
 		}
 		else anim_img++;
 		anim_time = anim_spd;

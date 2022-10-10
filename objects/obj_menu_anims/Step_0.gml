@@ -58,6 +58,7 @@ switch (part)
 			bebo_v_spd = -34;
 			bebo_img = 1;
 			bebo_anchor_y = bomb_y - (bomb_y / 3);
+			play_sound("snd_hardland", 0.8, 1.1);
 		}
 	break;
 	case 1:
@@ -82,6 +83,7 @@ switch (part)
 			bebo_spr = spr_menu_bebo2;
 			bebo_img = 0;
 			title_v_spd = -10;
+			play_sound("snd_explode", 0.8, 1.1);
 		}
 	break;
 	case 2:
@@ -110,6 +112,7 @@ switch (part)
 				bebo_spr = spr_menu_bebo3;
 				bebo_img = 0;
 			}
+			play_sound("snd_bounce", 0.8, 1.1);
 			bebo_y = bebo_anchor_y - 1;
 			bebo_v_spd = -bebo_v_spd + 6;
 			bebo_img_spd = game_get_speed(gamespeed_fps) / 16;
