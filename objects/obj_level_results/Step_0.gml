@@ -64,6 +64,7 @@ switch (part)
 		if (boxes_total < obj_game.lvl_boxeskilled)
 		{
 			boxes_total++;
+			audio_play_sound_on(global.a_sound, boxes_sound, false, 0, audio_emitter_get_gain(global.a_sound), 0, random_range(0.8, 1.1))
 			boxes_shake = 2;
 		}
 		else
@@ -77,6 +78,7 @@ switch (part)
 					bonus_alpha = 1;
 					bonus_shake = 2;
 					score_final += 1000;
+					audio_play_sound_on(global.a_sound, boxes_sound, false, 0, audio_emitter_get_gain(global.a_sound), 0, random_range(0.8, 1.1));
 				}
 				wait_time = game_get_speed(gamespeed_fps) / 2;
 				time_alpha = 1;
@@ -86,6 +88,7 @@ switch (part)
 	case 5:
 		if (time_total < time_final)
 		{
+			audio_play_sound_on(global.a_sound, score_sound, false, 0, audio_emitter_get_gain(global.a_sound), 0, random_range(0.8, 1.1));
 			time_total++;
 			time_shake = 2;
 		}
@@ -105,6 +108,7 @@ switch (part)
 	case 6:
 		if (score_total < score_final)
 		{
+			audio_play_sound_on(global.a_sound, score_sound, false, 0, audio_emitter_get_gain(global.a_sound), 0, random_range(0.8, 1.1));
 			score_total += round(score_final / 128);
 			score_shake = 2;
 		}
@@ -168,7 +172,7 @@ if (control)
 			case lvl_boiler_ground:
 				fade(function() {
 					play_music("mus_title");
-					cutscene_start("ending", main_menu)
+					cutscene_start("ending", credits);
 				});
 			break;
 		}

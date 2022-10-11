@@ -28,7 +28,11 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a6a70b42-fb01-4184-91e7-575bce50b2fa",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d8fef396-bcd7-427a-967b-8fd0442692f9",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"70871511-c7d6-4306-a3d4-5578c1aa72d8",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4327e9e4-6ec4-4f8c-b96e-8d574d64754f",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"03649434-b3d1-4243-af94-bed098b89f94",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b3f5e1c5-223a-42a7-85ba-df2a2ee6376d",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -40,12 +44,16 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 1.0,
+    "length": 5.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"0d2a993d-5d6d-410f-b314-9e0fc814fcb4","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a6a70b42-fb01-4184-91e7-575bce50b2fa","path":"sprites/spr_boss_cranehurt/spr_boss_cranehurt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"98bd86cb-466b-48db-a1d2-952183961920","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d8fef396-bcd7-427a-967b-8fd0442692f9","path":"sprites/spr_boss_cranehurt/spr_boss_cranehurt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"660a6b1e-be4d-44a6-8634-873a4deceeb5","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"70871511-c7d6-4306-a3d4-5578c1aa72d8","path":"sprites/spr_boss_cranehurt/spr_boss_cranehurt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"13dd64a0-0be0-4822-b1da-99ac5f45fc32","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4327e9e4-6ec4-4f8c-b96e-8d574d64754f","path":"sprites/spr_boss_cranehurt/spr_boss_cranehurt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"96ef70b7-eee3-46b3-b0c7-8829947e0ca6","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"03649434-b3d1-4243-af94-bed098b89f94","path":"sprites/spr_boss_cranehurt/spr_boss_cranehurt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"8ca1f9d9-8faa-4696-b2a1-12e767536ba7","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b3f5e1c5-223a-42a7-85ba-df2a2ee6376d","path":"sprites/spr_boss_cranehurt/spr_boss_cranehurt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
@@ -64,7 +72,7 @@
     "eventStubScript": null,
   },
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"cd604906-69f0-4bf0-8a36-096c04bd031e","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ad051c3c-bb0c-4914-8dee-e40b60ddd506","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {

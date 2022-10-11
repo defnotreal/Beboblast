@@ -19,7 +19,7 @@
   "For3D": false,
   "DynamicTexturePage": false,
   "width": 16,
-  "height": 22,
+  "height": 23,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -28,10 +28,10 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f9eeee95-7130-4f4a-a93b-86b8eb8a56a6",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"fbd283bc-d524-4c04-8da9-27158bdb28f8",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6e14a067-9bb4-4ff9-8c00-8875cba9a85c",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e8328d9e-15da-4682-bcfa-de5cd99ff3d1",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d09f4dfe-0e56-4679-8967-ebff4e2fdfad",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d593bca5-57b9-4a47-8913-8b638b1793fc",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3fb6367d-91bd-4a02-ae80-ac16f828402a",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0142c336-9130-46a4-87a5-6285d366e17d",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -48,10 +48,10 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"5277f796-69b9-4266-b014-e0ddba0c18ab","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f9eeee95-7130-4f4a-a93b-86b8eb8a56a6","path":"sprites/spr_ballbuster_walk/spr_ballbuster_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"34cfa9fa-c120-48f8-a709-37f1d1ec540a","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"fbd283bc-d524-4c04-8da9-27158bdb28f8","path":"sprites/spr_ballbuster_walk/spr_ballbuster_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"b808bd24-26ec-47ab-b89c-c338acd7d133","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6e14a067-9bb4-4ff9-8c00-8875cba9a85c","path":"sprites/spr_ballbuster_walk/spr_ballbuster_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"f925a81d-199a-4e15-8f30-7864fffe1fa2","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e8328d9e-15da-4682-bcfa-de5cd99ff3d1","path":"sprites/spr_ballbuster_walk/spr_ballbuster_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"7119edc4-f995-41a7-8e6d-66ff5228b086","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d09f4dfe-0e56-4679-8967-ebff4e2fdfad","path":"sprites/spr_ballbuster_walk/spr_ballbuster_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f90e2c46-6b0f-4ef0-a4ff-6c05f212b91c","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d593bca5-57b9-4a47-8913-8b638b1793fc","path":"sprites/spr_ballbuster_walk/spr_ballbuster_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"64da97d7-546f-44b4-a5d4-8438e3b98db3","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3fb6367d-91bd-4a02-ae80-ac16f828402a","path":"sprites/spr_ballbuster_walk/spr_ballbuster_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"580cc5b6-35dc-49ea-aa35-a8ce41172c09","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0142c336-9130-46a4-87a5-6285d366e17d","path":"sprites/spr_ballbuster_walk/spr_ballbuster_walk.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
@@ -65,12 +65,12 @@
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 8,
-    "yorigin": 22,
+    "yorigin": 23,
     "eventToFunction": {},
     "eventStubScript": null,
   },
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a32bd060-497a-4261-9223-8bed5be6aef0","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5e5ad86d-c45e-441c-b1b8-8291ad8baf71","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {

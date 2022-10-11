@@ -6,15 +6,20 @@ cur_spr   = 0;
 next_room = -4;
 cs_json   = "";
 
-anim_frames    = 0;
-anim_img	   = 0;
-anim_spd	   = 0;
-anim_time      = 0;
-anim_length	   = 0;
-anim_loop	   = false;
-anim_skiponend = false;
-anim_text      = "";
-anim_shake	   = false;
+anim_frames       = 0;
+anim_img	      = 0;
+anim_spd	      = 0;
+anim_time         = 0;
+anim_length	      = 0;
+anim_loop	      = false;
+anim_skiponend    = false;
+anim_text         = "";
+anim_shake_x      = 0;
+anim_shake_y      = 0;
+anim_shake_dest_x = 0;
+anim_shake_dest_y = 0;
+anim_shake_snd    = -4;
+anim_shake_time   = 0;
 
 text_out = "";
 text_pos = 0;
@@ -47,6 +52,20 @@ function cutscene_advance()
 	anim_text	   = obj.text;
 	text_out	   = "";
 	text_pos	   = 0;
+	
+	if (variable_struct_exists(obj, "shake"))
+	{
+		anim_shake_time = obj.shake.time
+		anim_shake_dest_x    = obj.shake.shkx;
+		anim_shake_dest_y    = obj.shake.shky;
+		if (variable_struct_exists(obj.shake, "snd")) anim_shake_snd = obj.shake.snd;
+	}
+	else
+	{
+		anim_shake_dest_x   = 0;
+		anim_shake_dest_y   = 0;
+		anim_shake_snd = -4;
+	}
 	
 	if (anim_text != "") text_writing = true;
 }

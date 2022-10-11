@@ -6,7 +6,7 @@ h_spd     = 0;
 v_spd     = 0;
 dash      = true;
 control   = true;
-hp		  = 4;
+hp		  = 5;
 cur_spr   = spr_player;
 cur_img   = 0;
 img_spd	  = 0;
@@ -528,6 +528,22 @@ state_levelend = function()
 	
 	cur_spr = spr_player_run;
 	control = false;
+	
+	if (!lvl_ended) with (obj_game)
+	{
+		randomize();
+		if (irandom(100) < 6)
+		{
+			var cam_x = camera_get_view_x(view_camera[0]),
+				cam_y = camera_get_view_y(view_camera[0]),
+				cam_w = camera_get_view_width(view_camera[0]),
+				cam_h = camera_get_view_height(view_camera[0]),
+				xx = irandom_range(cam_x, cam_x + cam_w),
+				yy = irandom_range(cam_y, cam_y + cam_h);
+				
+			instance_create_layer(xx, yy, "Instances", obj_explosion);
+		}
+	}
 	
 	if (x >= room_width + (sprite_get_width(cur_spr) / 2))
 	{

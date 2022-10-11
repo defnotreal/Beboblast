@@ -6,6 +6,8 @@ menu[0] = "Music";
 menu[1] = "SFX";
 menu[2] = "Back";
 
+ind = audio_create_stream("sound/snd_bounce.ogg");
+
 go_tf_back = function()
 {
 	ini_open("data/settings.ini");

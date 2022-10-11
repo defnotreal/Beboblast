@@ -1,4 +1,4 @@
-draw_sprite_ext(sprs[cur_spr], anim_img, room_width / 2, 0, 1.5, 1.5, 0, c_white, 1);
+draw_sprite_ext(sprs[cur_spr], anim_img, (room_width / 2) + random_range(-anim_shake_x, anim_shake_x), random_range(-anim_shake_y, anim_shake_y), 1.5, 1.5, 0, c_white, 1);
 
 align(fa_center, fa_middle);
 

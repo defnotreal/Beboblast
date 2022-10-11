@@ -111,18 +111,28 @@
     {
         "frames": 1,
         "spd": 0,
+        "length": 60,
+        "loop": false,
+        "skiponend": false,
+        "text": ""
+    },
+    "spr14":
+    {
+        "frames": 1,
+        "spd": 0,
         "length": 180,
         "loop": false,
         "skiponend": false,
         "text": "",
         "shake":
         {
-            "time": 45,
-            "x": 20,
-            "y": 20
+            "time": 180,
+            "shkx": 50,
+            "shky": 50,
+            "snd": "snd_explode"
         }
     },
-    "spr14":
+    "spr15":
     {
         "frames": 2,
         "spd": 8,
@@ -131,7 +141,7 @@
         "skiponend": false,
         "text": "`What a piece of work she was. You alright, little guy?`"
     },
-    "spr15":
+    "spr16":
     {
         "frames": 2,
         "spd": 4,
@@ -140,7 +150,7 @@
         "skiponend": false,
         "text": "`ARE YOU CRAZY?? This is the best day of my life! I can't believe I finally got to meet her!`"
     },
-    "spr16":
+    "spr17":
     {
         "frames": 2,
         "spd": 8,
@@ -149,7 +159,7 @@
         "skiponend": false,
         "text": "`Thank you SO much for your help!`"
     },
-    "spr17":
+    "spr18":
     {
         "frames": 1,
         "spd": 0,

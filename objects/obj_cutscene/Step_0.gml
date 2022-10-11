@@ -24,6 +24,16 @@ if (anim_frames > 1)
 
 if (!text_writing)
 {
+	if (anim_shake_dest_x > 0 || anim_shake_dest_y > 0)
+	{
+		if (anim_length == anim_shake_time)
+		{
+			anim_shake_x = anim_shake_dest_x;
+			anim_shake_y = anim_shake_dest_y;
+			play_sound(anim_shake_snd, 1, 1);
+		}
+	}
+	
 	if (anim_length > 0) anim_length--;
 	else cutscene_advance();
 }
@@ -77,3 +87,6 @@ if (get_button_pressed("action1"))
 	}
 	else cutscene_advance();
 }
+
+anim_shake_x = lerp(anim_shake_x, 0, 0.2);
+anim_shake_y = lerp(anim_shake_y, 0, 0.2);

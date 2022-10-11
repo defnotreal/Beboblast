@@ -67,7 +67,7 @@ if (instance_exists(obj_player))
 	var hp_shk_x = random_range(-hp_shake, hp_shake),
 		hp_shk_y = random_range(-hp_shake, hp_shake);
 
-	draw_sprite_ext(spr_healthbar_fill, 0, (hp_x + 8) + hp_shk_x, (hp_y + 8) + hp_shk_y, (60 * (obj_player.hp / 4)) * hud_mult, hud_mult, 0, c_white, 1);
+	draw_sprite_ext(spr_healthbar_fill, 0, (hp_x + 8) + hp_shk_x, (hp_y + 8) + hp_shk_y, (60 * (obj_player.hp / 5)) * hud_mult, hud_mult, 0, c_white, 1);
 	draw_sprite_ext(spr_healthbar, 0, hp_x + hp_shk_x, hp_y + hp_shk_y, hud_mult, hud_mult, 0, c_white, 1);
 }
 

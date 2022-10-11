@@ -3,6 +3,8 @@
 hp	       = 8;
 thrown     = false;
 img		   = 0;
+h_spd	   = 0;
+v_spd	   = 0;
 do_anim    = true;
 anim_time  = 5;
 state_name = "";
@@ -10,6 +12,7 @@ hurt_time  = game_get_speed(gamespeed_fps);
 claw_time  = game_get_speed(gamespeed_fps) * 10;
 alpha	   = 1;
 do_results = true;
+do_grav	   = false;
 
 image_speed = 0;
 
@@ -30,6 +33,11 @@ function damage()
 			dest_y = -sprite_height;
 			dest_angle = 0;
 		}
+		
+		play_sound("snd_explode", 0.8, 1.1)
+		h_spd = 1;
+		do_grav = true;
+		v_spd = -4;
 	}
 	
 	img = 0;
@@ -106,19 +114,32 @@ state_hurt = function()
 {
 	sprite_index = spr_boss_cranehurt;
 	
-	if (hurt_time > 0) hurt_time--;
-	else
+	if (img == sprite_get_number(sprite_index) - 1)
 	{
-		state	  = state_free;
-		hurt_time = game_get_speed(gamespeed_fps);
+		state = state_free;
+		img = 0;
 	}
+	
 	state_name = "state_hurt";
 }
 
 state_dead = function()
 {
-	sprite_index = spr_boss_cranehurt;
+	sprite_index = spr_boss_cranedead;
 	state_name = "state_dead";
+	
+	if (y >= room_height + sprite_height)
+	{
+		if (do_results)
+		{
+			do_results		   = false;
+			obj_player.control = false;
+			instance_create_layer(0, 0, "Instances", obj_level_results);
+			instance_deactivate_object(obj_player_bomb);
+			instance_deactivate_object(obj_player);
+			instance_destroy(self);
+		}	
+	}
 }
 
 #endregion
