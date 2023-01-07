@@ -44,6 +44,12 @@ if (part == 2)
 	}
 }
 
+if (part == 3)
+{
+	mus_vol -= 0.0025;
+	audio_emitter_gain(global.a_music, mus_vol);
+}
+
 if (!text_writing)
 {
 	if (credit_move > 0) credit_move--;

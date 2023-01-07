@@ -13,7 +13,12 @@ if (do_anim)
 
 if (state != state_intro && state != state_hurt && state != state_dead)
 {
-	if (place_meeting(x - 24, y, obj_player_bomb)) && (obj_player_bomb.h_spd > 3) damage();
+	if (place_meeting(x - 24, y, obj_player_bomb)) && (obj_player_bomb.h_spd > 3)
+	{
+		damage();
+		
+		if (obj_player_bomb.y < bbox_top) obj_player_bomb.v_spd = -8;
+	}
 }
 
 if (!instance_exists(obj_boss_claw)) && (state != state_intro && state != state_dead)

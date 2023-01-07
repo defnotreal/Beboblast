@@ -63,11 +63,12 @@ if (owner.state != owner.state_ride && instance_place(x, y + 1, obj_terrain_flat
 
 if (owner.state != owner.state_carry && owner.state != owner.state_jump_carry)
 {
-	var smallwood  = instance_place(x + h_spd, y + 2, obj_box_smallwood),
-		bigwood	   = instance_place(x + h_spd, y + 2, obj_box_bigwood),
-		smallmetal = instance_place(x + h_spd, y + 2, obj_box_smallmetal),
-		bigmetal   = instance_place(x + h_spd, y + 2, obj_box_bigmetal),
-		ballbuster = instance_place(x + h_spd, y + 2, obj_ballbuster);
+	var smallwood   = instance_place(x + h_spd, y + 2, obj_box_smallwood),
+		bigwood	    = instance_place(x + h_spd, y + 2, obj_box_bigwood),
+		smallmetal  = instance_place(x + h_spd, y + 2, obj_box_smallmetal),
+		bigmetal    = instance_place(x + h_spd, y + 2, obj_box_bigmetal),
+		ballbuster  = instance_place(x + h_spd, y + 2, obj_ballbuster),
+		trashtalker = instance_place(x + h_spd, y + 2, obj_trashtalker);
 		
 	if (h_spd > 3 || h_spd < -3)
 	{
@@ -81,6 +82,20 @@ if (owner.state != owner.state_carry && owner.state != owner.state_jump_carry)
 			{
 				ballbuster.dead = true;
 				play_sound("snd_punch", 0.25, 1.75);
+			}
+		}
+		if (trashtalker != noone)
+		{
+			with (trashtalker)
+			{
+				if (state != state_dead)
+				{
+					state = state_dead;
+					y--;
+					v_spd = -4;
+					h_spd = 4 * sign(obj_player_bomb.h_spd);
+					play_sound("snd_punch", 0.25, 1.75);
+				}
 			}
 		}
 	}

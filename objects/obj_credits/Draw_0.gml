@@ -29,5 +29,8 @@ switch (part)
 		draw_rectangle(0, 0, room_width, room_height, false);
 		draw_set_color(c_white);
 		draw_sprite(spr_credits_thankyou, 0, room_width / 2, room_height / 2);
+		align(fa_center, fa_bottom);
+		draw_text(room_width / 2, room_height - (room_height / 6), "Final Score: " + string(global.gm_score));
+		align_reset();
 	break;
 }

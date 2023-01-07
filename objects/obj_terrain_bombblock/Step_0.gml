@@ -1,3 +1,5 @@
+if (!instance_exists(obj_player)) exit;
+
 if (place_meeting(x, y, obj_player)) with (obj_player)
 {
 	if (state == state_carry)			player_set_state(state_free);
@@ -5,7 +7,8 @@ if (place_meeting(x, y, obj_player)) with (obj_player)
 }
 
 if (obj_player.state == obj_player.state_carry ||
-	obj_player.state == obj_player.state_jump_carry) trigger = true;
+	obj_player.state == obj_player.state_jump_carry ||
+	obj_player.state == obj_player.state_ride) trigger = true;
 else trigger = false;
 
 switch (trigger)

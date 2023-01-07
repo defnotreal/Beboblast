@@ -9,6 +9,7 @@ if (get_button_pressed("action1")) && (control)
 			instance_activate_object(obj_player_bomb);
 			instance_activate_object(obj_player);
 			instance_activate_object(obj_ballbuster);
+			instance_activate_object(obj_trashtalker);
 			audio_resume_sound(global.cur_mus);
 			instance_destroy(self);
 		break;
@@ -25,6 +26,7 @@ if (get_button_pressed("pause")) && (control)
 	instance_activate_object(obj_player_bomb);
 	instance_activate_object(obj_player);
 	instance_activate_object(obj_ballbuster);
+	instance_activate_object(obj_trashtalker);
 	audio_resume_sound(global.cur_mus);
 	instance_destroy(self);
 }

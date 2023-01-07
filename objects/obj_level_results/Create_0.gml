@@ -1,5 +1,8 @@
 /// @description Init
 
+with (obj_trashtalker) instance_destroy(id);
+with (obj_ballbuster)  instance_destroy(id);
+
 screen				   = sprite_capture_screen()
 draw_screen			   = true;
 
@@ -48,8 +51,9 @@ var bg = layer_create(depth - 3, "ResultsBG"),
 layer	 = fg;
 var back = layer_background_create(bg, spr_results_bg);
 
-obj_player.alpha  = 0;
-obj_game.draw_hud = false;
+obj_player.alpha   = 0;
+obj_game.draw_hud  = false;
+obj_game.can_pause = false;
 
 layer_set_visible("ResultsBG", false);
 

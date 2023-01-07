@@ -7,14 +7,16 @@ credit_text[1] = "Cactus Companion\nProject Lead, Original Concept, Spritework";
 credit_text[2] = "defnotreal_\nProgramming Lead, Sprite Cleanup";
 credit_text[3] = "illdie\nAdditional programming";
 credit_text[4] = "Beta PaRappa\nSpritework, Cutscene art";
-credit_text[5] = "ToasterPower666\nMusic Composition";
-credit_text[6] = "Sound effects taken from:\nANTONBLAST";
+credit_text[5] = "Randtastik\nTrashtalker Enemy Design"
+credit_text[6] = "ToasterPower777\nMusic Composition";
+credit_text[7] = "Sound effects taken from:\nANTONBLAST";
 
 credit_sel	   = 0;
 text_out	   = "";
 text_pos	   = 0;
 text_delay	   = 1;
 text_writing   = true;
+mus_vol		   = audio_emitter_get_gain(global.a_music);
 
 function advance_credits()
 {

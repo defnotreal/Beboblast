@@ -32,17 +32,20 @@ if (timer_enabled)
 		}
 	}
 	
-	switch (timer_min)
+	if (instance_exists(obj_player_bomb))
 	{
-		case 2: 
-			if (timer_sec == 0) obj_player_bomb.spr = spr_bombmid;	
-		break;
-		case 1:
-			if (timer_sec == 0)
-			{
-				obj_player_bomb.spr = spr_bombblow;
-			}
-		break;
+		switch (timer_min)
+		{
+			case 2: 
+				if (timer_sec == 0) obj_player_bomb.spr = spr_bombmid;	
+			break;
+			case 1:
+				if (timer_sec == 0)
+				{
+					obj_player_bomb.spr = spr_bombblow;
+				}
+			break;
+		}
 	}
 }
 
@@ -96,5 +99,6 @@ if (get_button_pressed("pause")) && (can_pause)
 	instance_deactivate_object(obj_player_bomb);
 	instance_deactivate_object(obj_player);
 	instance_deactivate_object(obj_ballbuster);
+	instance_deactivate_object(obj_trashtalker);
 	menu_create(obj_pause, camera_get_view_x(view_camera[0]) + (camera_get_view_width(view_camera[0]) / 2), camera_get_view_y(view_camera[0]) + (camera_get_view_height(view_camera[0]) / 2), fa_center, fa_middle);
 }

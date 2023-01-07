@@ -128,6 +128,22 @@ state_dead = function()
 	sprite_index = spr_boss_cranedead;
 	state_name = "state_dead";
 	
+	with (obj_game)
+	{
+		randomize();
+		if (irandom(100) < 6)
+		{
+			var cam_x = camera_get_view_x(view_camera[0]),
+				cam_y = camera_get_view_y(view_camera[0]),
+				cam_w = camera_get_view_width(view_camera[0]),
+				cam_h = camera_get_view_height(view_camera[0]),
+				xx = irandom_range(cam_x, cam_x + cam_w),
+				yy = irandom_range(cam_y, cam_y + cam_h);
+				
+			instance_create_layer(xx, yy, "Instances", obj_explosion);
+		}
+	}
+	
 	if (y >= room_height + sprite_height)
 	{
 		if (do_results)

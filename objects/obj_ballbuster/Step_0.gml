@@ -1,5 +1,7 @@
 state();
 
+if (obj_game.game_over) instance_destroy(id);
+
 move();
 
 if (!grounded())

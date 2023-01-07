@@ -1,12 +1,13 @@
 x = approach(x, dest_x, apr_spd);
 
+
 if (!grounded())
 {
 	if (v_spd < 8) v_spd += 0.4;
 }
 else
 {
-	v_spd = 0;
+	if (part < 3) v_spd = 0;
 }
 
 switch (part)
@@ -42,6 +43,13 @@ switch (part)
 	case 3:
 		if (place_meeting(x, y + 2, obj_boss_crane))
 		{
+			var flat		  = instance_create_layer(4320, 0, "Collisions", obj_terrain_flat);
+			flat.image_yscale = 8;
+			
+			var slope		   = instance_create_layer(4336, 144, "Collisions", obj_terrain_slope1);
+			slope.image_xscale = -1;
+			slope.image_yscale = -1;
+			
 			obj_boss_crane.state = obj_boss_crane.state_free;
 			instance_create_layer(camera_get_view_x(view_camera[0]) + (camera_get_view_width(view_camera[0]) / 2), -sprite_get_height(spr_boss_claw), "Instances", obj_boss_claw);
 			instance_destroy(self);

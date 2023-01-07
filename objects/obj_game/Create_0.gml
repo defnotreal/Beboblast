@@ -48,13 +48,18 @@ function set_gameover()
 {
 	audio_stop_all();
 	play_sound("snd_punch", 0.5, 1);
-	game_over = true;
-	can_pause = false;
+	game_over		= true;
+	can_pause		= false;
+	global.gm_score = 0;
+	if (instance_exists(obj_boss_claw)) instance_destroy(obj_boss_claw);
 	instance_deactivate_object(obj_player);
 	instance_deactivate_object(obj_player_bomb);
 	instance_deactivate_layer("Instances");
 	shake_camera(50, 50);
 	alarm[0] = game_get_speed(gamespeed_fps) * 3;
+	
+	with (obj_ballbuster) instance_destroy(id);
+	with (obj_trashtalker) instance_destroy(id);
 }
 
 function add_score(num)
