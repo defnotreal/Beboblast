@@ -17,7 +17,10 @@ for (var i = 0; i < array_length(menu); i++;)
 	draw_text_outlined(x_pos + (16 * (sel == i)), yy, str, 0.5, 0.5, c_white, c_black, 1);
 }
 
-align(fa_left, fa_bottom)
-draw_text(10, room_height - 10, string(state));
+if (global.debug)
+{
+	align(fa_left, fa_bottom)
+	draw_text(10, room_height - 10, string(state));
+}
 
 align_reset();
